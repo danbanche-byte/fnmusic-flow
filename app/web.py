@@ -1,0 +1,15 @@
+from fastapi.responses import HTMLResponse
+
+HTML = '''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>fnmusic-flow</title><style>
+body{margin:0;background:#10151d;color:#e8eef7;font:14px system-ui}header{padding:20px 28px;background:#182230;display:flex;justify-content:space-between}main{padding:24px;max-width:1200px;margin:auto}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:#1b2635;border:1px solid #2b3b51;border-radius:12px;padding:18px}.tabs{display:flex;gap:8px;margin:20px 0}.tabs button,button{background:#2b78d0;border:0;border-radius:7px;color:white;padding:9px 13px;cursor:pointer}.panel{background:#182230;border-radius:12px;padding:18px;margin-top:14px}table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid #2b3b51;text-align:left}.muted{color:#8ea2ba}input{background:#10151d;color:white;border:1px solid #40536b;border-radius:6px;padding:9px}
+</style></head><body><header><strong>fnmusic-flow</strong><span class="muted">飞牛音乐推荐与曲库管理</span></header><main><div class="grid"><div class="card"><div class="muted">任务总数</div><h2 id="taskCount">-</h2></div><div class="card"><div class="muted">已完成</div><h2 id="doneCount">-</h2></div><div class="card"><div class="muted">失败</div><h2 id="failCount">-</h2></div><div class="card"><div class="muted">音源</div><h2 id="sourceCount">-</h2></div></div><div class="tabs"><button onclick="loadTasks()">任务队列</button><button onclick="loadSources()">音源状态</button><button onclick="scan()">扫描曲库</button></div><section class="panel"><h3 id="title">任务队列</h3><div id="content" class="muted">加载中…</div></section></main><script>
+const j=async(u,o)=>{let r=await fetch(u,o);if(!r.ok)throw Error(await r.text());return r.json()};
+async function loadTasks(){let x=await j('/api/tasks');document.querySelector('#title').textContent='任务队列';document.querySelector('#content').innerHTML='<table><tr><th>ID</th><th>曲目</th><th>类型</th><th>状态</th><th>错误</th></tr>'+x.map(t=>`<tr><td>${t.id}</td><td>${t.track_id}</td><td>${t.task_type}</td><td>${t.status}</td><td>${t.error||''}</td></tr>`).join('')+'</table>';stats(x)}
+async function loadSources(){let x=await j('/api/sources');document.querySelector('#title').textContent='音源状态';document.querySelector('#content').innerHTML='<table><tr><th>名称</th><th>类型</th><th>启用</th></tr>'+x.map(s=>`<tr><td>${s.name}</td><td>${s.kind}</td><td>${s.enabled?'是':'否'}</td></tr>`).join('')+'</table>';document.querySelector('#sourceCount').textContent=x.length}
+async function scan(){let x=await j('/api/library/scan',{method:'POST'});alert('扫描完成：'+x.count+' 个文件');}
+function stats(x){document.querySelector('#taskCount').textContent=x.length;document.querySelector('#doneCount').textContent=x.filter(t=>t.status==='archived').length;document.querySelector('#failCount').textContent=x.filter(t=>t.status.includes('failed')).length}loadTasks();
+</script></body></html>'''
+
+def page() -> HTMLResponse:
+    return HTMLResponse(HTML)
+

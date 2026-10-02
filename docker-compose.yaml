@@ -1,0 +1,66 @@
+version: "3.8"
+
+# FnMusic Flow —— fnOS Docker 自部署 compose（进阶用户）。
+# 推荐普通用户使用 Releases 里的 fpk 应用包（含统一网关 SSO 与安装向导）。
+# 本 compose 为端口直连形态：Web 端口无鉴权，仅限内网使用，勿暴露公网。
+
+services:
+  fnmusic-flow:
+    container_name: fnmusic-flow
+    image: fnmusic-flow:local
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    ports:
+      - "8000:8000"
+    environment:
+      TZ: Asia/Shanghai
+      MUSIC_ROOT: /music
+      DB_PATH: /config/fnmusic.db
+      FNOS_API_URL: http://localhost/music/api/v1
+      FNOS_TOKEN_FILE: /config/fnos-token
+      FNOS_ACCOUNT_FILE: /config/fnos-account.json
+      FNOS_MUSIC_DB: /var/lib/fnos-music-db/music.db
+      # 账号白名单：限定只使用这些飞牛音乐账号（逗号分隔）。默认空 = 自动绑定本机可写账号。
+      FNOS_ALLOWED_ACCOUNTS: ${FNOS_ALLOWED_ACCOUNTS:-}
+      # 首选音质档位：master/atmos/hires/flac/flac24bit/320k/128k
+      FNMUSIC_DEFAULT_QUALITY: ${FNMUSIC_DEFAULT_QUALITY:-hires}
+      FNOS_LOGIN_ENDPOINT: 127.0.0.1:5666
+      FNOS_MUSIC_SOCKET: /var/run/trim_music.socket
+      SUBSCRIPTION_CHECK_SECONDS: ${SUBSCRIPTION_CHECK_SECONDS:-15}
+      # 飞牛 token 探活自愈周期（秒），设 0 关闭
+      FNOS_TOKEN_GUARD_SECONDS: ${FNOS_TOKEN_GUARD_SECONDS:-120}
+      FOR_YOU_ROTATION_TIME: ${FOR_YOU_ROTATION_TIME:-06:00}
+      DAILY_FETCH_START: ${DAILY_FETCH_START:-06:00}
+      DAILY_CACHE_ROOT: ${DAILY_CACHE_ROOT:-/music/fn_recommend_cache}
+      DAILY_CACHE_DAYS: ${DAILY_CACHE_DAYS:-3}
+      # 跨平台同曲兜底（默认关，避免下到翻唱/同名曲）
+      ALTERNATE_SEARCH: ${ALTERNATE_SEARCH:-false}
+      # 并发下载槽位数（1-6，默认 3）
+      DOWNLOAD_CONCURRENCY: ${DOWNLOAD_CONCURRENCY:-3}
+      STATE_DIR: /config/qq-runtime
+      QQ_SESSION_FILE: /config/qq-runtime/qq-session.json
+      QQ_MUSIC_COOKIE_FILE: /config/qq-runtime/qq_music_cookie.txt
+      QQ_WECHAT_QR_PROXY_URL: ${QQ_WECHAT_QR_PROXY_URL:-}
+      LX_HOST_BIND: 127.0.0.1
+      LX_HOST_PORT: 18432
+      LX_HOST_LOG: /config/lxnode.log
+      # 内置在线播放器解灰模块：默认关闭，仅使用用户账号的正规音质（开启风险自负）
+      UNM_ENABLED: ${UNM_ENABLED:-false}
+    volumes:
+      # 应用数据（数据库/凭据/音源脚本），备份此目录即整体迁移
+      - "./config:/config"
+      - "./downloads:/downloads"
+      # 音乐库：下载的歌单存入该目录（改成你的飞牛音乐库路径）
+      - "${MUSIC_HOST_PATH:?请在环境变量设置音乐库路径}:/music"
+      # 飞牛音乐集成：socket 代理 + 音乐数据库（只读，用于账号识别与推送）
+      - "/var/run/trim_music.socket:/var/run/trim_music.socket"
+      - "/run/trim_cgi.socket:/var/run/trim_cgi.socket"
+      - "/usr/local/apps/@appdata/trim.music/db:/var/lib/fnos-music-db:ro"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8000/health >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 45s
+    restart: unless-stopped

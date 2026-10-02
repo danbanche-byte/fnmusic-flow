@@ -1,0 +1,1535 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>fnmusic-flow v38</title><style>
+:root{--bg:#f6f7fb;--card:#fff;--line:#e7e9f0;--ink:#172033;--muted:#7d8799;--blue:#3578f6;--blue2:#eaf1ff;--green:#24a565;--orange:#e58a23;--red:#db4c58;--shadow:0 8px 28px #25324d12}*{box-sizing:border-box}body{margin:0;font:12.5px/1.45 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg)}button,input,select{font:inherit}button{cursor:pointer;border:0}.app{min-height:100vh}.topbar{height:52px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 20px;gap:18px;position:sticky;top:0;z-index:20}.brand{font-size:16px;font-weight:800;letter-spacing:-.3px}.brand small{font-size:11px;font-weight:500;color:var(--muted);margin-left:6px}.switcher{display:flex;background:#f1f3f8;padding:4px;border-radius:11px;gap:3px}.switcher button{background:transparent;color:var(--muted);padding:5px 13px;border-radius:8px;font-weight:700}.switcher button.on{background:#fff;color:var(--blue);box-shadow:0 2px 7px #25324d1c}.top-search{margin-left:auto;width:270px;border:1px solid var(--line);border-radius:9px;padding:9px 12px;background:#fafbfe}.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#75a7ff,#263d91);color:#fff;display:grid;place-items:center;font-weight:700}.workspace{display:none;padding:14px 20px 90px;max-width:1600px;margin:auto}.workspace.on{display:block}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;margin-bottom:14px}.hero-card{background:linear-gradient(120deg,#eaf1ff,#fff);border:1px solid #dbe6ff;border-radius:14px;padding:14px 18px}.eyebrow{color:var(--blue);font-weight:700;font-size:11px}.hero h1{font-size:20px;margin:5px 0 3px}.hero p{color:var(--muted);margin:0}.now{background:#172033;color:#fff;border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center}.now-cover{width:60px;height:60px;border-radius:10px;background:linear-gradient(135deg,#af7b55,#222);display:grid;place-items:center;font-size:24px}.now small{color:#aab4c7}.now h3{margin:4px 0;font-size:17px}.now .controls{margin-top:11px;display:flex;gap:8px}.round{width:31px;height:31px;border-radius:50%;background:#fff1;color:#fff}.round.main{background:#fff;color:#172033}.section-head{display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px}.section-head h2{font-size:16px;margin:0}.section-head a{color:var(--blue);font-size:12px;cursor:pointer}.playlist-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}.pl-card{min-width:0;cursor:pointer}.pl-cover{aspect-ratio:1;border-radius:13px;background:linear-gradient(135deg,#31415e,#98a9c4);display:grid;place-items:center;color:#fff;font-size:34px;box-shadow:var(--shadow);position:relative;overflow:hidden}.pl-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0005)}.pl-badge{position:absolute;left:9px;bottom:8px;font-size:11px;color:#fff;z-index:1}.pl-card h3{font-size:13px;margin:8px 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pl-card p{font-size:11px;color:var(--muted);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.source-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.source{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;gap:11px;align-items:center;cursor:pointer}.source .mini{width:45px;height:45px;border-radius:10px;background:#eaf1ff;display:grid;place-items:center;color:var(--blue);font-size:20px}.source b{font-size:13px}.source span{display:block;color:var(--muted);font-size:11px}.download-shell{display:grid;grid-template-columns:220px 1fr;gap:20px}.download-nav{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;height:max-content;position:sticky;top:62px}.download-nav h4{margin:8px 10px 12px;color:var(--muted);font-size:11px}.download-nav button{display:flex;width:100%;padding:10px;border-radius:8px;background:transparent;text-align:left;color:#5c6678;gap:9px}.download-nav button.on{background:var(--blue2);color:var(--blue);font-weight:700}.download-nav .count{margin-left:auto;background:#f0f2f7;border-radius:99px;padding:1px 7px;font-size:11px}.download-main{min-width:0}.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px}.metric b{font-size:17px;display:block}.metric span{color:var(--muted);font-size:11px}.panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:12px;overflow:hidden}.panel-head{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.panel-head h3{margin:0;font-size:14px}.tabs{display:flex;gap:6px;flex-wrap:wrap;padding:9px 12px;border-bottom:1px solid var(--line)}.tabs button{background:#f4f5f8;color:#6c7585;padding:6px 12px;border-radius:99px;font-size:12px}.tabs button.on{background:var(--ink);color:#fff}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:640px}th,td{text-align:left;padding:6px 9px;border-bottom:1px solid #f0f1f5;white-space:nowrap}th{font-size:11px;color:var(--muted);font-weight:600}td{font-size:12px}.tag{font-size:11px;padding:3px 8px;border-radius:99px;background:#f0f2f6;color:#697386}.tag.blue{color:var(--blue);background:var(--blue2)}.tag.green{color:var(--green);background:#e8f7ef}.tag.orange{color:var(--orange);background:#fff3df}.tag.red{color:var(--red);background:#ffebee}.tag.pink{color:#b34b8f;background:#fdebf7}.btn{padding:5px 10px;border-radius:7px;background:#f1f3f7;color:#596579;font-weight:700;font-size:11.5px}.btn.primary{background:var(--blue);color:#fff}.btn.line{background:#fff;border:1px solid var(--line)}.push-banner{margin-top:12px;background:#f4f8ff;border:1px solid #dbe7ff;border-radius:10px;padding:9px 12px;color:#4d6799}.push-banner b{color:var(--blue)}.player{position:fixed;bottom:0;left:0;right:0;height:56px;background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;padding:0 20px;gap:12px;z-index:30}.player-cover{width:43px;height:43px;border-radius:7px;background:linear-gradient(135deg,#be8c6b,#333);display:grid;place-items:center;color:#fff}.player-info{width:220px}.player-info b{display:block}.player-info span{font-size:11px;color:var(--muted)}.player-actions{display:flex;gap:10px;margin:auto}.player-progress{width:260px;height:4px;background:#e7eaf0;border-radius:9px}.player-progress i{display:block;width:43%;height:100%;background:var(--blue);border-radius:9px}.toast{position:fixed;right:25px;bottom:88px;background:#172033;color:#fff;padding:11px 16px;border-radius:9px;display:none;z-index:50}.toast.show{display:block}@media(max-width:1100px){.playlist-grid{grid-template-columns:repeat(4,1fr)}.hero{grid-template-columns:1fr}.source-strip{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){.topbar{padding:0 15px;gap:10px}.top-search{display:none}.workspace{padding:18px 15px 90px}.playlist-grid{grid-template-columns:repeat(2,1fr)}.download-shell{grid-template-columns:1fr}.download-nav{position:static}.metric-row{grid-template-columns:repeat(2,1fr)}.player{padding:0 12px}.player-info{width:auto;flex:1}.player-progress{display:none}.source-strip{grid-template-columns:1fr}}
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.platform-card{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden}.platform-card.netease{border-top:3px solid #e84d63}.platform-card.qq{border-top:3px solid #24a565}.platform-head{padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.platform-head>div{display:flex;gap:10px;align-items:center}.platform-head b{display:block;font-size:15px}.platform-head span:not(.tag):not(.platform-mark){display:block;color:var(--muted);font-size:11px}.platform-mark{width:34px;height:34px;border-radius:10px;background:#f2f4f8;display:grid;place-items:center;font-weight:800;font-size:18px}.netease .platform-mark{color:#e84d63;background:#fff0f2}.qq .platform-mark{color:#24a565;background:#eaf8f0}.platform-body{padding:4px 18px}.platform-item{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid #f0f1f5;cursor:pointer}.platform-item:last-child{border-bottom:0}.platform-item b{display:block;font-size:13px}.platform-item span{display:block;color:var(--muted);font-size:11px}.platform-item .mini{width:36px;height:36px}.plaza-toolbar{display:flex;gap:8px;align-items:center;margin-bottom:14px;flex-wrap:wrap}.plaza-filter{background:#f1f3f7;color:#667184;border-radius:99px;padding:7px 13px;font-size:12px}.plaza-filter.on{background:var(--ink);color:#fff}.plaza-toolbar input{margin-left:auto;border:1px solid var(--line);border-radius:9px;padding:8px 12px;min-width:220px;background:#fff}.plaza-action{width:100%;margin-top:8px}.plaza-card.hidden{display:none}@media(max-width:800px){.platform-grid{grid-template-columns:1fr}.plaza-toolbar input{margin-left:0;width:100%}}
+.modal{position:fixed;inset:0;background:#17203366;display:none;align-items:center;justify-content:center;padding:16px;z-index:40}.modal.show{display:flex}.modal-card{background:#fff;border-radius:12px;width:min(1120px,calc(100vw - 32px));height:min(820px,calc(100vh - 32px));display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px #17203333}.modal-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;flex:0 0 auto;background:#fff;z-index:3}.modal-head h2{margin:0 0 4px;font-size:20px}.modal-body{padding:0 22px 20px;overflow:auto;min-height:0;flex:1}.modal-close{background:#f1f3f7;border-radius:50%;width:30px;height:30px;color:var(--muted);flex:0 0 auto}.detail-grid{display:grid;grid-template-columns:180px 1fr;gap:20px}.detail-cover{aspect-ratio:1;border-radius:8px;background:linear-gradient(135deg,#3578f6,#a9c3ff);display:grid;place-items:center;color:#fff;font-size:58px}.detail-actions{display:flex;gap:8px;margin-top:15px;flex-wrap:wrap}.detail-toolbar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 8px 12px -14px #172033}.detail-toolbar .spacer{margin-left:auto}.detail-toolbar select,.schedule-select{border:1px solid var(--line);border-radius:7px;padding:7px 9px;background:#fff}.schedule-group{display:flex;align-items:center;gap:8px;padding-left:10px;border-left:1px solid var(--line)}.schedule-group label{font-size:12px;font-weight:700;color:#596579}.toolbar-note{width:100%;color:var(--muted);font-size:12px}.set-row{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid #f0f1f5;gap:14px}.kpi-line{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px}.sync-rule{display:grid;grid-template-columns:minmax(180px,1fr) 150px 170px auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #f0f1f5}.sync-rule small{display:block;color:var(--muted)}@media(max-width:760px){.detail-grid{grid-template-columns:1fr}.modal{padding:0}.modal-card{width:100vw;height:100vh;border-radius:0}.modal-body{padding:0 14px 16px}.modal-head{padding:14px}.sync-rule{grid-template-columns:1fr}.sync-rule-actions{display:flex;gap:8px;flex-wrap:wrap}.schedule-group{width:100%;padding:8px 0 0;border-left:0;border-top:1px solid var(--line)}.topbar .brand small{display:none}.switcher button{padding:8px 10px}}
+body:not(.live-ready) .plaza-card,body:not(.live-ready) .platform-item span,body:not(.live-ready) .platform-head>.tag{visibility:hidden}
+</style>
+
+</head><body><div class="app"><header class="topbar"><div class="brand">fnmusic-flow <small>飞牛音乐工作台</small></div><div class="switcher"><button class="on" onclick="switchWs('listen',this)">推荐与歌单</button><button onclick="switchWs('manage',this)">下载与曲库</button><button class="fnos-nav" onclick="openFnosManager(this)">飞牛同步</button></div><input class="top-search" placeholder="搜索歌曲、歌手或歌单"><button class="btn line account-entry" onclick="openAccounts()" title="连接网易云音乐与 QQ 音乐账号">账号连接</button></header>
+<section class="workspace on" id="ws-listen"><div class="hero"><div class="hero-card"><div class="eyebrow">今天</div><h1>早上好，用户</h1><p>网易云音乐与 QQ 音乐并列推荐，分别浏览、播放和收藏。</p><div style="margin-top:18px;display:flex;gap:9px;flex-wrap:wrap"><button class="btn primary" onclick="openDaily('netease')">网易云日推</button><button class="btn line" onclick="openDaily('qq')">QQ 音乐日推</button><button class="btn line" onclick="toast('已打开我的收藏')">我的收藏</button></div></div><div class="now"><div class="now-cover">♫</div><div><small>正在播放 · 飞牛音乐同步</small><h3>晴天</h3><small>周杰伦 · 叶惠美</small><div class="controls"><button class="round">‹</button><button class="round main">▶</button><button class="round">›</button></div></div></div></div><div class="section-head"><h2>双平台推荐</h2><a onclick="switchWs('manage',document.querySelectorAll('.switcher button')[2]);manageTab('sources',[...document.querySelectorAll('.download-nav button')].find(b=>b.textContent.includes('音源管理')))">管理来源</a></div><div class="platform-grid"><div class="platform-card netease"><div class="platform-head"><div><span class="platform-mark">N</span><div><b>网易云音乐</b><span>独立推荐空间</span></div></div><span class="tag green">已连接</span></div><div class="platform-body"><div class="platform-item" onclick="openDaily('netease')"><div class="mini">◷</div><div><b>每日推荐</b><span>30 首 · 新增 12 · 今天 08:00</span></div><button class="btn line">查看</button></div><div class="platform-item" onclick="openMyPlaylists('netease')"><div class="mini">♥</div><div><b>我的歌单</b><span>账号创建或收藏的网易云歌单</span></div><button class="btn line">查看</button></div></div></div><div class="platform-card qq"><div class="platform-head"><div><span class="platform-mark">Q</span><div><b>QQ 音乐</b><span>独立推荐空间</span></div></div><span class="tag green">已连接</span></div><div class="platform-body"><div class="platform-item" onclick="openDaily('qq')"><div class="mini">◷</div><div><b>每日推荐</b><span>20 首 · 新增 6 · 今天 08:10</span></div><button class="btn line">查看</button></div><div class="platform-item" onclick="openPlaylist('QQ 音乐精选歌单')"><div class="mini">♫</div><div><b>我的歌单</b><span>8 个歌单 · 本周新增 9</span></div><button class="btn line">查看</button></div></div></div></div><div class="section-head"><div><h2>歌单广场</h2><p style="margin:3px 0 0;color:var(--muted);font-size:12px">发现公开歌单，收藏后可订阅更新或加入下载队列</p></div><a onclick="toast('已加载更多歌单')">查看全部</a></div><div class="plaza-toolbar"><button class="plaza-filter on" onclick="filterPlaza('all',this)">全部</button><button class="plaza-filter" onclick="filterPlaza('netease',this)">网易云音乐</button><button class="plaza-filter" onclick="filterPlaza('qq',this)">QQ 音乐</button><button class="plaza-filter" onclick="filterPlaza('editor',this)">编辑精选</button><input placeholder="搜索歌单名称或作者" oninput="searchPlaza(this.value)"></div><div class="playlist-grid plaza-grid"><div class="pl-card plaza-card" data-platform="netease" data-search="网易云 每日推荐"><div class="pl-cover">♫<span class="pl-badge">网易云音乐</span></div><h3>网易云 · 每日推荐</h3><p>30 首 · 今日更新</p><button class="btn line plaza-action" onclick="openPlaylist('网易云每日推荐')">查看歌单</button><button class="btn primary plaza-action" onclick="pushPlaylist(event,'网易云每日推荐')">推送到飞牛</button></div><div class="pl-card plaza-card" data-platform="netease" data-search="私人雷达 网易云"><div class="pl-cover" style="background:linear-gradient(135deg,#d95d68,#ffb2aa)">♥<span class="pl-badge">网易云音乐</span></div><h3>私人雷达</h3><p>50 首 · 每日更新</p><button class="btn line plaza-action" onclick="openMyPlaylists('netease')">查看歌单</button><button class="btn primary plaza-action" onclick="pushPlaylist(event,'网易云专属歌单')">推送到飞牛</button></div><div class="pl-card plaza-card" data-platform="qq" data-search="QQ 华语精选"><div class="pl-cover" style="background:linear-gradient(135deg,#1597af,#7ce1ed)">Q<span class="pl-badge">QQ 音乐</span></div><h3>华语精选 2026</h3><p>100 首 · 6 首待下载</p><button class="btn line plaza-action" onclick="openPlaylist('QQ 音乐精选歌单')">查看歌单</button><button class="btn primary plaza-action" onclick="pushPlaylist(event,'QQ 音乐精选歌单')">推送到飞牛</button></div><div class="pl-card plaza-card" data-platform="qq" data-search="QQ 新歌速递"><div class="pl-cover" style="background:linear-gradient(135deg,#24a565,#a5e8c6)">♫<span class="pl-badge">QQ 音乐</span></div><h3>新歌速递</h3><p>30 首 · 本周更新</p><button class="btn line plaza-action" onclick="openPlaylist('QQ 音乐新歌速递')">查看歌单</button><button class="btn primary plaza-action" onclick="pushPlaylist(event,'QQ 音乐新歌速递')">推送到飞牛</button></div><div class="pl-card plaza-card" data-platform="editor" data-search="落雪收藏 编辑精选"><div class="pl-cover" style="background:linear-gradient(135deg,#7658e8,#c2adff)">✦<span class="pl-badge">编辑精选</span></div><h3>落雪收藏</h3><p>42 首 · 9 首已入库</p><button class="btn line plaza-action" onclick="openPlaylist('落雪收藏')">查看歌单</button><button class="btn primary plaza-action" onclick="pushPlaylist(event,'落雪收藏')">推送到飞牛</button></div><div class="pl-card plaza-card" data-platform="editor" data-search="晚间驾驶 编辑精选"><div class="pl-cover" style="background:linear-gradient(135deg,#25324d,#7592bf)">☾<span class="pl-badge">编辑精选</span></div><h3>晚间驾驶</h3><p>32 首 · 已订阅</p><button class="btn line plaza-action" onclick="openPlaylist('晚间驾驶')">查看歌单</button><button class="btn primary plaza-action" onclick="pushPlaylist(event,'晚间驾驶')">推送到飞牛</button></div></div><div class="push-banner">收藏歌曲后会进入 <b>临时推荐池</b>，确认收藏后自动转入正式曲库；来源歌单的封面、名称和歌曲变化会自动同步到飞牛音乐。</div></section><section class="workspace" id="ws-manage"><div class="download-shell"><aside class="download-nav"><h4>下载与曲库</h4><button class="on" onclick="manageTab('tasks',this)">▣ 下载任务 <span class="count">12</span></button><button onclick="manageTab('search',this)">⌕ 落雪搜索</button><button onclick="manageTab('sources',this)">♪ 音源管理</button><button onclick="manageTab('playlists',this)">▤ 歌单下载</button><button onclick="manageTab('library',this)">▥ 正式曲库</button><button onclick="manageTab('push',this)">↥ 飞牛推送</button><h4>任务状态</h4><button onclick="manageTab('failed',this)">⚠ 失败重试 <span class="count">7</span></button><button onclick="toast('已打开下载历史')">◷ 下载历史</button></aside><main class="download-main"><div class="metric-row"><div class="metric"><b style="color:var(--blue)">2</b><span>下载中</span></div><div class="metric"><b>3</b><span>等待中</span></div><div class="metric"><b style="color:var(--red)">7</b><span>失败待处理</span></div><div class="metric"><b style="color:var(--green)">96.4%</b><span>近 24h 成功率</span></div></div><div id="manage-content"></div></main></div></section><div class="player"><div class="player-cover">♫</div><div class="player-info"><b>晴天</b><span>周杰伦 · 飞牛音乐</span></div><div class="player-actions"><button class="round">◀</button><button class="round main">▶</button><button class="round">▶</button></div><div class="player-progress"><i></i></div><span style="font-size:11px;color:var(--muted)">02:14 / 04:29</span></div><div class="modal" id="detail-modal" onclick="if(event.target===this)closeDetail()"><div class="modal-card"><div class="modal-head"><div><h2 id="detail-title">歌单详情</h2><div id="detail-sub" class="kpi-line"></div></div><button class="modal-close" onclick="closeDetail()">×</button></div><div class="modal-body"><div class="push-banner">歌单详情、去重结果和下载操作将在这里展示。你也可以直接推送到飞牛音乐。</div></div></div></div><div class="modal" id="push-modal" onclick="if(event.target===this)closePush()"><div class="modal-card"><div class="modal-head"><div><h2 id="push-title">推送到飞牛音乐</h2><div id="push-sub" class="kpi-line"></div></div><button class="modal-close" onclick="closePush()">×</button></div><div class="modal-body"><div class="detail-grid"><div><div class="detail-cover">♫</div><div class="detail-actions"><button class="btn primary" onclick="confirmPush()">确认推送</button><button class="btn line" onclick="closePush()">取消</button></div></div><div class="detail-meta"><h3 style="margin-top:0">推送设置</h3><p>歌单会在飞牛音乐中创建或更新，封面、名称、简介和歌曲顺序都会保留。</p><div class="set-row"><b>目标歌单</b><label><select id="push-target" style="border:1px solid var(--line);border-radius:7px;padding:6px"><option>创建同名歌单</option><option>我的收藏</option><option>选择已有歌单…</option></select></label></div><div class="set-row"><b>歌曲处理</b><label><select style="border:1px solid var(--line);border-radius:7px;padding:6px"><option>仅推送曲库已有歌曲</option><option>推送并加入下载队列</option></select></label></div><div class="push-banner" style="margin-top:14px">本歌单 30 首：正式库已有 14 首，临时池已有 4 首，待下载 12 首。待下载歌曲可稍后在下载中心继续处理。</div></div></div></div></div></div><div class="modal" id="account-modal" onclick="if(event.target===this)closeAccounts()"><div class="modal-card"><div class="modal-head"><div><h2>平台账号连接</h2><div class="kpi-line"><span>网易云与 QQ 音乐独立登录，数据由内置连接器获取</span></div></div><button class="modal-close" onclick="closeAccounts()">×</button></div><div class="modal-body"><div class="set-row"><b>网易云音乐</b><label><input id="netease-cookie" style="width:280px" placeholder="粘贴 Cookie"><button class="btn primary" onclick="saveAccount('netease')">保存连接</button></label></div><div class="set-row"><b>QQ 音乐</b><label><input id="qq-cookie" style="width:280px" placeholder="可选：粘贴 QQ 登录 Cookie"><button class="btn primary" onclick="saveAccount('qq')">保存连接</button></label></div><div id="account-state" class="push-banner">正在读取账号状态…</div></div></div></div><div class="toast" id="toast"></div></div><script>
+// 2026-09-29（1.0.9）统一网关适配：经 fnOS 网关 /app/fnmusic-flow-community/ 访问时，
+// 页面里的绝对路径 API 调用（/api/...）会被浏览器解析到源站根路径而 404。
+// 这里在最早时机覆盖 fetch，把根路径请求改写到网关前缀下（直连端口访问不受影响）。
+(function(){
+  var m = location.pathname.match(/^(\/app\/[^\/]+)/);
+  if (!m || !window.fetch) return;
+  var prefix = m[1];
+  var orig = window.fetch;
+  window.fetch = function(input, init){
+    try {
+      if (typeof input === 'string') {
+        if (input.charAt(0) === '/') input = prefix + input;
+      } else if (input && typeof input.url === 'string' && input.url.charAt(0) === '/') {
+        input = new Request(prefix + input.url, input);
+      }
+    } catch (e) { /* 改写失败时按原样请求 */ }
+    return orig.call(window, input, init);
+  };
+})();
+const taskHtml='<div class="panel"><div class="panel-head"><h3>全部下载任务</h3><div><button class="btn" onclick="toast(\'已暂停所有任务\')">全部暂停</button> <button class="btn primary" onclick="toast(\'已恢复所有任务\')">全部继续</button></div></div><div class="tabs"><button class="on">全部 12</button><button>进行中 2</button><button>待处理 3</button><button>失败 7</button><button>已完成</button></div><div class="table-wrap"><table><thead><tr><th>歌曲</th><th>来源</th><th>状态</th><th>进度</th><th>目标</th><th>操作</th></tr></thead><tbody><tr><td><b>晚风信箱</b><br><small>陈绮贞 · FLAC</small></td><td><span class="tag blue">网易云日推</span></td><td><span class="tag blue">下载中</span></td><td>64%</td><td>临时推荐池</td><td><button class="btn" onclick="toast(\'已暂停任务\')">暂停</button></td></tr><tr><td><b>海雾来信</b><br><small>白鲨JAWS · 320k</small></td><td><span class="tag blue">QQ 歌单</span></td><td><span class="tag orange">等待音源</span></td><td>—</td><td>正式曲库</td><td><button class="btn" onclick="toast(\'已开始换源重试\')">换源重试</button></td></tr><tr><td><b>晴天</b><br><small>周杰伦 · FLAC</small></td><td><span class="tag blue">落雪搜索</span></td><td><span class="tag green">已完成</span></td><td>100%</td><td>正式曲库</td><td><button class="btn" onclick="toast(\'已推送至飞牛音乐\')">查看推送</button></td></tr></tbody></table></div></div>';
+const searchHtml='<div class="panel"><div class="panel-head"><h3>落雪音乐搜索</h3><button class="btn line" onclick="toast(\'已识别歌单链接\')">解析歌单链接</button></div><div style="padding:16px;display:flex;gap:8px"><input style="flex:1;border:1px solid var(--line);border-radius:8px;padding:9px" value="周杰伦"><button class="btn primary" onclick="toast(\'已使用导入音源搜索\')">搜索</button></div><div class="table-wrap"><table><thead><tr><th>歌曲</th><th>平台</th><th>可用音质</th><th>曲库状态</th><th>操作</th></tr></thead><tbody><tr><td><b>晴天</b><br><small>周杰伦 · 叶惠美</small></td><td>网易云 / QQ</td><td><span class="tag green">FLAC</span> <span class="tag blue">320k</span></td><td><span class="tag blue">待下载</span></td><td><button class="btn primary" onclick="toast(\'已加入下载任务\')">下载</button></td></tr><tr><td><b>稻香</b><br><small>周杰伦 · 魔杰座</small></td><td>网易云</td><td><span class="tag blue">320k</span></td><td><span class="tag orange">已有 · 可升级</span></td><td><button class="btn" onclick="toast(\'已加入音质升级\')">升级</button></td></tr></tbody></table></div></div>';
+const pushHtml='<div class="panel"><div class="panel-head"><h3>飞牛音乐自动同步</h3><span class="tag green">运行中</span></div><div class="tabs"><button class="on">自动规则</button><button>推送记录</button><button>封面同步</button></div><div style="padding:4px 18px"><div class="set-row"><b>飞牛音乐收藏自动入正式库</b><label><input type="checkbox" checked onchange="toast(\'收藏入库规则已切换\')"> 开启</label></div><div class="set-row"><b>歌单封面和内容自动同步</b><label><input type="checkbox" checked onchange="toast(\'歌单自动同步规则已切换\')"> 开启</label></div><div class="set-row"><b>日推下载完成后自动推送</b><label><input type="checkbox" checked></label></div></div><div class="push-banner" style="margin:14px 18px">来源歌单封面优先同步；没有封面时可手动上传。当前已同步 3 个飞牛歌单，4 首歌曲等待封面。</div></div>';
+function switchWs(id,btn){document.querySelectorAll('.switcher button').forEach(x=>x.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.workspace').forEach(x=>x.classList.remove('on'));document.getElementById('ws-'+id).classList.add('on');if(id==='manage')manageTab('tasks',document.querySelector('.download-nav button'))}
+function openFnosManager(btn){switchWs('manage',btn);manageTab('push',document.querySelectorAll('.download-nav button')[4])}
+function filterPlaza(provider,btn){document.querySelectorAll('.plaza-filter').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');document.querySelectorAll('.plaza-card').forEach(x=>{x.classList.toggle('hidden',provider!=='all'&&x.dataset.platform!==provider)});if(provider==='netease'||provider==='qq')loadPlaza(provider)}
+function searchPlaza(value){const q=(value||'').toLowerCase();document.querySelectorAll('.plaza-card').forEach(x=>x.classList.toggle('hidden',q&&!((x.dataset.search||'').toLowerCase().includes(q))))}
+function manageTab(id,btn){document.querySelectorAll('.download-nav button').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');const c=document.getElementById('manage-content');c.innerHTML=id==='tasks'?taskHtml:id==='search'?searchHtml:id==='push'?pushHtml:'<div class="panel"><div class="panel-head"><h3>'+({playlists:'歌单下载',library:'正式曲库',failed:'失败重试'}[id]||'下载中心')+'</h3><button class="btn primary" onclick="toast(\'功能面板已打开\')">刷新</button></div><div style="padding:30px;color:var(--muted)">该工作区承载 '+({playlists:'歌单解析、去重预览和整单下载',library:'17,403 个文件、SHA-256 去重和音质升级',failed:'按错误原因换源重试'}[id]||'任务管理')+'。</div></div>'}
+function openDaily(platform){switchWs('listen',document.querySelector('.switcher button'));openPlaylist(platform==='qq'?'QQ 音乐日推':'网易云每日推荐')}
+function openPlaylist(name){const m=document.getElementById('detail-modal');if(!m){toast('已打开歌单：'+name);return}document.getElementById('detail-title').textContent=name;document.getElementById('detail-sub').innerHTML='<span>来源歌单</span><span>• 30 首歌曲</span><span>• 封面可同步飞牛音乐</span>';m.classList.add('show')}
+function pushPlaylist(ev,name){if(ev)ev.stopPropagation();const m=document.getElementById('push-modal');document.getElementById('push-title').textContent='推送歌单到飞牛音乐';document.getElementById('push-sub').innerHTML='<span>'+name+'</span><span>• 将同步封面和歌曲</span>';m.classList.add('show')}
+function closePush(){document.getElementById('push-modal').classList.remove('show')}
+async function confirmPush(){closePush();if(!window.currentPlaylist?.id){toast('请先打开真实歌单详情');return}try{await pushCurrentPlaylist()}catch(e){}}
+function closeDetail(){document.getElementById('detail-modal').classList.remove('show')}
+function toast(m){const x=document.getElementById('toast');x.textContent=m;x.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.remove('show'),2200)}
+document.getElementById('manage-content').innerHTML=taskHtml;
+let livePlaylists=[];
+async function loadLiveData(){
+  try{
+    const [accounts,playlists]=await Promise.all([fetch('/api/accounts').then(r=>r.ok?r.json():[]),fetch('/api/playlists').then(r=>r.ok?r.json():[])]);
+    livePlaylists=playlists||[];
+    await loadPlaza('netease');
+    document.querySelectorAll('.platform-card').forEach(card=>{
+      const provider=card.classList.contains('qq')?'qq':'netease';
+      const account=(accounts||[]).find(x=>x.provider===provider);
+      const tag=card.querySelector('.platform-head .tag');
+      if(tag&&account){tag.textContent=account.status==='connected'?'已连接':account.status==='expired'?'已过期':'未连接';tag.className='tag '+(account.status==='connected'?'green':'orange')}
+    });
+  }catch(e){/* API unavailable while viewing the static prototype */}
+}
+const _openPlaylist=openPlaylist;
+openPlaylist=async function(name){
+  const item=livePlaylists.find(x=>x.title===name||name.includes(x.title)||x.title.includes(name));
+  if(!item){_openPlaylist(name);return}
+  try{
+    const detail=await fetch('/api/playlists/'+item.id).then(r=>r.json());
+    document.getElementById('detail-title').textContent=detail.title;
+    document.getElementById('detail-sub').innerHTML='<span>'+detail.provider+'</span><span>• '+(detail.items||[]).length+' 首歌曲</span><span>• '+(detail.cover_url?'已有关联封面':'暂无封面')+'</span>';
+    document.querySelector('#detail-modal .modal-body').innerHTML='<div class="table-wrap"><table><thead><tr><th>#</th><th>歌曲</th><th>歌手</th><th>专辑</th></tr></thead><tbody>'+(detail.items||[]).map((x,i)=>'<tr><td>'+(i+1)+'</td><td><b>'+x.title+'</b></td><td>'+x.artist+'</td><td>'+x.album+'</td></tr>').join('')+'</tbody></table></div>';
+    document.getElementById('detail-modal').classList.add('show');
+  }catch(e){_openPlaylist(name)}
+};
+loadLiveData();
+async function openAccounts(){
+ document.getElementById('account-modal').classList.add('show');
+ try{const rows=await fetch('/api/accounts').then(r=>r.json()); document.getElementById('account-state').textContent=(rows||[]).map(x=>x.provider+'：'+x.status).join('　')||'尚未连接账号';}catch(e){document.getElementById('account-state').textContent='后端尚未启动或暂时不可用';}
+}
+function closeAccounts(){document.getElementById('account-modal').classList.remove('show')}
+async function saveAccount(provider){
+ const cookie=document.getElementById(provider+'-cookie').value.trim();
+ try{const r=await fetch('/api/accounts/'+provider+'/connect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cookie})}); const d=await r.json(); if(!r.ok)throw Error(d.detail||'连接失败'); toast(provider==='qq'?'QQ 音乐已连接':'网易云音乐已连接'); openAccounts(); loadLiveData();}catch(e){toast(e.message)}
+}
+const _openDaily=openDaily;
+openDaily=async function(provider){
+ try{const r=await fetch('/api/platform/'+provider+'/daily'); const d=await r.json(); if(!r.ok)throw Error(d.detail||'日推获取失败'); window.dailyItems=d.items||[];window.dailyProvider=provider; document.getElementById('detail-title').textContent=(provider==='qq'?'QQ 音乐':'网易云音乐')+' · 每日推荐'; const fetched=d.fetched_at?displayTime(d.fetched_at):'刚刚';document.getElementById('detail-sub').innerHTML='<span>'+window.dailyItems.length+' 首歌曲</span><span>• '+(d.stale?'缓存数据，平台暂时不可用':'账号实时数据')+'</span><span>• 数据更新时间：'+esc(fetched)+'</span>'; document.querySelector('#detail-modal .modal-body').innerHTML='<div class="detail-toolbar"><button class="btn" onclick="pushDailyToFnos(false)">仅立即推送一次</button><div class="schedule-group"><label for="daily-sync-interval">自动更新周期</label><select id="daily-sync-interval"><option value="1440">每天</option><option value="10080">每周</option></select><label for="daily-sync-time">每日开始检查</label><input id="daily-sync-time" type="time" value="06:00" title="北京时间"><button class="btn primary" onclick="pushDailyToFnos(true)">开启自动更新</button></div><span class="toolbar-note">每天北京时间 06:00 开始检查；平台尚未更新时每 30 分钟重试，新内容出现后同步。日推下载进入按日期划分的 3 天缓存，收藏、加入其他歌单或播放至少 2 次后转入正式库。</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>歌曲</th><th>歌手</th><th>专辑</th><th>操作</th></tr></thead><tbody>'+window.dailyItems.map((x,i)=>'<tr><td>'+(i+1)+'</td><td><b>'+esc(x.title)+'</b></td><td>'+esc(x.artist)+'</td><td>'+esc(x.album)+'</td><td><button class="btn" onclick="playDaily('+i+')">试听</button> <button class="btn primary" onclick="saveFavorite('+i+')">收藏入库</button></td></tr>').join('')+'</tbody></table></div>'; document.getElementById('detail-modal').classList.add('show');}catch(e){toast(e.message)}
+}
+async function enqueueTrack(track,message='已加入下载队列'){try{const r=await fetch('/api/tracks',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(track)});const d=await r.json();if(!r.ok)throw Error(d.detail||'加入下载失败');toast(d.reused?'曲库或队列中已经存在':message);return d}catch(e){toast(e.message);throw e}}
+function playDaily(i){playTrackObject((window.dailyItems||[])[i])}
+function saveFavorite(i){const track=(window.dailyItems||[])[i];if(track)enqueueTrack({...track,task_type:'favorite',priority:2},'已收藏，正在加入正式曲库')}
+async function pushDailyToFnos(autoSync=false){const provider=window.dailyProvider;if(!provider)return;const value=Number(document.getElementById('daily-sync-interval')?.value||1440),schedule_time=document.getElementById('daily-sync-time')?.value||'';try{await ensureFnosReady();const r=await api('/api/fnos/daily/'+provider+'/push',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({auto_sync:autoSync,interval_minutes:value,schedule_time,download_missing:true})});const q=r.queue||{};toast(autoSync?'日推已推送，并已开启'+(value===10080?'每周':'每日')+'更新（'+schedule_time+'）':'日推已完成单次推送，未创建定时规则');if(q.tasks_created)toast('已将 '+q.tasks_created+' 首缺少歌曲加入下载队列')}catch(e){toast(e.message)}}
+let qqQrPollToken=0, neteaseQrPollToken=0;
+async function startQQQr(){
+  const pollToken=++qqQrPollToken, startedAt=Date.now();
+  try{const d=await fetch('/api/accounts/qq/qr/key?login_type=qq').then(r=>r.json()); if(!d.key)throw Error(d.message||'二维码获取失败');
+    let box=document.getElementById('qq-qr-box'); if(!box){box=document.createElement('div');box.id='qq-qr-box';box.className='push-banner';document.getElementById('account-state').before(box)}
+    box.innerHTML='<b>QQ 扫码登录</b><br><img style="width:180px;height:180px;display:block;margin:10px 0" src="'+safeImgSrc(d.content)+'"><span>请使用 QQ 扫码，页面会自动检测状态</span>';
+    const key=d.key; const poll=async()=>{if(pollToken!==qqQrPollToken)return;if(Date.now()-startedAt>300000){box.textContent='二维码已过期，请重新获取';return}try{const s=await fetch('/api/accounts/qq/qr/check?login_type=qq&key='+encodeURIComponent(key)).then(r=>r.json());if(pollToken!==qqQrPollToken)return;if(s.status===4){box.innerHTML='QQ 音乐已登录：'+(s.nickname||'');loadLiveData();openAccounts();return}else if(s.status===0){box.textContent='二维码已过期，请重新获取';return}}catch(e){}setTimeout(poll,3000)};setTimeout(poll,1500);
+  }catch(e){toast(e.message)}
+}
+async function loadPlaza(provider){
+ try{const r=await fetch('/api/plaza?provider='+provider); if(!r.ok)return; const d=await r.json(); const cards=document.querySelectorAll('.plaza-card'); const items=d.items||[]; items.slice(0,cards.length).forEach((x,i)=>{const c=cards[i]; c.dataset.platform=provider; c.dataset.search=(x.title||'')+' '+(x.owner||''); const cover=c.querySelector('.pl-cover'); if(x.cover_url)cover.style.backgroundImage='url("'+x.cover_url.replace(/"/g,'')+'")'; c.querySelector('h3').textContent=x.title; c.querySelector('p').textContent=(x.item_count||0)+' 首 · '+(x.owner||'公开歌单');}); }catch(e){}
+}
+function addQrButton(){const rows=document.querySelectorAll('#account-modal .set-row label');if(rows[0]&&!document.getElementById('netease-qr-btn')){const b=document.createElement('button');b.id='netease-qr-btn';b.className='btn line';b.textContent='网易云扫码';b.onclick=startNeteaseQr;rows[0].appendChild(b)}if(rows[1]&&!document.getElementById('qq-qr-btn')){const b=document.createElement('button');b.id='qq-qr-btn';b.className='btn line';b.textContent='QQ 扫码';b.onclick=startQQQr;rows[1].appendChild(b)}}
+async function startNeteaseQr(){const pollToken=++neteaseQrPollToken,startedAt=Date.now();try{const k=await api('/api/accounts/netease/qr/key');const key=k?.data?.unikey||k?.unikey||k?.key;if(!key)throw Error('网易云二维码 Key 获取失败');const q=await api('/api/accounts/netease/qr/create?key='+encodeURIComponent(key));const image=q?.data?.qrimg||q?.qrimg||q?.data?.qrurl;if(!image)throw Error('网易云二维码生成失败');let box=document.getElementById('netease-qr-box');if(!box){box=document.createElement('div');box.id='netease-qr-box';box.className='push-banner';document.getElementById('account-state').before(box)}box.innerHTML='<b>网易云扫码登录</b><br><img style="width:180px;height:180px;display:block;margin:10px 0" src="'+safeImgSrc(image)+'"><span>请使用网易云音乐扫码，页面会自动检测</span>';const poll=async()=>{if(pollToken!==neteaseQrPollToken)return;if(Date.now()-startedAt>300000){box.textContent='二维码已过期，请重新获取';return}try{const s=await api('/api/accounts/netease/qr/check?key='+encodeURIComponent(key));if(pollToken!==neteaseQrPollToken)return;const code=s?.code||s?.data?.code;if(code===803||s?.cookie){box.textContent='网易云音乐已登录';loadLiveData();openAccounts();return}else if(code===800){box.textContent='二维码已过期';return}}catch(e){box.textContent='扫码请求失败：'+(e?.message||'上游服务错误');toast(e?.message||'扫码请求失败');return}setTimeout(poll,3000)};setTimeout(poll,1500)}catch(e){toast(e.message)}}
+const _openAccounts=openAccounts; openAccounts=async function(){addQrButton();return _openAccounts()};
+
+/* Live console layer: all cards below are rendered from the API. Empty or
+   unavailable providers are shown as such instead of displaying fake counts. */
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeImgSrc=s=>{const t=String(s??'').trim();return (/^(data:image\/|https?:\/\/)/i.test(t)?t:'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
+let api=async(path,options={})=>{const r=await fetch(path,options);let d={};try{d=await r.json()}catch{}if(!r.ok)throw Error(d.detail||d.message||('请求失败 '+r.status));return d};
+let livePlaza=[], liveTasks=[], sourceResults=[];
+let accountPlaylists=[];
+async function renderLivePlaza(){
+  const grid=document.querySelector('.plaza-grid'); if(!grid)return;
+  grid.innerHTML='<div class="push-banner" style="grid-column:1/-1">正在读取歌单广场…</div>';
+  const all=[]; for(const p of ['netease','qq']){try{const d=await api('/api/plaza?provider='+p+'&limit=24');(d.items||[]).forEach(x=>all.push(x))}catch(e){}}
+  livePlaza=all;
+  if(!all.length){grid.innerHTML='<div class="push-banner" style="grid-column:1/-1">歌单广场暂无数据。请检查网络连接。</div>';document.body.classList.add('live-ready');return}
+  grid.innerHTML=all.map((x,i)=>`<div class="pl-card plaza-card" data-platform="${esc(x.provider)}" data-search="${esc(x.title)} ${esc(x.owner)}">
+    <div class="pl-cover" style="${x.cover_url?`background-image:url('${esc(x.cover_url)}');background-size:cover;background-position:center`:''}">${x.cover_url?'':'♫'}<span class="pl-badge">${x.provider==='qq'?'QQ 音乐':'网易云音乐'}</span></div>
+    <h3>${esc(x.title||'未命名歌单')}</h3><p>${Number(x.item_count||0)} 首 · ${esc(x.owner||'公开歌单')}</p>
+    <button class="btn line plaza-action" onclick="openExternalPlaylist(${i})">查看歌单</button>
+    <button class="btn primary plaza-action" onclick="importAndPush(${i})">推送到飞牛</button></div>`).join('');document.body.classList.add('live-ready');
+}
+async function openExternalPlaylist(i){
+  const x=livePlaza[i]; if(!x)return; try{const d=await api('/api/playlists/fetch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({provider:x.provider,playlist_id:x.playlist_id,source_url:x.source_url||''})});
+    livePlayaids=d.id; document.getElementById('detail-title').textContent=d.title; document.getElementById('detail-sub').innerHTML='<span>'+esc(d.provider)+'</span><span>• '+(d.items||[]).length+' 首歌曲</span><span>• '+(d.cover_url?'有封面':'暂无封面')+'</span>';
+    const isChart=String(d.playlist_id||'').startsWith('chart:');document.querySelector('#detail-modal .modal-body').innerHTML='<div class="detail-toolbar"><button class="btn" id="playlist-enqueue" onclick="enqueuePlaylistItems()">整单加入下载</button><button class="btn" onclick="syncCurrentPlaylistFromDetail(false)">仅立即推送一次</button><div class="schedule-group"><label for="playlist-sync-interval">自动更新周期</label><select id="playlist-sync-interval"><option value="'+(isChart?10080:1440)+'">'+(isChart?'每周':'每天')+'</option><option value="'+(isChart?1440:10080)+'">'+(isChart?'每天':'每周')+'</option><option value="43200">每月</option></select><button class="btn primary" onclick="syncCurrentPlaylistFromDetail(true)">开启自动更新</button></div><span class="toolbar-note">'+(isChart?'排行榜建议每周更新；首次开启时立即推送，之后按周期更新。':'普通歌单建议每天更新；单次推送不会创建定时规则。')+'</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>歌曲</th><th>歌手</th><th>专辑</th><th>库状态</th></tr></thead><tbody>'+(d.items||[]).map((s,n)=>'<tr><td>'+(n+1)+'</td><td><b>'+esc(s.title)+'</b></td><td>'+esc(s.artist)+'</td><td>'+esc(s.album)+'</td><td><span class="tag '+(s.library_status==='in_library'?'green':'orange')+'">'+(s.library_status==='in_library'?'正式库已有':'需要下载')+'</span></td></tr>').join('')+'</tbody></table></div>';window.currentPlaylist=d;document.getElementById('detail-modal').classList.add('show');
+    return d;
+  }catch(e){toast(e.message);throw e}
+}
+let livePlayaids=null;
+async function enqueuePlaylistItems(){const d=window.currentPlaylist||{},button=document.getElementById('playlist-enqueue');if(!d.id){toast('请先读取歌单详情');return}if(button){button.disabled=true;button.textContent='正在检查曲库…'}try{const r=await api('/api/playlists/'+d.id+'/enqueue',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});toast('新增 '+r.tasks_created+' 首，曲库已有 '+r.library_reused+' 首，队列已有 '+r.active_reused+' 首');await refreshTasks()}catch(e){toast(e.message)}finally{if(button){button.disabled=false;button.textContent='整单加入下载'}}}
+async function ensureFnosReady(){let d=await api('/api/fnos/probe');if(['token_missing','expired'].includes(d.status)){try{d=await api('/api/fnos/config/session',{method:'POST'})}catch{}}if(d.status!=='ready'){openFnosManager(document.querySelector('.fnos-nav'));throw Error(d.status==='expired'?'飞牛 token 已过期，请在“飞牛同步”中刷新登录会话或更新 token':'飞牛音乐尚未连接，请先在“飞牛同步”中完成连接验证')}return d}
+async function pushCurrentPlaylist(options={auto_sync:false}){const d=window.currentPlaylist;if(!d?.id){toast('请先读取歌单详情');return}try{await ensureFnosReady();const r=await api('/api/fnos/playlists/'+d.id+'/push',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({download_missing:true,...options})});const q=r.queue||{},f=r.result||{};toast('飞牛已同步 '+(f.matched||0)+' 首，新增下载 '+(q.tasks_created||0)+' 首'+(r.subscribed?'，定时规则已保存':'，本次为单次推送'));return r}catch(e){toast(e.message);throw e}}
+async function syncCurrentPlaylistFromDetail(autoSync=false){const value=Number(document.getElementById('playlist-sync-interval')?.value||1440);return pushCurrentPlaylist({auto_sync:autoSync,interval_minutes:value})}
+async function importAndPush(i){try{await openExternalPlaylist(i);await pushCurrentPlaylist({auto_sync:false})}catch(e){}}
+async function openMyPlaylists(provider){
+  try{
+    const d=await api('/api/platform/'+provider+'/playlists');
+    accountPlaylists=d.items||[];
+    const name=provider==='qq'?'QQ 音乐':'网易云音乐';
+    const card=(x,i,kind)=>'<div class="pl-card" onclick="openAccountPlaylist('+i+',\''+kind+'\')"><div class="pl-cover" style="'+(x.cover_url?'background-image:url(\''+esc(x.cover_url)+'\');background-size:cover;background-position:center':'')+'">'+(x.cover_url?'':'♫')+'</div><h3>'+esc(x.title)+'</h3><p>'+Number(x.item_count||0)+' 首</p></div>';
+    const myHtml=accountPlaylists.length?'<div class="playlist-grid">'+accountPlaylists.map((x,i)=>card(x,i,'my')).join('')+'</div>':'<div class="push-banner">当前没有读取到我的歌单。请确认账号已连接。</div>';
+    const title=name+' · 我的歌单';
+    const body='<section class="playlist-section"><div class="section-head"><h3>我的歌单</h3><span class="tag">账号创建或收藏</span></div>'+myHtml+'</section>';
+    document.getElementById('detail-title').textContent=title;
+    document.getElementById('detail-sub').innerHTML='<span>账号创建或收藏的歌单</span><span>• '+accountPlaylists.length+' 个歌单</span>';
+    document.querySelector('#detail-modal .modal-body').innerHTML=body+'<div class="push-banner" style="margin-top:16px"><b>数据来源说明：</b>这里是登录账号的私有内容；“歌单广场”只展示公开平台歌单。</div>';
+    document.getElementById('detail-modal').classList.add('show');
+  }catch(e){toast(e.message);openAccounts()}
+}
+async function openAccountPlaylist(i,kind='my'){
+  const x=accountPlaylists[i];if(!x)return;document.getElementById('detail-modal').classList.remove('show');livePlaza.push(x);await openExternalPlaylist(livePlaza.length-1)
+}
+/* 2026-09-25 修复（问题卡 003 / UI-001）：任务统计只读后端约定的 by_status 与 total 字段。
+   旧实现遍历 Object.keys(summary) 并对全部值 Number() —— by_status 对象、failed_reasons
+   数组、generated_at 字符串一起被加总，Number(对象/数组) 产生 NaN，污染顶部失败卡片和
+   左侧失败重试计数（两处共用同一个 failed 值）。纯函数便于 Node 单测覆盖
+   （tests/frontend/test_task_stats.mjs）。by_status 缺失按空对象、非法值按 0、总数为 0 时
+   成功率显示 —。 */
+function computeTaskStats(summary){
+  const src=(summary&&typeof summary==='object')?summary:{};
+  const status=(src.by_status&&typeof src.by_status==='object')?src.by_status:{};
+  const num=v=>{const n=Number(v);return Number.isFinite(n)?n:0};
+  const total=num(src.total);
+  const archived=num(status.archived);
+  return {total:total,failed:num(status.failed_final),
+          running:num(status.matching)+num(status.downloading),
+          pending:num(status.pending),archived:archived,
+          rate:(total>0?Math.round(archived/total*100)+'%':'—')};
+}
+async function refreshTasks(){try{[window.taskPage,window.taskSummary]=await Promise.all([api('/api/tasks?limit=200'),api('/api/tasks/summary')]);}catch(e){try{window.taskPage=await api('/api/tasks?limit=200')}catch{window.taskPage={items:[],total:0,has_more:false}}window.taskSummary=null}liveTasks=(window.taskPage&&(window.taskPage.items||window.taskPage))||[];const stats=computeTaskStats(window.taskSummary),running=stats.running,pending=stats.pending,archived=stats.archived,failed=stats.failed,total=stats.total;const metrics=document.querySelectorAll('.metric b');if(metrics.length>=4){metrics[0].textContent=running;metrics[1].textContent=pending;metrics[2].textContent=failed;metrics[3].textContent=stats.rate}const counts=document.querySelectorAll('.download-nav .count');if(counts[0])counts[0].textContent=total||liveTasks.length;if(counts[1])counts[1].textContent=failed;return liveTasks}
+// 2026-10-01（1.3.0）：早期版本 renderTasks 已移除，任务渲染收敛为唯一实现（下方 Task Center v30 块）。
+async function retryTask(id){try{await api('/api/tasks/'+id+'/retry',{method:'POST'});toast('已重新排队');manageTab('tasks',document.querySelector('.download-nav button'))}catch(e){toast(e.message)}}
+async function searchLX(){const input=document.getElementById('lx-keyword'),q=input?.value.trim();if(!q)return;const body=document.getElementById('lx-results');body.innerHTML='<tr><td colspan="5">搜索中…</td></tr>';const results=await Promise.allSettled(['netease','qq'].map(p=>api('/api/platform/'+p+'/search?keyword='+encodeURIComponent(q)+'&page_size=30')));sourceResults=results.flatMap(x=>x.status==='fulfilled'?(x.value.items||[]):[]);body.innerHTML=sourceResults.map((x,i)=>'<tr><td><b>'+esc(x.title)+'</b><br><small>'+esc(x.artist)+'</small></td><td>'+esc(x.album)+'</td><td>'+(x.platform==='qq'?'QQ 音乐':'网易云音乐')+'</td><td><span class="tag green">等待音源解析</span></td><td><button class="btn" onclick="playSource('+i+')">试听</button> <button class="btn primary" onclick="enqueueSource('+i+')">下载</button></td></tr>').join('')||'<tr><td colspan="5">没有找到歌曲，或两个平台接口均不可用</td></tr>'}
+async function enqueueSource(i){try{await api('/api/tracks',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...sourceResults[i],task_type:'manual_single'})});toast('已加入下载队列')}catch(e){toast(e.message)}}
+function playSource(i){playTrackObject(sourceResults[i])}
+async function playTrackObject(track){if(!track)return;try{const d=await api('/api/audio/url',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(track)});let audio=document.getElementById('live-audio');if(!audio){audio=document.createElement('audio');audio.id='live-audio';document.body.appendChild(audio);audio.addEventListener('timeupdate',()=>{const bar=document.querySelector('.player-progress i');if(bar&&audio.duration)bar.style.width=(audio.currentTime/audio.duration*100)+'%'})}audio.src=d.url;await audio.play();api('/api/cache/daily/play',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(track)}).catch(()=>{});document.querySelector('.player-info b').textContent=track.title;document.querySelector('.player-info span').textContent=track.artist+' · '+d.source;document.querySelector('.player-actions .main').textContent='❚❚';document.querySelector('.player-actions .main').onclick=event=>{if(audio.paused){audio.play();event.currentTarget.textContent='❚❚'}else{audio.pause();event.currentTarget.textContent='▶'}}}catch(e){try{await enqueueTrack({...track,task_type:'playback_fallback',priority:2},'在线试听失败，已转为后台入库')}catch{}}}
+async function importLXSource(){const file=document.getElementById('lx-source-file')?.files?.[0];if(!file){toast('请先选择落雪音源 JS 文件');return}const form=new FormData();form.append('file',file);try{const d=await api('/api/sources/import',{method:'POST',body:form});toast('音源已导入：'+d.name);await showSources()}catch(e){toast(e.message)}}
+async function showSources(){const box=document.getElementById('source-state');if(!box)return;try{const rows=await api('/api/sources');const labels={ready:['green','可用'],forbidden:['red','403 拒绝'],timeout:['orange','超时'],error:['red','异常'],unknown:['orange','未检测']};box.innerHTML=rows.length?rows.map(x=>{const s=labels[x.status]||labels.unknown;return '<span class="tag '+s[0]+'" title="'+esc(x.detail||'')+'">'+esc(x.name)+' · '+s[1]+'</span>'}).join(' '):'<span class="tag orange">尚未导入音源，下载任务无法解析地址</span>'}catch(e){box.textContent=e.message}}
+async function loadFnosPanel(){const box=document.getElementById('fnos-state');if(!box)return;box.textContent='正在探测飞牛音乐…';try{let d=await api('/api/fnos/probe');if(['token_missing','expired'].includes(d.status)){try{d=await api('/api/fnos/config/session',{method:'POST'})}catch{}}const subs=await api('/api/subscriptions');const stateText={ready:'已连接，可以执行真实写入',token_missing:'未配置 token',expired:'token 已过期，请从飞牛桌面重新打开本应用或更新 token',error:'连接异常'}[d.status]||d.status;box.className='push-banner';box.innerHTML='<b>飞牛连接：</b>'+esc(stateText)+(d.source==='fnos_session'?' · 已从当前飞牛会话更新凭据':'')+(d.account?' · '+esc(d.account.name||d.account.username||'账号已验证'):'')+(d.detail?' · '+esc(d.detail):'');const list=document.getElementById('subscription-list');if(list)list.innerHTML=subs.length?'<div class="panel-head" style="padding-left:0;padding-right:0"><h3>定时推送管理</h3><span class="tag">'+subs.length+' 条规则</span></div>'+subs.map(renderSubscription).join(''):'<div class="push-banner">尚未设置定时推送。日推需要在每日推荐详情中主动开启；排行榜默认每周，普通歌单默认每天。</div>'}catch(e){box.textContent=e.message}}
+function intervalLabel(value){const n=Number(value||0);if(n===1440)return'每天';if(n===10080)return'每周';if(n===43200)return'每月';if(n<1440)return n+' 分钟';return Math.round(n/1440)+' 天'}
+function renderSubscription(x){const title=x.target_title||x.title||x.playlist_id,kind={daily:'日推',chart:'排行榜',playlist:'歌单'}[x.kind]||x.kind,status=x.enabled?(x.last_status==='failed'?'失败':'运行中'):'已暂停';return '<div class="sync-rule"><div><b>'+esc(title)+'</b><small>'+(x.provider==='qq'?'QQ 音乐':'网易云音乐')+' · '+kind+' · <span class="tag '+(x.enabled?'green':'orange')+'">'+status+'</span></small>'+(x.last_error?'<small style="color:var(--red)">'+esc(x.last_error)+'</small>':'')+'</div><select class="schedule-select" onchange="setSubscriptionInterval('+x.id+',this.value)"><option value="1440" '+(Number(x.interval_minutes)===1440?'selected':'')+'>每天</option><option value="10080" '+(Number(x.interval_minutes)===10080?'selected':'')+'>每周</option><option value="43200" '+(Number(x.interval_minutes)===43200?'selected':'')+'>每月</option></select><div><small>上次：'+esc(x.last_run_at||'尚未运行')+'</small><small>下次：'+esc(x.next_run_at||'等待调度')+'</small></div><div class="sync-rule-actions"><button class="btn" onclick="toggleSubscription('+x.id+','+(x.enabled?0:1)+')">'+(x.enabled?'暂停':'恢复')+'</button> <button class="btn" onclick="runSubscription('+x.id+')">立即执行</button> <button class="btn line" onclick="removeSubscription('+x.id+')">取消推送</button></div></div>'}
+async function saveFnosToken(){const input=document.getElementById('fnos-token'),token=input?.value.trim();if(!token){toast('请输入飞牛音乐 token');return}try{await api('/api/fnos/config',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token})});input.value='';toast('飞牛音乐连接验证成功');loadFnosPanel()}catch(e){toast(e.message)}}
+async function refreshFnosSession(){try{await api('/api/fnos/config/session',{method:'POST'});toast('已从当前飞牛登录会话刷新凭据');loadFnosPanel()}catch(e){toast(e.message)}}
+async function setSubscriptionInterval(id,value){try{await api('/api/subscriptions/'+id,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({interval_minutes:Number(value)})});toast('同步周期已改为'+intervalLabel(value));loadFnosPanel()}catch(e){toast(e.message)}}
+async function toggleSubscription(id,enabled){try{await api('/api/subscriptions/'+id,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({enabled:Boolean(enabled)})});toast(enabled?'已恢复定时推送':'已暂停定时推送');loadFnosPanel()}catch(e){toast(e.message)}}
+async function runSubscription(id){try{await ensureFnosReady();const d=await api('/api/subscriptions/'+id+'/run',{method:'POST'});toast((d.failed||0)?'执行失败，请查看规则错误':'已完成一次同步');loadFnosPanel()}catch(e){toast(e.message)}}
+async function removeSubscription(id){try{await api('/api/subscriptions/'+id,{method:'DELETE'});toast('已停止同步并删除飞牛歌单，记录已进入历史，可随时恢复');loadFnosPanel()}catch(e){toast(e.message)}}
+async function syncFavorites(){try{const d=await api('/api/fnos/favorites/sync',{method:'POST'});toast('收藏同步完成：转正 '+d.promoted+'，新增任务 '+d.tasks_created);loadFnosPanel()}catch(e){toast(e.message)}}
+async function runAutoSync(){try{const d=await api('/api/sync/run',{method:'POST'});toast('同步执行完成，共 '+(d.results||[]).length+' 项')}catch(e){toast(e.message)}}
+async function showImportLink(){const url=prompt('粘贴网易云或 QQ 音乐歌单链接');if(!url)return;try{const d=await api('/api/playlists/import-link',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,enqueue:true})});toast('共 '+(d.items||[]).length+' 首：新增 '+(d.tasks_created||0)+'，曲库已有 '+(d.library_reused||0)+'，队列已有 '+(d.active_reused||0));await renderLivePlaza()}catch(e){toast(e.message)}}
+const _manageTab=manageTab;
+manageTab=async function(id,btn){document.querySelectorAll('.download-nav button').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');const c=document.getElementById('manage-content');if(id==='tasks'){c.innerHTML='<div class="push-banner">读取任务…</div>';const rows=await refreshTasks();if(window.__activeManageTab==='tasks')c.innerHTML=renderTasks(rows)}else if(id==='search'){c.innerHTML='<div class="panel"><div class="panel-head"><h3>音乐搜索与下载</h3><button class="btn line" onclick="showImportLink()">导入歌单链接</button></div><div style="padding:16px;display:flex;gap:8px"><input id="lx-keyword" style="flex:1;border:1px solid var(--line);border-radius:8px;padding:9px" placeholder="搜索歌曲、歌手" onkeydown="if(event.key===\'Enter\')searchLX()"><button class="btn primary" onclick="searchLX()">搜索</button></div><div style="padding:0 16px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><input id="lx-source-file" type="file" accept=".js,application/javascript"><button class="btn" onclick="importLXSource()">导入落雪音源</button><span id="source-state"></span></div><div class="table-wrap"><table><thead><tr><th>歌曲</th><th>专辑</th><th>平台</th><th>状态</th><th>操作</th></tr></thead><tbody id="lx-results"><tr><td colspan="5">输入关键词后同时搜索网易云与 QQ 音乐</td></tr></tbody></table></div></div>';showSources()}else if(id==='playlists'){c.innerHTML='<div class="panel"><div class="panel-head"><h3>歌单下载</h3><button class="btn primary" onclick="showImportLink()">解析歌单链接</button></div><div class="push-banner" style="margin:16px">支持网易云、QQ 音乐公开歌单链接。解析后会展示真实歌曲、封面和去重结果。</div></div>'}else if(id==='library'){try{const d=await api('/api/library/scan',{method:'POST'});c.innerHTML='<div class="panel"><div class="panel-head"><h3>正式曲库</h3><button class="btn primary" onclick="manageTab(\'library\',this)">扫描曲库</button></div><div style="padding:30px">扫描完成：发现 '+d.count+' 个音频文件，新增 '+d.new+' 个记录。下载任务会按文件哈希去重。</div></div>'}catch(e){c.innerHTML='<div class="push-banner">'+esc(e.message)+'</div>'}}else if(id==='push'){c.innerHTML='<div class="panel"><div class="panel-head"><h3>飞牛音乐同步</h3><button class="btn" onclick="loadFnosPanel()">重新探测</button></div><div style="padding:18px"><div id="fnos-state" class="push-banner">准备探测…</div><div class="detail-actions"><button class="btn primary" onclick="syncFavorites()">同步收藏并转正</button><button class="btn" onclick="runAutoSync()">立即运行自动同步</button></div><p style="color:var(--muted)">日推只在线读取；收藏或试听失败才入库。歌单首次推送后会订阅来源，每 30 分钟自动同步歌曲和封面。</p><div id="subscription-list"></div></div></div>';loadFnosPanel()}else if(id==='failed'){const rows=await refreshTasks();if(window.__activeManageTab==='failed')c.innerHTML=renderTasks(rows.filter(x=>String(x.status).includes('failed')))}else{_manageTab(id,btn)}};
+const _liveManageTab=manageTab;
+manageTab=async function(id,btn){
+  if(id==='push'){
+    document.querySelectorAll('.download-nav button').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');
+    const c=document.getElementById('manage-content');
+    c.innerHTML='<div class="panel"><div class="panel-head"><h3>飞牛音乐推送与定时管理</h3><button class="btn" onclick="loadFnosPanel()">重新探测</button></div><div style="padding:18px"><div id="fnos-state" class="push-banner">准备探测…</div><div class="detail-actions"><button class="btn primary" onclick="syncFavorites()">同步收藏并转正</button><button class="btn" onclick="runAutoSync()">执行所有到期规则</button></div><p style="color:var(--muted)">日推默认只在线展示，需要在日推详情中主动开启每日或每周更新；排行榜建议每周更新；普通歌单建议每天更新。下方每条规则都可暂停、恢复、改周期、立即执行或取消。</p><div id="subscription-list"></div></div></div>';
+    loadFnosPanel();return;
+  }
+  if(id!=='library')return _liveManageTab(id,btn);
+  document.querySelectorAll('.download-nav button').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');
+  const c=document.getElementById('manage-content');c.innerHTML='<div class="push-banner">正在增量建立曲库文件索引，扫描期间其他功能可以继续使用…</div>';
+  try{const d=await api('/api/library/scan',{method:'POST'});c.innerHTML='<div class="panel"><div class="panel-head"><h3>正式曲库</h3><button class="btn primary" onclick="manageTab(\'library\',this)">增量扫描</button></div><div style="padding:30px">扫描完成：发现 '+d.count+' 个正式库音频；本次读取 '+d.indexed+' 个，跳过 '+d.skipped+' 个未变化文件，清理 '+d.removed+' 个失效记录。下载前会按歌名、歌手和时长去重，新文件再做完整哈希校验。</div></div>'}catch(e){c.innerHTML='<div class="push-banner">'+esc(e.message)+'</div>'}
+};
+const _loadLiveData=loadLiveData;loadLiveData=async function(){
+  await _loadLiveData();
+  try{const rows=await api('/api/accounts');for(const card of document.querySelectorAll('.platform-card')){const provider=card.classList.contains('qq')?'qq':'netease';const account=rows.find(x=>x.provider===provider);const connected=account?.status==='connected';const tag=card.querySelector('.platform-head .tag');tag.textContent=connected?'已连接':account?.status==='expired'?'已过期':'未连接';tag.className='tag '+(connected?'green':'orange');const items=card.querySelectorAll('.platform-item');if(items[0])items[0].querySelector('span').textContent=connected?'点击读取账号实时日推':'连接账号后读取实时日推';if(items[1]){items[1].onclick=()=>openMyPlaylists(provider);items[1].querySelector('span').textContent=connected?'点击读取账号歌单':'连接账号后读取我的歌单'}}}catch(e){}
+  await Promise.all([renderLivePlaza(),loadPlazaCategories()])
+};
+let plazaProvider='all',plazaCategory='',plazaPage=0,plazaCategoryGroups=[];
+function installDiscoveryUI(){
+  const switcher=document.querySelector('.switcher');
+  if(switcher&&!document.getElementById('charts-nav')){const button=document.createElement('button');button.id='charts-nav';button.textContent='排行榜';button.onclick=()=>{switchWs('charts',button);renderCharts()};switcher.insertBefore(button,switcher.children[1])}
+  const manage=document.getElementById('ws-manage');
+  if(manage&&!document.getElementById('ws-charts'))manage.insertAdjacentHTML('beforebegin','<section class="workspace" id="ws-charts"><div class="section-head"><div><h2>双平台排行榜</h2><p style="margin:3px 0 0;color:var(--muted);font-size:12px">网易云音乐与 QQ 音乐分别展示，点击榜单可查看真实歌曲并下载或推送</p></div><button class="btn" onclick="reloadCharts()">刷新榜单</button></div><div class="chart-columns"><section class="chart-platform netease"><div class="chart-platform-head"><span class="platform-mark">N</span><div><h3>网易云音乐排行榜</h3><p>实时榜单</p></div></div><div id="chart-grid-netease" class="chart-grid"><div class="push-banner">正在读取网易云排行榜…</div></div><div id="chart-pages-netease" class="plaza-pages"></div></section><section class="chart-platform qq"><div class="chart-platform-head"><span class="platform-mark">Q</span><div><h3>QQ 音乐排行榜</h3><p>实时榜单</p></div></div><div id="chart-grid-qq" class="chart-grid"><div class="push-banner">正在读取 QQ 音乐排行榜…</div></div><div id="chart-pages-qq" class="plaza-pages"></div></section></div></section>');
+  const toolbar=document.querySelector('.plaza-toolbar');
+  if(toolbar){toolbar.innerHTML='<div class="plaza-platforms"><button class="plaza-filter on" onclick="setPlazaProvider(\'all\',this)">全部平台</button><button class="plaza-filter" onclick="setPlazaProvider(\'netease\',this)">网易云音乐</button><button class="plaza-filter" onclick="setPlazaProvider(\'qq\',this)">QQ 音乐</button></div><button class="btn line" id="plaza-category-button" onclick="togglePlazaCategories()">全部分类 ▾</button><input placeholder="搜索当前页歌单名称或作者" oninput="searchPlaza(this.value)">';toolbar.insertAdjacentHTML('afterend','<div id="plaza-category-panel" class="category-panel" hidden><div class="push-banner">正在读取平台分类…</div></div>')}
+  const grid=document.querySelector('.plaza-grid');
+  if(grid&&!document.getElementById('plaza-pages'))grid.insertAdjacentHTML('afterend','<div id="plaza-pages" class="plaza-pages"><button class="btn" id="plaza-prev" onclick="changePlazaPage(-1)">上一页</button><span id="plaza-page-label">第 1 页</span><button class="btn primary" id="plaza-next" onclick="changePlazaPage(1)">下一页</button></div>');
+  const style=document.createElement('style');style.textContent='.account-entry{white-space:nowrap}.chart-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.chart-platform{min-width:0;background:#fff;border:1px solid var(--line);border-top:3px solid #e84d63;border-radius:8px;padding:16px}.chart-platform.qq{border-top-color:#24a565}.chart-platform-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}.chart-platform-head h3{font-size:16px;margin:0}.chart-platform-head p{font-size:11px;color:var(--muted);margin:1px 0 0}.chart-grid{display:grid;grid-template-columns:1fr;gap:10px}.chart-card{display:grid;grid-template-columns:72px 1fr;gap:12px;background:#fafbfe;border:1px solid var(--line);border-radius:8px;padding:12px;cursor:pointer;min-width:0}.chart-card:hover{border-color:#9bbcff}.chart-cover{width:72px;height:72px;border-radius:7px;background:#eef1f6 center/cover no-repeat}.chart-card h3{font-size:13px;margin:0 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chart-track{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.plaza-platforms{display:flex;gap:8px}.category-panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:10px 0 16px}.category-row{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid #f0f1f5}.category-row:last-child{border-bottom:0}.category-row>b{font-size:12px;color:var(--muted);padding-top:6px}.category-items{display:flex;gap:7px;flex-wrap:wrap}.category-items button{background:#f4f5f8;color:#596579;padding:6px 10px;border-radius:6px;font-size:12px}.category-items button.on{background:var(--blue);color:#fff}.plaza-pages{display:flex;justify-content:center;align-items:center;gap:14px;margin:20px 0}.plaza-pages span{font-size:12px;color:var(--muted)}.btn:disabled{opacity:.45;cursor:not-allowed}@media(max-width:1000px){.chart-columns{grid-template-columns:1fr}}@media(max-width:720px){.chart-grid{grid-template-columns:1fr}.plaza-platforms{width:100%;overflow:auto}.category-row{grid-template-columns:1fr}.category-row>b{padding-top:0}.account-entry{padding:8px}.topbar{overflow-x:auto}}';document.head.appendChild(style);
+}
+const chartState={netease:{items:[],page:0},qq:{items:[],page:0}};const chartPageSize=8;
+async function renderCharts(force=false){
+  const providers=['netease','qq'];await Promise.all(providers.map(async provider=>{const state=chartState[provider];if(!force&&state.items.length){renderChartProvider(provider);return}const grid=document.getElementById('chart-grid-'+provider);if(grid)grid.innerHTML='<div class="push-banner">正在读取排行榜…</div>';try{const d=await api('/api/charts?provider='+provider);state.items=d.items||[];state.page=0;renderChartProvider(provider)}catch(e){if(grid)grid.innerHTML='<div class="push-banner">'+esc(e.message)+'</div>'}}));
+}
+function renderChartProvider(provider){const state=chartState[provider],grid=document.getElementById('chart-grid-'+provider),pages=document.getElementById('chart-pages-'+provider);if(!grid)return;const start=state.page*chartPageSize,items=state.items.slice(start,start+chartPageSize);grid.innerHTML=items.length?items.map((x,i)=>'<article class="chart-card" onclick="openChart(\''+provider+'\','+(start+i)+')"><div class="chart-cover" style="background-image:url(\''+esc(x.cover_url||'')+'\')"></div><div><h3>'+esc(x.title)+'</h3>'+(x.tracks||[]).slice(0,3).map((s,n)=>'<div class="chart-track">'+(n+1)+'. '+esc(s.title)+' · '+esc(s.artist)+'</div>').join('')+'</div></article>').join(''):'<div class="push-banner">没有读取到榜单</div>';if(pages){const total=Math.max(1,Math.ceil(state.items.length/chartPageSize));pages.innerHTML='<button class="btn" '+(state.page===0?'disabled':'')+' onclick="changeChartPage(\''+provider+'\',-1)">上一页</button><span>第 '+(state.page+1)+' / '+total+' 页 · 共 '+state.items.length+' 个榜单</span><button class="btn primary" '+(state.page>=total-1?'disabled':'')+' onclick="changeChartPage(\''+provider+'\',1)">下一页</button>'}}
+function changeChartPage(provider,delta){const state=chartState[provider],total=Math.max(1,Math.ceil(state.items.length/chartPageSize));state.page=Math.min(total-1,Math.max(0,state.page+delta));renderChartProvider(provider);document.getElementById('chart-grid-'+provider)?.scrollIntoView({behavior:'smooth',block:'start'})}
+function reloadCharts(){chartState.netease.items=[];chartState.qq.items=[];renderCharts(true)}
+async function openChart(provider,i){const x=chartState[provider].items[i];if(!x)return;try{const d=await api('/api/charts/'+x.provider+'/'+encodeURIComponent(x.chart_id));livePlaza.push({...x,playlist_id:d.playlist_id});await openExternalPlaylist(livePlaza.length-1)}catch(e){toast(e.message)}}
+renderLivePlaza=async function(){
+  const grid=document.querySelector('.plaza-grid');if(!grid)return;grid.innerHTML='<div class="push-banner" style="grid-column:1/-1">正在读取第 '+(plazaPage+1)+' 页歌单…</div>';
+  const providers=plazaProvider==='all'?['netease','qq']:[plazaProvider],pageSize=plazaProvider==='all'?9:18;
+  const results=await Promise.allSettled(providers.map(p=>api('/api/plaza?provider='+p+'&category='+encodeURIComponent(plazaCategory)+'&offset='+(plazaPage*pageSize)+'&limit='+pageSize)));
+  livePlaza=results.flatMap(x=>x.status==='fulfilled'?(x.value.items||[]):[]);
+  grid.innerHTML=livePlaza.length?livePlaza.map((x,i)=>'<div class="pl-card plaza-card" data-platform="'+esc(x.provider)+'" data-search="'+esc(x.title)+' '+esc(x.owner)+'"><div class="pl-cover" style="'+(x.cover_url?'background-image:url(\''+esc(x.cover_url)+'\');background-size:cover;background-position:center':'')+'">'+(x.cover_url?'':'♫')+'<span class="pl-badge">'+(x.provider==='qq'?'QQ 音乐':'网易云音乐')+'</span></div><h3>'+esc(x.title||'未命名歌单')+'</h3><p>'+Number(x.item_count||0)+' 首 · '+esc(x.owner||'公开歌单')+'</p><button class="btn line plaza-action" onclick="openExternalPlaylist('+i+')">查看歌单</button><button class="btn primary plaza-action" onclick="importAndPush('+i+')">推送到飞牛</button></div>').join(''):'<div class="push-banner" style="grid-column:1/-1">这一页没有歌单，请更换分类或返回上一页。</div>';
+  const label=document.getElementById('plaza-page-label');if(label)label.textContent='第 '+(plazaPage+1)+' 页 · 当前 '+livePlaza.length+' 个歌单';const prev=document.getElementById('plaza-prev');if(prev)prev.disabled=plazaPage===0;const next=document.getElementById('plaza-next');if(next)next.disabled=!results.some(x=>x.status==='fulfilled'&&(x.value.items||[]).length===pageSize);document.body.classList.add('live-ready');
+};
+async function loadPlazaCategories(){
+  if(plazaProvider==='netease_exclusive'||plazaProvider==='netease_radar'||plazaProvider==='for_you'){plazaCategoryGroups=[];renderPlazaCategories();return}
+  const providers=plazaProvider==='all'?['netease','qq']:[plazaProvider];
+  const results=await Promise.allSettled(providers.map(p=>api('/api/plaza/categories?provider='+p)));
+  const merged=new Map();for(const result of results){if(result.status!=='fulfilled')continue;for(const group of result.value.groups||[]){const groupName={'风格':'流派','情感':'心情'}[group.name]||group.name;if(!merged.has(groupName))merged.set(groupName,new Map());for(const item of group.items||[]){const value=plazaProvider==='all'?item.name:(item.id||item.name);merged.get(groupName).set(item.name,{name:item.name,value})}}}
+  plazaCategoryGroups=[...merged].map(([name,items])=>({name,items:[...items.values()]}));renderPlazaCategories();
+}
+function renderPlazaCategories(){const panel=document.getElementById('plaza-category-panel');if(!panel)return;panel.innerHTML='<div class="category-row"><b>默认</b><div class="category-items"><button class="'+(!plazaCategory?'on':'')+'" onclick="setPlazaCategory(\'\',\'全部分类\')">全部分类</button></div></div>'+plazaCategoryGroups.map(group=>'<div class="category-row"><b>'+esc(group.name)+'</b><div class="category-items">'+group.items.map(item=>'<button class="'+(plazaCategory===item.value?'on':'')+'" onclick="setPlazaCategory(decodeURIComponent(\''+encodeURIComponent(item.value)+'\'),decodeURIComponent(\''+encodeURIComponent(item.name)+'\'))">'+esc(item.name)+'</button>').join('')+'</div></div>').join('')}
+function togglePlazaCategories(){const panel=document.getElementById('plaza-category-panel');if(panel)panel.hidden=!panel.hidden}
+function setPlazaProvider(provider,button){plazaProvider=provider;plazaCategory='';plazaPage=0;document.querySelectorAll('.plaza-platforms .plaza-filter').forEach(x=>x.classList.remove('on'));button.classList.add('on');const label=document.getElementById('plaza-category-button');if(label)label.textContent='全部分类 ▾';loadPlazaCategories();renderLivePlaza()}
+function setPlazaCategory(category,label){plazaCategory=category;plazaPage=0;const button=document.getElementById('plaza-category-button');if(button)button.textContent=(label||'全部分类')+' ▾';renderPlazaCategories();renderLivePlaza()}
+function changePlazaPage(delta){if(plazaPage+delta<0)return;plazaPage+=delta;renderLivePlaza();document.querySelector('.section-head h2')?.scrollIntoView({behavior:'smooth',block:'start'})}
+startQQQr=async function(loginType='qq'){
+  const pollToken=++qqQrPollToken,startedAt=Date.now(),label=loginType==='wx'?'微信':'QQ';
+  try{const d=await api('/api/accounts/qq/qr/key?login_type='+loginType);let box=document.getElementById('qq-qr-box');if(!box){box=document.createElement('div');box.id='qq-qr-box';box.className='push-banner';document.getElementById('account-state').before(box)}box.innerHTML='<b>'+label+'扫码登录 QQ 音乐</b><br><img style="width:180px;height:180px;display:block;margin:10px 0" src="'+d.content+'"><span>请使用'+label+'扫码，页面会自动检测</span>';const poll=async()=>{if(pollToken!==qqQrPollToken)return;if(Date.now()-startedAt>300000){box.textContent='二维码已过期，请重新获取';return}try{const s=await api('/api/accounts/qq/qr/check?login_type='+loginType+'&key='+encodeURIComponent(d.key));if(s.status===4){box.textContent=label+'登录成功';loadLiveData();openAccounts();return}if(s.status===0){box.textContent='二维码已过期，请重新获取';return}}catch(e){box.textContent='扫码请求失败：'+(e?.message||'上游服务错误');toast(e?.message||'扫码请求失败');return}setTimeout(poll,3000)};setTimeout(poll,1500)}catch(e){toast(e.message)}
+};
+addQrButton=function(){const rows=document.querySelectorAll('#account-modal .set-row label');if(rows[0]&&!document.getElementById('netease-qr-btn')){const b=document.createElement('button');b.id='netease-qr-btn';b.className='btn line';b.textContent='网易云扫码';b.onclick=startNeteaseQr;rows[0].appendChild(b)}if(rows[1]&&!document.getElementById('qq-qr-btn')){const b=document.createElement('button');b.id='qq-qr-btn';b.className='btn line';b.textContent='QQ 登录';b.onclick=()=>startQQQr('qq');rows[1].appendChild(b)}if(rows[1]&&!document.getElementById('qq-wx-qr-btn')){const b=document.createElement('button');b.id='qq-wx-qr-btn';b.className='btn line';b.textContent='微信登录';b.onclick=()=>startQQQr('wx');rows[1].appendChild(b)}};
+installDiscoveryUI();const _loadDiscovery=loadLiveData;loadLiveData=async function(){await _loadDiscovery();await renderCharts()};loadLiveData();
+// Surface QR polling errors instead of silently retrying forever.
+const _startNeteaseQrVisible=startNeteaseQr;startNeteaseQr=async function(){try{return await _startNeteaseQrVisible()}catch(e){toast(e?.message||'网易云扫码请求失败');throw e}};
+document.querySelector('.player-info b').textContent='尚未播放';document.querySelector('.player-info span').textContent='从日推或搜索结果开始试听';document.querySelector('.player>span').textContent='00:00 / 00:00';document.querySelector('.now h3').textContent='尚未播放';document.querySelector('.now small:last-of-type').textContent='选择一首歌曲开始试听';
+document.querySelector('.section-head a').onclick=()=>{switchWs('manage',document.querySelectorAll('.switcher button')[2]);manageTab('sources',[...document.querySelectorAll('.download-nav button')].find(b=>b.textContent.includes('音源管理')))};const globalSearch=document.querySelector('.top-search');globalSearch.addEventListener('keydown',e=>{if(e.key==='Enter'&&globalSearch.value.trim()){switchWs('manage',document.querySelectorAll('.switcher button')[2]);manageTab('search',document.querySelectorAll('.download-nav button')[1]);setTimeout(()=>{document.getElementById('lx-keyword').value=globalSearch.value;searchLX()},0)}});
+
+/* v28: visible download actions and first-class fnOS push lifecycle management. */
+document.title='FnMusic Flow';
+const v28Style=document.createElement('style');v28Style.textContent=`
+.btn,.download-nav button,.switcher button{transition:transform .12s ease,box-shadow .12s ease,opacity .12s ease}
+button.click-feedback{transform:scale(.96);box-shadow:0 0 0 3px #3578f622}
+.btn.is-busy{opacity:.72;pointer-events:none}
+.download-main .table-wrap th:last-child,.download-main .table-wrap td:last-child{position:sticky;right:0;z-index:3;background:#fff;box-shadow:-8px 0 12px #26324a0a}
+.download-main .table-wrap th:last-child{z-index:4;background:#fafbfe;min-width:150px}
+#lx-results td:last-child{min-width:165px}.push-manager-tabs{display:flex;gap:8px;margin:18px 0 12px}.push-manager-tabs .on{background:var(--ink);color:#fff}
+.push-target-list{display:grid;gap:12px}.push-target{border:1px solid var(--line);border-radius:8px;padding:16px;background:#fff}.push-target-head{display:flex;gap:12px;align-items:center}.push-target-cover{width:50px;height:50px;border-radius:7px;background:#eef2f8 center/cover no-repeat;display:grid;place-items:center;color:var(--blue);font-weight:800;flex:0 0 auto}.push-target-title{min-width:0;flex:1}.push-target-title b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.push-target-title small{display:block;color:var(--muted);margin-top:3px}.push-target-form{display:grid;grid-template-columns:1fr 1.25fr 1.25fr;gap:10px;margin-top:14px}.push-field{display:grid;gap:5px}.push-field span{font-size:11px;color:var(--muted)}.push-field input,.push-field select{width:100%;border:1px solid var(--line);border-radius:7px;padding:8px;background:#fff;min-width:0}.push-target-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.push-history-table td{white-space:normal}.push-history-detail{max-width:360px;color:var(--muted);font-size:12px}.push-policy{display:flex;align-items:end;gap:8px;flex-wrap:wrap;border-left:3px solid var(--blue);padding:8px 10px;background:#f6f9ff}.push-policy label{display:grid;gap:3px;font-size:11px;color:var(--muted)}.push-policy select,.push-policy input{border:1px solid var(--line);border-radius:7px;padding:7px;background:#fff}.empty-state{padding:34px;text-align:center;color:var(--muted)}
+@media(max-width:820px){.push-target-form{grid-template-columns:1fr}.download-main .table-wrap{margin-right:0}.download-main .table-wrap table{min-width:720px}.push-target-head{align-items:flex-start}}
+`;document.head.appendChild(v28Style);
+
+document.addEventListener('click',event=>{const button=event.target.closest('button');if(!button||button.disabled)return;button.classList.add('click-feedback');setTimeout(()=>button.classList.remove('click-feedback'),260)},true);
+async function withBusy(button,label,operation){if(button?.disabled)return;const old=button?.textContent;if(button){button.disabled=true;button.classList.add('is-busy');button.textContent=label}try{return await operation()}finally{if(button){button.disabled=false;button.classList.remove('is-busy');button.textContent=old}}}
+function localInputValue(value){if(!value)return'';const d=new Date(String(value).replace(' ','T')+'Z');if(Number.isNaN(d.getTime()))return'';const local=new Date(d.getTime()-d.getTimezoneOffset()*60000);return local.toISOString().slice(0,16)}
+function statusLabel(value){return({active:'当前推送',scheduled:'已预约',cancelled:'已取消',expired:'已到期'})[value]||esc(value)}
+function actionLabel(value){return({push:'首次推送',repush:'重新推送',scheduled_push:'预约推送',schedule:'设置预约',settings:'修改设置',cancel:'取消推送',expire:'到期停止',auto_sync:'自动更新'})[value]||esc(value)}
+function policyMarkup(prefix){return '<div class="push-policy"><label>保留时长<select id="'+prefix+'-retention" onchange="toggleCustomExpiry(\''+prefix+'\')"><option value="permanent">常驻</option><option value="1d">1 天后停止</option><option value="7d">7 天后停止</option><option value="custom">自定义到期</option></select></label><label id="'+prefix+'-expiry-wrap" hidden>到期时间<input id="'+prefix+'-expiry" type="datetime-local"></label></div>'}
+function toggleCustomExpiry(prefix){const custom=document.getElementById(prefix+'-retention')?.value==='custom';const wrap=document.getElementById(prefix+'-expiry-wrap');if(wrap)wrap.hidden=!custom}
+function readPolicy(prefix){const retention=document.getElementById(prefix+'-retention')?.value||'permanent',expiry=document.getElementById(prefix+'-expiry')?.value||null;if(retention==='custom'&&!expiry)throw Error('请选择自定义到期时间');return{retention_mode:retention,expires_at:expiry}}
+function installDetailPolicy(prefix){const toolbar=document.querySelector('#detail-modal .detail-toolbar');if(toolbar&&!document.getElementById(prefix+'-retention'))toolbar.insertAdjacentHTML('afterbegin',policyMarkup(prefix))}
+const v28OpenExternalPlaylist=openExternalPlaylist;openExternalPlaylist=async function(i){const result=await v28OpenExternalPlaylist(i);installDetailPolicy('playlist');return result};
+const v28OpenDaily=openDaily;openDaily=async function(provider){await v28OpenDaily(provider);installDetailPolicy('daily')};
+pushCurrentPlaylist=async function(options={auto_sync:false}){const d=window.currentPlaylist;if(!d?.id){toast('请先读取歌单详情');return}const button=window.event?.currentTarget;return withBusy(button,'正在提交…',async()=>{try{const policy=readPolicy('playlist');await ensureFnosReady();const r=await api('/api/fnos/playlists/'+d.id+'/push',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({download_missing:true,...policy,...options})});const total=Number((r&&r.total)||0);if(r&&r.status==='running'){toast('已开始后台推送 '+total+' 首，已切到「飞牛推送」面板查看实时进度');try{switchWs('manage',document.querySelectorAll('.switcher button')[3]);manageTab('push',document.querySelectorAll('.download-nav button')[4])}catch(_){ /* 已在面板则无碍 */ }}else{const q=r.queue||{},f=r.result||{};toast('飞牛已同步 '+(f.matched||0)+' 首，新增下载 '+(q.tasks_created||0)+' 首'+(r.subscribed?'，自动更新已开启':'，已记录到推送管理'))}return r}catch(e){toast(e.message);throw e}})};
+pushDailyToFnos=async function(autoSync=false){const provider=window.dailyProvider;if(!provider)return;const button=window.event?.currentTarget,value=Number(document.getElementById('daily-sync-interval')?.value||1440),schedule_time=document.getElementById('daily-sync-time')?.value||'06:00';return withBusy(button,'正在推送…',async()=>{try{const policy=readPolicy('daily');await ensureFnosReady();const r=await api('/api/fnos/daily/'+provider+'/push',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({auto_sync:autoSync,interval_minutes:value,schedule_time,download_missing:true,...policy})});toast(autoSync?'日推已推送并开启'+intervalLabel(value)+'更新（'+schedule_time+' 开始，未更新每 30 分钟重试）':'日推已完成单次推送，可在飞牛同步中管理');return r}catch(e){toast(e.message);throw e}})};
+
+let pushTargets=[],pushHistory=[],pushManagerTab='current';
+function renderPushTarget(x,historyMode=false){const cover=x.cover_url?'style="background-image:url(\''+esc(x.cover_url)+'\')"':'',ret=x.retention_mode||'permanent',inactive=['expired','cancelled'].includes(x.status);return '<article class="push-target" data-target-id="'+x.id+'"><div class="push-target-head"><div class="push-target-cover" '+cover+'>'+(x.cover_url?'':(x.provider==='qq'?'Q':'N'))+'</div><div class="push-target-title"><b>'+esc(x.target_title)+'</b><small>'+(x.provider==='qq'?'QQ 音乐':'网易云音乐')+' · '+({daily:'日推',chart:'排行榜',playlist:'歌单'}[x.kind]||x.kind)+' · '+statusLabel(x.status)+'</small></div><span class="tag '+(x.status==='active'?'green':x.status==='scheduled'?'blue':'orange')+'">'+statusLabel(x.status)+'</span></div><div class="push-target-form"><label class="push-field"><span>有效期</span><select class="target-retention" onchange="targetRetentionChanged(this)"><option value="permanent" '+(ret==='permanent'?'selected':'')+'>常驻</option><option value="1d" '+(ret==='1d'?'selected':'')+'>1 天</option><option value="7d" '+(ret==='7d'?'selected':'')+'>7 天</option><option value="custom" '+(ret==='custom'?'selected':'')+'>自定义</option></select></label><label class="push-field target-expiry" '+(ret==='custom'?'':'hidden')+'><span>到期时间</span><input type="datetime-local" value="'+localInputValue(x.expires_at)+'"></label><label class="push-field"><span>预约推送时间</span><input class="target-schedule" type="datetime-local" value="'+localInputValue(x.scheduled_push_at)+'"></label></div><div class="push-target-form"><label class="push-field"><span>自动更新</span><select class="target-auto"><option value="0" '+(!x.auto_sync?'selected':'')+'>关闭</option><option value="1" '+(x.auto_sync?'selected':'')+'>开启</option></select></label><label class="push-field"><span>更新周期</span><select class="target-interval"><option value="1440" '+(Number(x.interval_minutes||0)===1440?'selected':'')+'>每天</option><option value="10080" '+(Number(x.interval_minutes||0)===10080?'selected':'')+'>每周</option><option value="43200" '+(Number(x.interval_minutes||0)===43200?'selected':'')+'>每月</option></select></label><div class="push-field"><span>最近推送</span><b>'+esc(x.last_pushed_at||'尚未成功')+'</b></div></div>'+(x.last_error?'<div class="push-banner" style="color:var(--red)">'+esc(x.last_error)+'</div>':'')+'<div class="push-target-actions"><button class="btn primary" onclick="savePushTarget('+x.id+',this)">保存设置</button><button class="btn" onclick="repushTarget('+x.id+',this)">'+(inactive?'重新推送':'立即推送')+'</button><button class="btn" onclick="scheduleTarget('+x.id+',this)">按预约时间推送</button>'+(!inactive?'<button class="btn line" onclick="cancelPushTarget('+x.id+',this)">取消并删除飞牛歌单</button>':'')+'</div></article>'}
+function targetRetentionChanged(select){const card=select.closest('.push-target'),field=card?.querySelector('.target-expiry');if(field)field.hidden=select.value!=='custom'}
+function targetPayload(card,includeSchedule=false){const retention=card.querySelector('.target-retention').value,expires=card.querySelector('.target-expiry input')?.value||null,scheduled=card.querySelector('.target-schedule')?.value||null;if(retention==='custom'&&!expires)throw Error('请选择自定义到期时间');if(includeSchedule&&!scheduled)throw Error('请选择未来的预约推送时间');return{retention_mode:retention,expires_at:expires,scheduled_push_at:includeSchedule?scheduled:null,auto_sync:card.querySelector('.target-auto').value==='1',interval_minutes:Number(card.querySelector('.target-interval').value)}}
+async function savePushTarget(id,button){const card=button.closest('.push-target');return withBusy(button,'正在保存…',async()=>{try{const payload=targetPayload(card,false);delete payload.scheduled_push_at;await api('/api/fnos/push-targets/'+id,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});toast('歌单推送设置已保存');await loadPushManager()}catch(e){toast(e.message)}})}
+async function repushTarget(id,button){const card=button.closest('.push-target');return withBusy(button,'正在推送…',async()=>{try{await ensureFnosReady();const payload=targetPayload(card,false);delete payload.scheduled_push_at;const d=await api('/api/fnos/push-targets/'+id+'/repush',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});toast('已重新推送到飞牛音乐，匹配 '+Number(d.result?.matched||0)+' 首');await loadPushManager()}catch(e){toast(e.message)}})}
+async function scheduleTarget(id,button){const card=button.closest('.push-target');return withBusy(button,'正在预约…',async()=>{try{const payload=targetPayload(card,true);await api('/api/fnos/push-targets/'+id+'/repush',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});toast('预约推送时间已保存');await loadPushManager()}catch(e){toast(e.message)}})}
+async function cancelPushTarget(id,button){return withBusy(button,'正在取消…',async()=>{try{await api('/api/fnos/push-targets/'+id+'/cancel',{method:'POST'});toast('已停止同步并删除飞牛歌单，记录已进入历史，可随时恢复');await loadPushManager()}catch(e){toast(e.message)}})}
+function showPushManagerTab(tab,button){pushManagerTab=tab;document.querySelectorAll('.push-manager-tabs button').forEach(x=>x.classList.remove('on'));button?.classList.add('on');renderPushManagerContent()}
+function renderPushManagerContent(){const box=document.getElementById('push-manager-content');if(!box)return;if(pushManagerTab==='current'){const rows=pushTargets.filter(x=>['active','scheduled'].includes(x.status));box.innerHTML=rows.length?'<div class="push-target-list">'+rows.map(x=>renderPushTarget(x)).join('')+'</div>':'<div class="empty-state">当前没有正在推送或已预约的歌单。请从日推、排行榜或歌单详情中发起推送。</div>';return}const inactive=pushTargets.filter(x=>['expired','cancelled'].includes(x.status));box.innerHTML=(inactive.length?'<h3>已到期或已取消</h3><div class="push-target-list">'+inactive.map(x=>renderPushTarget(x,true)).join('')+'</div>':'')+'<h3 style="margin-top:22px">全部操作历史</h3><div class="table-wrap push-history-table"><table><thead><tr><th>时间</th><th>歌单</th><th>操作</th><th>结果</th><th>详情</th></tr></thead><tbody>'+(pushHistory.length?pushHistory.map(x=>'<tr><td>'+esc(x.created_at)+'</td><td><b>'+esc(x.target_title)+'</b><br><small>'+(x.provider==='qq'?'QQ 音乐':'网易云音乐')+'</small></td><td>'+actionLabel(x.action)+'</td><td><span class="tag '+(x.status==='success'?'green':'red')+'">'+esc(x.status)+'</span></td><td class="push-history-detail">'+esc(x.detail||'—')+'</td></tr>').join(''):'<tr><td colspan="5">暂无操作历史</td></tr>')+'</tbody></table></div>'}
+async function loadPushManager(){const content=document.getElementById('push-manager-content');if(content)content.innerHTML='<div class="push-banner">正在读取每个推送歌单及历史…</div>';try{[pushTargets,pushHistory]=await Promise.all([api('/api/fnos/push-targets'),api('/api/fnos/push-history?limit=500')]);renderPushManagerContent()}catch(e){if(content)content.innerHTML='<div class="push-banner" style="color:var(--red)">'+esc(e.message)+'</div>'}}
+loadFnosPanel=async function(){const box=document.getElementById('fnos-state');if(!box)return;box.textContent='正在探测飞牛音乐连接…';try{let d=await api('/api/fnos/probe');if(['token_missing','expired'].includes(d.status)){try{d=await api('/api/fnos/config/session',{method:'POST'})}catch{}}const text={ready:'已连接，可以执行真实写入',token_missing:'未检测到有效凭据（token 可能已被飞牛侧清除）——请在“飞牛同步”中点「重新绑定飞牛账号」',expired:'凭据已失效——请在“飞牛同步”中点「重新绑定飞牛账号」',socket_missing:'容器未挂载飞牛音乐接口',error:'连接异常'}[d.status]||d.status;box.innerHTML='<b>飞牛连接：</b>'+esc(text)+(d.account?' · '+esc(d.account.name||d.account.username||'账号已验证'):'')+(d.detail?' · '+esc(d.detail):'');await loadPushManager()}catch(e){box.textContent=e.message}};
+const v28ManageBase=manageTab;manageTab=async function(id,btn){if(id==='push'){document.querySelectorAll('.download-nav button').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');document.getElementById('manage-content').innerHTML='<div class="panel"><div class="panel-head"><div><h3>飞牛同步管理</h3><small style="color:var(--muted)">管理每一个已推送歌单的有效期、自动更新和预约</small></div><button class="btn" onclick="loadFnosPanel()">刷新状态</button></div><div style="padding:18px"><div id="fnos-state" class="push-banner">准备探测…</div><div class="detail-actions"><button class="btn primary" onclick="syncFavorites()">同步飞牛收藏并转正</button><button class="btn" onclick="runAutoSync()">执行到期与自动更新任务</button></div><div class="push-manager-tabs"><button class="btn on" onclick="showPushManagerTab(\'current\',this)">当前推送</button><button class="btn" onclick="showPushManagerTab(\'history\',this)">历史记录</button></div><div id="push-manager-content"></div></div></div>';await loadFnosPanel();return}if(id==='history'){document.querySelectorAll('.download-nav button').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');const rows=(await refreshTasks()).filter(x=>x.status==='archived');document.getElementById('manage-content').innerHTML=renderTasks(rows).replace('真实下载任务','下载历史');toast('已加载 '+rows.length+' 条已完成记录');return}return v28ManageBase(id,btn)};
+openFnosManager=function(btn){document.querySelectorAll('.switcher button').forEach(x=>x.classList.remove('on'));btn?.classList.add('on');document.querySelectorAll('.workspace').forEach(x=>x.classList.remove('on'));document.getElementById('ws-manage').classList.add('on');const pushButton=[...document.querySelectorAll('.download-nav button')].find(x=>x.textContent.includes('飞牛推送'));manageTab('push',pushButton)};
+const historyButton=[...document.querySelectorAll('.download-nav button')].find(x=>x.textContent.includes('下载历史'));if(historyButton)historyButton.onclick=()=>manageTab('history',historyButton);
+const sourceManagerLink=document.querySelector('#ws-listen .section-head a');if(sourceManagerLink)sourceManagerLink.onclick=()=>{switchWs('manage',document.querySelectorAll('.switcher button')[2]);manageTab('search',document.querySelectorAll('.download-nav button')[1]);toast('已打开音源与下载管理')};
+const favoriteButton=[...document.querySelectorAll('#ws-listen button')].find(x=>x.textContent.trim()==='我的收藏');if(favoriteButton)favoriteButton.onclick=async()=>{switchWs('manage',document.querySelectorAll('.switcher button')[2]);const rows=(await refreshTasks()).filter(x=>x.task_type==='favorite');document.getElementById('manage-content').innerHTML=renderTasks(rows).replace('真实下载任务','收藏入库记录');toast('已加载 '+rows.length+' 条收藏记录')};
+const playerButtons=document.querySelectorAll('.player-actions button');if(playerButtons[0])playerButtons[0].onclick=()=>toast('当前播放队列没有上一首');if(playerButtons[2])playerButtons[2].onclick=()=>toast('当前播放队列没有下一首');
+const nowButtons=document.querySelectorAll('.now .controls button');if(nowButtons[0])nowButtons[0].onclick=()=>toast('当前播放队列没有上一首');if(nowButtons[1])nowButtons[1].onclick=()=>toast('请先从日推、排行榜或搜索结果选择歌曲');if(nowButtons[2])nowButtons[2].onclick=()=>toast('当前播放队列没有下一首');
+/* 2026-10-01（1.3.2）：原 :nth-of-type(2) 选择器按 div 计数误选中「管理来源」并把它覆盖成广场翻页，
+   「管理来源」因此点了没反应。查看全部的分页绑定统一由下方按文本匹配的 v28ViewAll 完成。 */
+const v28PolishStyle=document.createElement('style');v28PolishStyle.textContent=`
+.push-target-form{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.push-field input:read-only{background:#f7f8fa;color:var(--muted)}
+@media(max-width:820px){.topbar{height:62px;padding:0 10px;overflow:hidden}.brand{font-size:16px;white-space:nowrap;flex:0 0 auto}.switcher{min-width:0;overflow-x:auto;scrollbar-width:none}.switcher::-webkit-scrollbar{display:none}.switcher button{flex:0 0 auto;white-space:nowrap}.account-entry{flex:0 0 auto}.download-nav{display:flex;overflow-x:auto;gap:5px;padding:8px;scrollbar-width:none}.download-nav h4{display:none}.download-nav button{width:auto;flex:0 0 auto;white-space:nowrap}.set-row{align-items:flex-start;flex-direction:column}.metric-row{margin-top:4px}}
+`;document.head.appendChild(v28PolishStyle);
+function displayTime(value){if(!value)return'尚未成功';const d=new Date(String(value).replace(' ','T')+'Z');return Number.isNaN(d.getTime())?String(value):d.toLocaleString('zh-CN',{hour12:false})}
+const v28BaseRenderPushTarget=renderPushTarget;renderPushTarget=function(x,historyMode=false){let html=v28BaseRenderPushTarget(x,historyMode),ret=x.retention_mode||'permanent';html=html.replace(esc(x.last_pushed_at||'尚未成功'),esc(displayTime(x.last_pushed_at)));html=html.replace('<span>到期时间</span><input type="datetime-local"','<span>到期时间'+(ret==='custom'?'':'（自动计算）')+'</span><input type="datetime-local" '+(ret==='custom'?'':'readonly') );return html};
+targetRetentionChanged=function(select){const card=select.closest('.push-target'),input=card?.querySelector('.target-expiry input'),label=card?.querySelector('.target-expiry span');if(input)input.readOnly=select.value!=='custom';if(label)label.textContent='到期时间'+(select.value==='custom'?'':'（自动计算）')};
+const v28BaseRenderPushManager=renderPushManagerContent;renderPushManagerContent=function(){const original=pushHistory;if(pushManagerTab==='history')pushHistory=original.map(x=>({...x,created_at:displayTime(x.created_at)}));try{return v28BaseRenderPushManager()}finally{pushHistory=original}};
+const v28BaseManageTab=manageTab;manageTab=async function(id,btn){if(id==='push')await refreshTasks();return v28BaseManageTab(id,btn)};
+openFnosManager=function(btn){document.querySelectorAll('.switcher button').forEach(x=>x.classList.remove('on'));btn?.classList.add('on');document.querySelectorAll('.workspace').forEach(x=>x.classList.remove('on'));document.getElementById('ws-manage').classList.add('on');const pushButton=[...document.querySelectorAll('.download-nav button')].find(x=>x.textContent.includes('飞牛推送'));manageTab('push',pushButton)};
+const v28ViewAll=[...document.querySelectorAll('#ws-listen .section-head a')].find(x=>x.textContent.trim()==='查看全部');if(v28ViewAll)v28ViewAll.onclick=()=>changePlazaPage(1);
+</script>
+<script>
+/* Long-lived fnOS session login. The password is sent only to the local API and is never stored. */
+const _fnosLoginBase = loadFnosPanel;
+function ensureFnosLoginControls() {
+  const state = document.getElementById('fnos-state');
+  if (!state || document.getElementById('fnos-account-login')) return;
+  const row = document.createElement('div');
+  row.id = 'fnos-account-login';
+  row.className = 'set-row';
+  // 2026-09-30（1.0.10）：界面纠偏。
+  // 背景：磁盘 token 的行会被飞牛侧「物理删除」（用户重新登录/换设备），
+  // 这不是过期。真正可用的修复入口是「重新绑定」——从飞牛库按白名单
+  // 自动捞最新且实测可用的 token。而「借登录（账号密码）」在 bridge 网络下
+  // 结构性不可用（必报 missing Connection header），过去却排在第一位，
+  // 把用户引向了死路。现在把「重新绑定」提为主操作，「借登录」折叠降级。
+  row.innerHTML =
+    '<span><b>飞牛账号连接</b>' +
+    '<small style="display:block;color:var(--muted)">本应用使用飞牛音乐在本机的登录凭据，无需账号密码；凭据失效（如重新登录飞牛音乐）后约 2 分钟内自动恢复。</small>' +
+    '<small id="fnos-login-result" style="display:block;margin-top:5px;color:var(--muted)">尚未检查连接</small></span>' +
+    '<label style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">' +
+    '<button class="btn primary" onclick="rebindFnos(this)">自动绑定</button>' +
+    '<button class="btn" onclick="checkFnosAutomaticSession(this)">检查连接</button>' +
+    '</label>' +
+    '<div id="fnos-candidates" style="margin-top:10px"></div>' +
+    '<details style="margin-top:8px"><summary style="cursor:pointer;color:var(--muted);font-size:12px">高级：手动粘贴 token（一般无需使用）</summary>' +
+    '<label style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">' +
+    '<input id="fnos-token" type="password" autocomplete="off" placeholder="粘贴飞牛音乐 token">' +
+    '<button class="btn" onclick="saveFnosToken()">验证并保存</button></label></details>';
+  state.parentElement.insertBefore(row, state.parentElement.children[1] || null);
+  api('/api/fnos/session').then(session => {
+    const result = document.getElementById('fnos-login-result');
+    if (!result) return;
+    const who = session.account?.name ? ' · 当前账号：' + session.account.name : '';
+    if (session.probe === 'ready') {
+      result.style.color = 'var(--green)';
+      result.textContent = '连接正常，可以执行真实写入' + who;
+    } else if (session.probe === 'token_missing') {
+      result.style.color = 'var(--amber,#d97706)';
+      result.textContent = '未检测到有效凭据（token 可能已被飞牛侧清除）——点「重新绑定飞牛账号」即可恢复';
+    } else if (session.probe === 'expired') {
+      result.style.color = 'var(--amber,#d97706)';
+      result.textContent = '凭据已失效——点「重新绑定飞牛账号」即可恢复';
+    } else if (session.probe) {
+      result.style.color = 'var(--red)';
+      result.textContent = '连接异常：' + (session.detail || session.probe);
+    }
+  }).catch(() => {});
+}
+// 账号候选（社区版 1.3.0）：列出本机飞牛账号；单账号自动绑定，多账号用户点选，
+// 从根上避免「自愈选错人」。零候选时给两步指引（先登录飞牛音乐 → 回来刷新）。
+async function loadFnosCandidates() {
+  const box = document.getElementById('fnos-candidates');
+  if (!box) return;
+  try {
+    const d = await api('/api/fnos/candidates');
+    const items = d.items || [];
+    if (!items.length) {
+      box.innerHTML = '<small style="color:var(--amber,#d97706);display:block;line-height:1.6">' +
+        '本机飞牛音乐还没有登录会话，暂时无法绑定：<br>' +
+        '① 打开飞牛音乐（网页或 APP）用你的账号登录一次<br>' +
+        '② 回到这里点「检查连接」，应用会自动完成绑定</small>';
+      return;
+    }
+    const chip = a => {
+      const flags = [a.role || '', a.access_mode ? '权限:' + a.access_mode : ''];
+      if (a.writable === false) flags.push('无写权限');
+      if (a.token_alive === false) flags.push('凭据已失效');
+      const locked = String(d.locked_account || '') === String(a.name).toLowerCase() ? '（当前绑定）' : '';
+      return '<span style="display:inline-flex;gap:6px;align-items:center;background:#f6f7fb;border:1px solid var(--line);border-radius:99px;padding:3px 9px;font-size:12px">' +
+        '<b>' + esc(a.name) + locked + '</b><span style="color:var(--muted)">' + esc(flags.filter(Boolean).join(' · ')) + '</span>' +
+        '<button class="btn mini-op" onclick="bindFnosAccount(\'' + esc(a.name).replace(/'/g, '') + '\')">绑定</button></span>';
+    };
+    const hint = items.length > 1 ? '<small style="display:block;color:var(--muted);margin-bottom:5px">检测到本机多个飞牛账号，请绑定你自己的：</small>' : '';
+    const chips = items.map(chip).join(' ');
+    box.innerHTML = hint + chips;
+  } catch (e) { box.innerHTML = ''; }
+}
+async function bindFnosAccount(name) {
+  const result = document.getElementById('fnos-login-result');
+  if (result) { result.style.color = 'var(--blue)'; result.textContent = '正在绑定账号 ' + name + '…'; }
+  try {
+    const d = await api('/api/fnos/rebind', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({account: name})});
+    if (result) {
+      result.style.color = 'var(--green)';
+      result.textContent = '已绑定 ' + name + (d.can_write_playlist === false ? '（⚠️ 该账号无写歌单权限）' : '');
+    }
+    toast('已绑定飞牛账号：' + name);
+    await loadFnosPanel();
+  } catch (e) {
+    if (result) { result.style.color = 'var(--red)'; result.textContent = '绑定失败：' + e.message; }
+    toast('绑定失败：' + e.message);
+  }
+}
+// 一键重新绑定：调用后端 /api/fnos/rebind（白名单感知，自动挑实测可用的 token）
+async function rebindFnos(button) {
+  const result = document.getElementById('fnos-login-result');
+  if (result) { result.style.color = 'var(--blue)'; result.textContent = '正在重新绑定飞牛账号…'; }
+  return withBusy(button, '绑定中…', async () => {
+    try {
+      const d = await api('/api/fnos/rebind', {method: 'POST'});
+      const who = d.account?.name ? ' · 账号：' + d.account.name : '';
+      const canWrite = d.can_write_playlist === false ? '（⚠️ 该账号无写歌单权限）' : '';
+      if (result) {
+        result.style.color = 'var(--green)';
+        result.textContent = (d.action === 'healthy' ? '连接本来就是正常的，已确认' : '重新绑定成功') + who + canWrite;
+      }
+      toast(d.action === 'healthy' ? '飞牛账号连接正常' : '飞牛账号已重新绑定');
+      await loadFnosPanel();
+      return true;
+    } catch (e) {
+      if (result) { result.style.color = 'var(--red)'; result.textContent = '重新绑定失败：' + e.message; }
+      toast('重新绑定失败：' + e.message);
+      return false;
+    }
+  });
+}
+async function checkFnosAutomaticSession(button) {
+  return withBusy(button, '检查中…', async () => {
+    try {
+      let session = await api('/api/fnos/session');
+      // 检查即顺手自愈：发现 token 失效直接重绑，避免用户多点一次
+      if (session.probe !== 'ready') {
+        const d = await api('/api/fnos/rebind', {method: 'POST'});
+        session = await api('/api/fnos/session');
+        const who = d.account?.name ? ' · 当前账号：' + d.account.name : '';
+        const result = document.getElementById('fnos-login-result');
+        if (result) { result.style.color = 'var(--green)'; result.textContent = '已自动重新绑定' + who; }
+        toast('检测到凭据失效，已自动重新绑定');
+        await loadFnosPanel();
+        return true;
+      }
+      const result = document.getElementById('fnos-login-result');
+      if (result) { result.style.color = 'var(--green)'; result.textContent = '连接正常，可以执行真实写入' + (session.account?.name ? ' · 当前账号：' + session.account.name : ''); }
+      toast('飞牛音乐连接正常');
+    } catch (e) { toast(e.message); }
+  });
+}
+// 2026-10-01（1.3.0）：账号密码「借登录」UI 已整体移除——该路径在当前部署
+// 架构下结构性不可用（必报 missing Connection header），只会误导论坛用户。
+// 绑定统一走「自动绑定 / 账号候选点选」（/api/fnos/rebind + /api/fnos/candidates）。
+loadFnosPanel = async function() { await _fnosLoginBase(); ensureFnosLoginControls(); loadFnosCandidates(); };
+document.addEventListener('click', event => {
+  if (event.target.closest('.fnos-nav')) setTimeout(ensureFnosLoginControls, 0);
+}, true);
+</script>
+<script>
+/* Task center v29: filter by state, expose the actual last failure, and bulk retry. */
+let taskCenterFilter = 'active';
+function taskStatusLabel(status) {
+  return ({pending:'等待中',matching:'匹配音源',downloading:'下载中',archived:'下载成功',failed_final:'下载失败',paused:'已暂停',cancelled:'已取消'}[status] || status || '未知');
+}
+function taskRowsForFilter(rows) {
+  if (taskCenterFilter === 'active') return rows.filter(x => ['pending','matching','downloading','paused'].includes(x.status));
+  if (taskCenterFilter === 'success') return rows.filter(x => x.status === 'archived');
+  if (taskCenterFilter === 'failed') return rows.filter(x => x.status === 'failed_final' || x.status === 'cancelled');
+  return rows;
+}
+function fmtBytes(n, suffix) {
+  const value = Number(n || 0);
+  if (value >= 1048576) return (value / 1048576).toFixed(1) + ' MB' + (suffix || '');
+  if (value >= 1024) return (value / 1024).toFixed(0) + ' KB' + (suffix || '');
+  return value + ' B' + (suffix || '');
+}
+function taskStatusTag(status) {
+  const cls = status === 'archived' ? 'green' : (status === 'failed_final' ? 'red' : (status === 'paused' || status === 'cancelled' ? 'orange' : 'blue'));
+  return '<span class="tag ' + cls + '">' + taskStatusLabel(status) + '</span>';
+}
+function taskProgressCell(x) {
+  if (x.status === 'archived') return '<span style="color:var(--green)">完成</span>';
+  const done = Number(x.progress_bytes || 0), total = Number(x.total_bytes || 0);
+  if (total > 0) {
+    const pct = Math.min(100, Math.round(done * 100 / total));
+    return '<div class="pbar"><i style="width:' + pct + '%"></i></div><small style="color:var(--muted)">' + pct + '% · ' + fmtBytes(done) + ' / ' + fmtBytes(total) + '</small>';
+  }
+  if (x.status === 'downloading') return '<small style="color:var(--muted)">' + (done ? fmtBytes(done) + '…' : '解析中…') + '</small>';
+  return '<span style="color:var(--muted)">—</span>';
+}
+function taskSpeedCell(x) {
+  const speed = Number(x.speed_bytes || 0);
+  return (x.status === 'downloading' && speed > 0) ? fmtBytes(speed, '/s') : '';
+}
+const __taskSel = new Set();
+function taskOpButtons(x) {
+  const id = x.id, s = x.status;
+  const op = (label, fn, primary) => '<button class="btn mini-op' + (primary ? ' primary' : '') + '" onclick="' + fn + '(' + id + ')">' + label + '</button>';
+  let html = '';
+  if (['pending','matching','downloading'].includes(s)) html += op('暂停', 'taskPause');
+  if (s === 'paused') html += op('恢复', 'taskResume');
+  if (['pending','matching','downloading','paused'].includes(s)) html += op('取消', 'taskCancel');
+  if (['failed_final','cancelled'].includes(s)) html += op('重试', 'taskRetry', true);
+  if (['pending','paused','failed_final','cancelled','archived'].includes(s)) html += op('删除', 'taskDelete');
+  return html;
+}
+async function taskAction(endpoint, id) {
+  try { await api('/api/tasks/' + id + '/' + endpoint, {method: 'POST'}); await manageTab('tasks', document.querySelector('.download-nav button')); }
+  catch (e) { toast(e.message); }
+}
+function taskPause(id){ return taskAction('pause', id); }
+function taskResume(id){ return taskAction('resume', id); }
+function taskCancel(id){ return taskAction('cancel', id); }
+function taskRetry(id){ return taskAction('retry', id); }
+async function taskDelete(id) {
+  try { await api('/api/tasks/' + id, {method: 'DELETE'}); await manageTab('tasks', document.querySelector('.download-nav button')); }
+  catch (e) { toast(e.message); }
+}
+function taskToggleSel(id, checked) { if (checked) __taskSel.add(id); else __taskSel.delete(id); }
+function taskToggleAll(checked) {
+  document.querySelectorAll('#task-tbody input[type=checkbox]').forEach(box => { box.checked = checked; taskToggleSel(Number(box.dataset.id), checked); });
+}
+async function taskBatch(action) {
+  const ids = [...__taskSel];
+  if (!ids.length) return toast('请先勾选任务');
+  try {
+    const d = await api('/api/tasks/batch', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action, ids})});
+    __taskSel.clear();
+    toast('批量' + ({pause:'暂停',resume:'恢复',cancel:'取消',retry:'重试',delete:'删除'}[action] || action) + '完成：' + Number(d.affected || 0) + ' 条' + (d.errors && d.errors.length ? '（' + d.errors.length + ' 条未生效）' : ''));
+    await manageTab('tasks', document.querySelector('.download-nav button'));
+  } catch (e) { toast(e.message); }
+}
+async function taskClearArchived() {
+  const ids = (window.__taskRows || []).filter(x => x.status === 'archived').map(x => x.id);
+  if (!ids.length) return toast('没有已完成记录');
+  __taskSel.clear();
+  try {
+    const d = await api('/api/tasks/batch', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'delete', ids})});
+    toast('已清除 ' + Number(d.affected || 0) + ' 条已完成记录（不影响已入库音频）');
+    await manageTab('tasks', document.querySelector('.download-nav button'));
+  } catch (e) { toast(e.message); }
+}
+async function taskCleanupParts() {
+  try { const d = await api('/api/tasks/cleanup-parts', {method: 'POST'}); toast('已清理 ' + Number(d.deleted || 0) + ' 个 .part 半截文件'); }
+  catch (e) { toast(e.message); }
+}
+function renderTasks(rows) {
+  window.__taskRows = rows || [];
+  const filtered = taskRowsForFilter(rows);
+  const counts = {
+    all: rows.length,
+    active: rows.filter(x => ['pending','matching','downloading','paused'].includes(x.status)).length,
+    success: rows.filter(x => x.status === 'archived').length,
+    failed: rows.filter(x => x.status === 'failed_final' || x.status === 'cancelled').length,
+  };
+  const tabs = [['all','全部'],['active','进行中'],['success','下载成功'],['failed','失败/取消']].map(([key,label]) => '<button class="btn '+(taskCenterFilter===key?'primary':'line')+'" onclick="setTaskCenterFilter(\''+key+'\')">'+label+' <span class="tag">'+counts[key]+'</span></button>').join('');
+  const failure = x => x.error || x.last_attempt_detail || '';
+  const summary = window.taskSummary;
+  const diagnostics = summary && summary.failed_reasons?.length ? '<div class="push-banner" style="margin:10px 12px 0"><b>失败诊断：</b>'+summary.failed_reasons.map(x=>esc(x.reason)+' '+Number(x.count)+' 个').join(' · ')+'</div>' : '';
+  const head = '<tr><th style="width:26px"><input type="checkbox" onchange="taskToggleAll(this.checked)"></th><th>歌曲</th><th>状态</th><th>进度</th><th>速度</th><th>来源</th><th>失败原因</th><th style="width:200px">操作</th></tr>';
+  const body = filtered.map(x =>
+    '<tr><td><input type="checkbox" ' + (__taskSel.has(x.id) ? 'checked' : '') + ' data-id="' + x.id + '" onchange="taskToggleSel(' + x.id + ', this.checked)"></td>' +
+    '<td><b>' + esc(x.title) + '</b><br><small style="color:var(--muted)">' + esc(x.artist) + '</small></td>' +
+    '<td>' + taskStatusTag(x.status) + '</td>' +
+    '<td style="white-space:normal;min-width:120px">' + taskProgressCell(x) + '</td>' +
+    '<td>' + taskSpeedCell(x) + '</td>' +
+    '<td>' + esc(x.source_name || '等待匹配') + '</td>' +
+    '<td class="task-error" title="' + esc(failure(x) || x.cover_error || '') + '">' + esc(taskFailureSummary(failure(x) || x.cover_error)) + '</td>' +
+    '<td style="white-space:normal">' + taskOpButtons(x) + '</td></tr>').join('');
+  const toolbar = '<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line)">' +
+    '<span style="font-size:12px;color:var(--muted)">已选 <b>' + __taskSel.size + '</b> 条</span>' +
+    '<button class="btn mini-op" onclick="taskBatch(\'pause\')">批量暂停</button>' +
+    '<button class="btn mini-op" onclick="taskBatch(\'resume\')">批量恢复</button>' +
+    '<button class="btn mini-op" onclick="taskBatch(\'cancel\')">批量取消</button>' +
+    '<button class="btn mini-op" onclick="taskBatch(\'retry\')">批量重试</button>' +
+    '<button class="btn mini-op" onclick="taskBatch(\'delete\')">批量删除</button>' +
+    '<button class="btn mini-op" onclick="taskClearArchived()">清除已完成</button>' +
+    '<button class="btn mini-op" onclick="taskCleanupParts()">清理 .part</button>' +
+    '<span style="margin-left:auto;font-size:11px;color:var(--muted)">删除任务/记录不会动已入库音频</span></div>';
+  return '<div class="panel"><div class="panel-head"><div><h3>下载任务</h3><small style="color:var(--muted)">音频、标签和封面全部校验通过后才会显示为下载成功</small></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="manageTab(\'tasks\',document.querySelector(\'.download-nav button\'))">刷新</button><button class="btn '+(counts.failed?'primary':'')+'" '+(counts.failed?'':'disabled')+' onclick="retryAllFailed()">全部失败重新下载</button></div></div>'+diagnostics+'<div class="tabs">'+tabs+'</div>'+toolbar+'<div class="table-wrap"><table><thead>'+head+'</thead><tbody id="task-tbody">'+(filtered.length?body:'<tr><td colspan="8">当前分栏没有任务</td></tr>')+'</tbody></table></div></div>';
+}
+function taskFailureSummary(value) {
+  const text = String(value || '');
+  const reasons = [];
+  if (/403 Forbidden/i.test(text)) reasons.push('音源拒绝请求（403），该歌曲 ID 或音源授权不可用');
+  if (/尚未配置可用音源|没有音源能解析/i.test(text)) reasons.push('尚未配置可用音源，请到「音源管理」导入自备音源');
+  if (/invalid_audio|trial_snippet/i.test(text)) reasons.push('下载内容不是完整音频或只是试听片段');
+  if (/network:/i.test(text)) reasons.push('下载网络请求失败');
+  if (/too_small/i.test(text)) reasons.push('下载文件过小，已判定为无效文件');
+  if (/artwork_failed|cover_not_found/i.test(text)) reasons.push('没有找到可用的歌曲或专辑封面，文件未进入正式曲库');
+  if (/cover_verification_failed/i.test(text)) reasons.push('封面写入后回读校验失败，文件未进入正式曲库');
+  if (!reasons.length && /all_sources_failed/i.test(text)) reasons.push('所有音源均未返回可用下载地址（历史任务未保存更详细原因）');
+  return reasons.length ? [...new Set(reasons)].join('；') : (text || '未记录具体原因');
+}
+// 2026-10-01（1.3.0）：v29 旧版 renderTasks 已移除——任务渲染唯一实现在上方（高密度：进度/速度/行内操作/批量）。
+function setTaskCenterFilter(filter) { taskCenterFilter = filter; manageTab('tasks', document.querySelector('.download-nav button')); }
+async function retryAllFailed() {
+  try { const d = await api('/api/tasks/retry-failed', {method:'POST'}); toast('已重新排队 '+Number(d.count||0)+' 个失败任务'); taskCenterFilter='failed'; await manageTab('tasks', document.querySelector('.download-nav button')); }
+  catch (e) { toast(e.message); }
+}
+const _v29ManageTab = manageTab;
+manageTab = async function(id, btn) {
+  if (id === 'failed') taskCenterFilter = 'failed';
+  if (id === 'tasks' && taskCenterFilter === undefined) taskCenterFilter = 'all';
+  return _v29ManageTab(id === 'failed' ? 'tasks' : id, btn);
+};
+/* 2026-10-01（1.3.0）：借登录包装层随「账号密码登录」UI 一并移除（结构性不可用，死路）。 */
+const v30Style = document.createElement('style');
+v30Style.textContent = `
+.task-error{white-space:normal;min-width:180px;max-width:360px;overflow-wrap:anywhere;line-height:1.4;font-size:11.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pbar{width:92px;height:5px;background:#e7eaf0;border-radius:9px;display:inline-block;vertical-align:middle;margin-right:6px}
+.pbar i{display:block;height:100%;background:var(--blue);border-radius:9px}
+.mini-op{padding:2px 8px;font-size:11px;border-radius:6px;font-weight:600;margin:1px 0}
+.mini-op.primary{background:var(--blue);color:#fff}
+#task-tbody input[type=checkbox]{vertical-align:middle}
+@media(max-width:820px){
+  .topbar{height:auto;min-height:62px;padding:9px 10px;display:flex;flex-wrap:wrap;overflow:visible}
+  .brand{flex:1 1 auto}.account-entry{flex:0 0 auto}
+  .switcher{order:3;width:100%;overflow-x:auto}.switcher button{flex:1 0 auto}
+  .task-error{min-width:280px;max-width:340px}
+}
+`;
+document.head.appendChild(v30Style);
+</script>
+<script>
+/* v30 account clarity: each platform reports its own durable login state. */
+function platformAccountName(provider) { return provider === 'qq' ? 'QQ 音乐' : '网易云音乐'; }
+function enhanceAccountRows() {
+  const rows = document.querySelectorAll('#account-modal .set-row');
+  [['netease', rows[0]], ['qq', rows[1]]].forEach(([provider, row]) => {
+    if (!row) return;
+    row.dataset.provider = provider;
+    const title = row.querySelector('b');
+    if (title && !row.querySelector('.platform-login-status')) {
+      title.insertAdjacentHTML('afterend', '<small class="platform-login-status" style="display:block;margin-top:4px;color:var(--muted)">正在检查登录状态…</small>');
+    }
+    const input = row.querySelector('input');
+    if (input) {
+      input.type = 'password';
+      input.autocomplete = 'off';
+      input.placeholder = provider === 'qq' ? 'Cookie 登录（扫码不可用时使用）' : 'Cookie 登录（扫码不可用时使用）';
+      input.setAttribute('aria-label', platformAccountName(provider) + ' Cookie');
+    }
+    const save = [...row.querySelectorAll('button')].find(button => button.textContent.includes('保存连接'));
+    if (save) save.textContent = '验证并保存 Cookie';
+  });
+}
+function renderPlatformAccountStatus(rows) {
+  const list = Array.isArray(rows) ? rows : [];
+  for (const provider of ['netease', 'qq']) {
+    const account = list.find(item => item.provider === provider);
+    const status = document.querySelector('#account-modal .set-row[data-provider="' + provider + '"] .platform-login-status');
+    if (!status) continue;
+    const connected = account?.status === 'connected';
+    status.style.color = connected ? 'var(--green)' : account?.status === 'expired' ? 'var(--red)' : 'var(--muted)';
+    status.textContent = connected
+      ? '已登录，连接信息已保存' + (account.display_name ? ' · ' + account.display_name : '')
+      : account?.status === 'expired' ? '登录已失效，请重新扫码或保存 Cookie' : '未登录，请选择扫码登录或 Cookie 登录';
+  }
+  const summary = document.getElementById('account-state');
+  if (summary) {
+    const connectedCount = list.filter(item => item.status === 'connected').length;
+    summary.innerHTML = '<b>账号连接：</b>' + connectedCount + '/2 个平台已登录。登录成功后会保存会话，用于日推和“我的歌单”。';
+  }
+}
+window.openAccounts = async function() {
+  document.getElementById('account-modal').classList.add('show');
+  addQrButton();
+  enhanceAccountRows();
+  const summary = document.getElementById('account-state');
+  if (summary) summary.textContent = '正在检查两个平台的登录状态…';
+  try { renderPlatformAccountStatus(await api('/api/accounts')); }
+  catch (error) {
+    if (summary) summary.textContent = '账号状态读取失败：' + error.message;
+  }
+};
+window.saveAccount = async function(provider) {
+  const status = document.querySelector('#account-modal .set-row[data-provider="' + provider + '"] .platform-login-status');
+  if (status) { status.style.color = 'var(--blue)'; status.textContent = '正在验证并保存连接…'; }
+  try {
+    const cookie = document.getElementById(provider + '-cookie')?.value.trim();
+    if (!cookie) throw Error('请粘贴 ' + platformAccountName(provider) + ' Cookie，或使用扫码登录');
+    await api('/api/accounts/' + provider + '/connect', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({cookie})
+    });
+    if (status) { status.style.color = 'var(--green)'; status.textContent = '登录成功，连接信息已保存'; }
+    toast(platformAccountName(provider) + '登录成功，连接已保存');
+    document.getElementById(provider + '-cookie').value = '';
+    await loadLiveData();
+    renderPlatformAccountStatus(await api('/api/accounts'));
+  } catch (error) {
+    if (status) { status.style.color = 'var(--red)'; status.textContent = '保存失败：' + error.message; }
+    toast(error.message);
+  }
+};
+/* Preserve the user's latest download-center selection when an earlier async
+   panel load finishes later and temporarily replaces the content. */
+const _v30ManageTab = window.manageTab;
+window.manageTab = async function(id, button) {
+  window.__activeManageTab = id;
+  return _v30ManageTab(id, button);
+};
+</script>
+<style>
+.push-run{margin-top:12px;padding:11px 12px;border:1px solid #dce5f5;border-radius:7px;background:#f8faff}.push-run-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.push-run-head b{font-size:13px}.push-run-count{font-variant-numeric:tabular-nums;color:var(--blue);font-weight:800}.push-run-bar{height:6px;margin:8px 0;background:#e8edf5;border-radius:3px;overflow:hidden}.push-run-bar i{display:block;height:100%;background:var(--blue);transition:width .25s}.push-run-times{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:11px}.push-run.partial{border-color:#f0c4c8;background:#fff8f8}.push-run.completed{border-color:#bfe5d0;background:#f6fcf8}.push-run.completed .push-run-bar i{background:var(--green)}.push-run.cancelled{border-color:#d8dee9;background:#f6f7f9}.push-run.cancelled .push-run-count{color:var(--muted)}.push-run.cancelled .push-run-bar i{background:#c3cbd6}
+</style>
+<script>
+const _v31RenderPushTarget = window.renderPushTarget;
+window.renderPushTarget = function(x, historyMode=false) {
+  let html = _v31RenderPushTarget(x, historyMode);
+  const stageNames = {matching:'匹配曲库',downloading:'下载缺失歌曲',indexing:'等待飞牛索引',repushing:'补推并回读',retry_wait:'等待重试',completed:'全部进入歌单',partial:'部分完成',cancelled:'已取消'};
+  const total = Number(x.run_total || 0), matched = Number(x.run_matched || 0);
+  const percent = total ? Math.min(100, Math.round(matched * 100 / total)) : 0;
+  const duration = x.run_duration_seconds == null ? '进行中' : (Number(x.run_duration_seconds) < 60 ? Number(x.run_duration_seconds).toFixed(1)+' 秒' : (Number(x.run_duration_seconds)/60).toFixed(1)+' 分钟');
+  const panel = '<div class="push-run '+esc(x.run_status||'idle')+'"><div class="push-run-head"><b>'+esc(stageNames[x.run_stage]||'尚未运行')+'</b><span class="push-run-count">'+matched+' / '+total+' 首已进入</span></div><div class="push-run-bar"><i style="width:'+percent+'%"></i></div><div class="push-run-times"><span>开始：'+esc(displayTime(x.run_started_at))+'</span><span>完成：'+esc(x.run_completed_at?displayTime(x.run_completed_at):'尚未完成')+'</span><span>耗时：'+esc(duration)+'</span><span>补推：'+Number(x.run_attempts||0)+' 次</span></div></div>';
+  return html.replace('<div class="push-target-form">', panel+'<div class="push-target-form">');
+};
+const _v31ActionLabel = window.actionLabel;
+window.actionLabel = function(value) {
+  return ({pipeline_complete:'全量完成',pipeline_partial:'闭环超时'})[value] || _v31ActionLabel(value);
+};
+const _v31ManageTab = window.manageTab;
+window.manageTab = async function(id, button) {
+  clearInterval(window.__pushPipelinePoll);
+  const result = await _v31ManageTab(id, button);
+  if (id === 'push') {
+    window.__pushPipelinePoll = setInterval(() => {
+      if (window.__activeManageTab === 'push' && !document.hidden) loadPushManager();
+    }, 2500);
+  }
+  return result;
+};
+/* v33: append newly downloaded tracks to the existing fnOS playlist. */
+window.appendCurrentPlaylist = async function(button) {
+  const playlist = window.currentPlaylist;
+  if (!playlist?.id) { toast('请先打开歌单详情'); return; }
+  return withBusy(button, '正在补录…', async () => {
+    try {
+      await ensureFnosReady();
+      const result = await api('/api/fnos/playlists/' + playlist.id + '/append', {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({download_missing: true})
+      });
+      const detail = result.result || {};
+      const queue = result.queue || {};
+      toast('已补录到原歌单：新增 ' + Number(detail.added || 0) + ' 首，新增下载 ' + Number(queue.tasks_created || 0) + ' 首');
+      return result;
+    } catch (error) { toast(error.message); throw error; }
+  });
+};
+
+const _v33OpenExternalPlaylist = window.openExternalPlaylist;
+window.openExternalPlaylist = async function(index) {
+  const result = await _v33OpenExternalPlaylist(index);
+  const toolbar = document.querySelector('#detail-modal .detail-toolbar');
+  if (toolbar && !document.getElementById('playlist-append')) {
+    const button = document.createElement('button');
+    button.id = 'playlist-append';
+    button.className = 'btn primary';
+    button.textContent = '一键补录到原歌单';
+    button.title = '只补录新增歌曲，不创建新的飞牛歌单';
+    button.onclick = () => window.appendCurrentPlaylist(button);
+    const anchor = toolbar.querySelector('#playlist-enqueue') || toolbar.firstElementChild;
+    anchor?.insertAdjacentElement('afterend', button);
+  }
+  return result;
+};
+
+const _v33RenderPushTarget = window.renderPushTarget;
+window.renderPushTarget = function(target, historyMode=false) {
+  let html = _v33RenderPushTarget(target, historyMode);
+  if (target.fnos_guid && target.playlist_row_id && !historyMode) {
+    const button = '<button class="btn primary" onclick="appendTargetPlaylist(' + Number(target.playlist_row_id) + ',this)">一键补录</button>';
+    html = html.replace('</div></article>', button + '</div></article>');
+  }
+  return html;
+};
+
+window.appendTargetPlaylist = async function(playlistRowId, button) {
+  return withBusy(button, '正在补录…', async () => {
+    try {
+      await ensureFnosReady();
+      const result = await api('/api/fnos/playlists/' + playlistRowId + '/append', {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({download_missing: true})
+      });
+      const detail = result.result || {}, queue = result.queue || {};
+      toast('原歌单已补录：新增 ' + Number(detail.added || 0) + ' 首，新增下载 ' + Number(queue.tasks_created || 0) + ' 首');
+      await loadPushManager();
+      return result;
+    } catch (error) { toast(error.message); throw error; }
+  });
+};
+
+/* v34: per-track push diagnostics and stable background refresh. */
+const pushItemCache = {};
+const openPushItemTargets = new Set();
+const v34Style = document.createElement('style');
+v34Style.textContent = `.push-diagnostics{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}.push-diagnostics>div:not([hidden]){margin-top:10px}.push-item-summary{display:flex;gap:12px;align-items:center;padding:10px 12px;background:#fff7e8;border:1px solid #f0d49b;border-radius:7px}.push-item-summary span{color:var(--muted);font-size:12px}.push-item-table{margin-top:8px;max-height:380px;overflow:auto;border:1px solid var(--line);border-radius:7px}.push-item-table table{min-width:720px}.push-item-reason{white-space:normal;min-width:310px;line-height:1.45}`;
+document.head.appendChild(v34Style);
+function pushItemStatusLabel(status) {
+  return ({pushed:'已进入飞牛歌单',ready_to_append:'等待补录',fnos_match_failed:'飞牛匹配失败',
+    download_failed:'下载失败',downloading:'下载处理中',not_downloaded:'尚未下载'})[status] || status;
+}
+function pushItemStatusClass(status) {
+  return status === 'pushed' ? 'green' : ['download_failed','fnos_match_failed'].includes(status) ? 'red' : 'orange';
+}
+function renderPushItemDetails(data) {
+  const rows = (data?.items || []).filter(item => item.status !== 'pushed');
+  if (!data?.total) return '<div class="push-banner">尚未生成逐曲状态。点击“一键补录”后会记录每首歌曲的结果。</div>';
+  if (!rows.length) return '<div class="push-banner"><b>全部完成：</b>所有歌曲均已进入这个飞牛歌单。</div>';
+  return '<div class="push-item-summary"><b>未完成 '+rows.length+' 首</b><span>逐首显示当前阶段与原因</span></div>'+
+    '<div class="table-wrap push-item-table"><table><thead><tr><th>#</th><th>歌曲</th><th>状态</th><th>原因</th></tr></thead><tbody>'+
+    rows.map(item => '<tr><td>'+(Number(item.position||0)+1)+'</td><td><b>'+esc(item.title)+'</b><br><small>'+esc(item.artist||'未知歌手')+'</small></td><td><span class="tag '+pushItemStatusClass(item.status)+'">'+esc(pushItemStatusLabel(item.status))+'</span></td><td class="push-item-reason">'+esc(item.reason||'等待后台检查')+'</td></tr>').join('')+
+    '</tbody></table></div>';
+}
+window.togglePushDetails = async function(targetId, button) {
+  const box = document.getElementById('push-items-' + targetId);
+  if (!box) return;
+  if (openPushItemTargets.has(targetId)) {
+    openPushItemTargets.delete(targetId); box.hidden = true; button.textContent = '查看未完成歌曲'; return;
+  }
+  openPushItemTargets.add(targetId); box.hidden = false; button.textContent = '收起歌曲明细';
+  box.innerHTML = '<div class="push-banner">正在读取逐曲推送结果…</div>';
+  try {
+    pushItemCache[targetId] = await api('/api/fnos/push-targets/' + targetId + '/items');
+    box.innerHTML = renderPushItemDetails(pushItemCache[targetId]);
+  } catch (error) { box.innerHTML = '<div class="push-banner" style="color:var(--red)">'+esc(error.message)+'</div>'; }
+};
+const _v34RenderPushTarget = window.renderPushTarget;
+window.renderPushTarget = function(target, historyMode=false) {
+  let html = _v34RenderPushTarget(target, historyMode);
+  if (historyMode) return html;
+  const open = openPushItemTargets.has(Number(target.id));
+  const label = open ? '收起歌曲明细' : '查看未完成歌曲';
+  const cached = pushItemCache[target.id];
+  const details = '<div class="push-diagnostics"><button class="btn line" onclick="togglePushDetails('+Number(target.id)+',this)">'+label+(Number(target.run_missing||0)?' ('+Number(target.run_missing)+' 首)':'')+'</button><div id="push-items-'+Number(target.id)+'" '+(open?'':'hidden')+'>'+(open?renderPushItemDetails(cached):'')+'</div></div>';
+  return html.replace('</article>', details+'</article>');
+};
+let pushManagerSignature = '';
+window.loadPushManager = async function(silent=false) {
+  const content = document.getElementById('push-manager-content');
+  if (content && !silent && !pushTargets.length) content.innerHTML='<div class="push-banner">正在读取每个推送歌单及历史…</div>';
+  try {
+    const values = await Promise.all([api('/api/fnos/push-targets'), api('/api/fnos/push-history?limit=500')]);
+    const signature = JSON.stringify(values);
+    pushTargets = values[0]; pushHistory = values[1];
+    if (signature !== pushManagerSignature) {
+      pushManagerSignature = signature;
+      const scrollY = window.scrollY;
+      renderPushManagerContent();
+      requestAnimationFrame(() => window.scrollTo({top:scrollY, left:0, behavior:'instant'}));
+    }
+    await Promise.all([...openPushItemTargets].map(async targetId => {
+      try {
+        pushItemCache[targetId] = await api('/api/fnos/push-targets/' + targetId + '/items');
+        const box = document.getElementById('push-items-' + targetId);
+        if (box) box.innerHTML = renderPushItemDetails(pushItemCache[targetId]);
+      } catch (_) {}
+    }));
+  } catch (error) {
+    if (content && !silent) content.innerHTML='<div class="push-banner" style="color:var(--red)">'+esc(error.message)+'</div>';
+  }
+};
+/* Replace the earlier timer so polling never collapses the current list. */
+clearInterval(window.__pushPipelinePoll);
+const _v34ManageTab = window.manageTab;
+window.manageTab = async function(id, button) {
+  clearInterval(window.__pushPipelinePoll);
+  const result = await _v34ManageTab(id, button);
+  clearInterval(window.__pushPipelinePoll);
+  if (id === 'push') {
+    window.__pushPipelinePoll = setInterval(() => {
+      if (window.__activeManageTab === 'push' && !document.hidden) window.loadPushManager(true);
+    }, 2500);
+  }
+  return result;
+};
+const v36Style=document.createElement('style');
+v36Style.textContent='.artwork-metrics{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:10px;margin:16px 0}.artwork-metric{border:1px solid var(--line);border-radius:8px;padding:14px;background:#fafbfe}.artwork-metric b{display:block;font-size:22px}.artwork-metric span{font-size:12px;color:var(--muted)}.artwork-progress{height:8px;background:#e8ebf1;border-radius:8px;overflow:hidden;margin:12px 0}.artwork-progress i{display:block;height:100%;background:var(--blue);transition:width .25s}.artwork-errors{max-height:300px;overflow:auto;margin-top:12px}@media(max-width:720px){.artwork-metrics{grid-template-columns:repeat(2,1fr)}}';
+document.head.appendChild(v36Style);
+let artworkPollTimer=null;
+function artworkJobHtml(job){if(!job)return '<p style="color:var(--muted)">还没有运行过封面修复。</p>';const total=Number(job.total||0),checked=Number(job.checked||0),percent=total?Math.round(checked*100/total):0;return '<div class="push-banner"><b>最近任务：'+esc(job.status||'pending')+'</b> · 已检查 '+checked+' / '+total+' · 已修复 '+Number(job.repaired||0)+' · 原本正常 '+Number(job.already_ok||0)+' · 失败 '+Number(job.failed||0)+'</div><div class="artwork-progress"><i style="width:'+percent+'%"></i></div>'+(job.current_path?'<small style="color:var(--muted);word-break:break-all">正在处理：'+esc(job.current_path)+'</small>':'')+(job.error?'<p style="color:var(--red)">'+esc(job.error)+'</p>':'')}
+function artworkFailuresHtml(rows){if(!rows?.length)return '';return '<div class="artwork-errors table-wrap"><table><thead><tr><th>歌曲</th><th>文件</th><th>失败原因</th></tr></thead><tbody>'+rows.map(x=>'<tr><td><b>'+esc(x.title||'未知歌曲')+'</b><br><small>'+esc(x.artist||'未知歌手')+'</small></td><td style="white-space:normal;max-width:330px">'+esc(x.path)+'</td><td style="white-space:normal;color:var(--red)">'+esc(x.artwork_error||'未知错误')+'</td></tr>').join('')+'</tbody></table></div>'}
+function artworkScope(){return document.getElementById('artwork-scope')?.value||'managed'}
+async function loadArtworkAudit(scanFirst=false){const box=document.getElementById('artwork-panel');if(!box)return;if(scanFirst){box.innerHTML='<div class="push-banner">正在增量扫描曲库并识别新文件…</div>';await api('/api/library/scan',{method:'POST'})}const d=await api('/api/artwork/audit?scope='+artworkScope());const job=d.latest_job;box.innerHTML='<div class="artwork-metrics"><div class="artwork-metric"><b>'+Number(d.embedded||0)+'</b><span>已内嵌封面</span></div><div class="artwork-metric"><b style="color:var(--orange)">'+Number(d.missing||0)+'</b><span>确认缺少封面</span></div><div class="artwork-metric"><b>'+Number(d.unknown||0)+'</b><span>尚未检查</span></div><div class="artwork-metric"><b style="color:var(--red)">'+Number(d.failed||0)+'</b><span>刮削失败</span></div></div><small style="color:var(--muted)">当前范围 '+(d.scope==='all'?'整个飞牛音乐目录，共 '+Number(d.library_total||0)+' 个文件':'本应用管理的歌曲')+'</small>'+artworkJobHtml(job)+'<div id="artwork-failures"></div>';if(job&&['pending','running'].includes(job.status))pollArtworkJob(job.id)}
+async function startArtworkRepair(onlyStatus=null){try{const d=await api('/api/artwork/repair',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scope:artworkScope(),only_status:onlyStatus})});toast(d.reused?'已有封面修复任务正在运行':(onlyStatus==='failed'?'失败封面已重新排队':'封面修复任务已启动'));pollArtworkJob(d.job.id)}catch(e){toast(e.message)}}
+async function pollArtworkJob(id){clearTimeout(artworkPollTimer);try{const job=await api('/api/artwork/jobs/'+id),box=document.getElementById('artwork-panel');if(box){const audit=await api('/api/artwork/audit?scope='+artworkScope());box.innerHTML='<div class="artwork-metrics"><div class="artwork-metric"><b>'+Number(audit.embedded||0)+'</b><span>已内嵌封面</span></div><div class="artwork-metric"><b style="color:var(--orange)">'+Number(audit.missing||0)+'</b><span>确认缺少封面</span></div><div class="artwork-metric"><b>'+Number(audit.unknown||0)+'</b><span>尚未检查</span></div><div class="artwork-metric"><b style="color:var(--red)">'+Number(audit.failed||0)+'</b><span>刮削失败</span></div></div>'+artworkJobHtml(job)+artworkFailuresHtml(job.failures)}if(['pending','running'].includes(job.status))artworkPollTimer=setTimeout(()=>pollArtworkJob(id),2000);else toast('封面修复完成：成功 '+Number(job.repaired||0)+'，失败 '+Number(job.failed||0))}catch(e){toast(e.message)}}
+const _v36ManageTab=window.manageTab;
+window.manageTab=async function(id,button){if(id!=='library')return _v36ManageTab(id,button);clearInterval(window.__pushPipelinePoll);window.__activeManageTab='library';document.querySelectorAll('.download-nav button').forEach(x=>x.classList.remove('on'));if(button)button.classList.add('on');const c=document.getElementById('manage-content');c.innerHTML='<div class="panel"><div class="panel-head"><div><h3>正式曲库与歌曲封面</h3><small style="color:var(--muted)">可检查本应用歌曲或整个音乐目录，并单独重试失败项</small></div><div style="display:flex;gap:8px;flex-wrap:wrap"><select id="artwork-scope" class="schedule-select" onchange="loadArtworkAudit(false)"><option value="managed">本应用歌曲</option><option value="all">整个音乐目录</option></select><button class="btn" onclick="loadArtworkAudit(true)">重新扫描</button><button class="btn" onclick="startArtworkRepair(\'failed\')">重试失败</button><button class="btn primary" onclick="startArtworkRepair()">扫描并修复封面</button></div></div><div style="padding:18px" id="artwork-panel"><div class="push-banner">正在读取曲库封面状态…</div></div></div>';try{await loadArtworkAudit(true)}catch(e){document.getElementById('artwork-panel').innerHTML='<div class="push-banner" style="color:var(--red)">'+esc(e.message)+'</div>'}};
+
+/* v37: real dual-platform playlist search, full discovery filters and direct actions. */
+document.title='FnMusic Flow';
+let plazaQuery='', plazaSort='hot', plazaRequestId=0, plazaErrors=[];
+const v37Style=document.createElement('style');
+v37Style.textContent=`
+.plaza-toolbar{display:grid;grid-template-columns:auto auto auto 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px}
+.plaza-platforms{min-width:max-content}.plaza-sort{border:1px solid var(--line);border-radius:7px;background:#fff;padding:8px 30px 8px 10px;color:#596579;font-size:12px}
+.plaza-search-box{display:grid;grid-template-columns:minmax(180px,1fr) auto auto;gap:7px;min-width:0}.plaza-toolbar .plaza-search-input{margin:0;min-width:0;width:100%;background:#fafbfe}
+.plaza-result-status{min-height:42px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 12px;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--muted);font-size:12px}
+.plaza-result-status b{color:var(--ink)}.plaza-source{padding:2px 7px;border-radius:99px;background:#f1f3f7;color:#596579}.plaza-source.netease{background:#fff0f2;color:#c73f52}.plaza-source.qq{background:#eaf8f0;color:#188353}.plaza-error{color:var(--red)}
+.plaza-grid{align-items:start}.plaza-card{cursor:default}.plaza-card .pl-cover{border-radius:8px;box-shadow:none;border:1px solid var(--line)}.plaza-card-meta{display:flex;align-items:center;gap:7px;margin-top:3px;color:var(--muted);font-size:11px;min-height:18px}.plaza-card-meta span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.plaza-card-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.plaza-card-actions .btn{width:100%;margin:0;min-width:0;padding:7px 5px}.plaza-card h3{font-size:13px;margin-top:9px}.category-panel{max-height:52vh;overflow:auto}.category-row{grid-template-columns:64px 1fr}
+@media(max-width:1050px){.plaza-toolbar{grid-template-columns:1fr 1fr}.plaza-search-box{grid-column:1/-1}.plaza-platforms{grid-column:1/-1}.plaza-toolbar>#plaza-category-button,.plaza-toolbar>.plaza-sort,.plaza-toolbar>.plaza-import{width:100%}}
+@media(max-width:720px){.plaza-toolbar{grid-template-columns:1fr;padding:10px}.plaza-platforms{width:100%;overflow:auto}.plaza-search-box{grid-column:1;grid-template-columns:1fr auto}.plaza-search-box .plaza-clear{grid-column:1/-1}.plaza-toolbar>#plaza-category-button,.plaza-toolbar>.plaza-sort,.plaza-toolbar>.plaza-import{width:100%}.plaza-result-status{align-items:flex-start}.category-row{grid-template-columns:1fr}.plaza-card-actions{grid-template-columns:1fr 1fr}}
+`;
+document.head.appendChild(v37Style);
+
+function installPlaylistCenterV37(){
+  const toolbar=document.querySelector('.plaza-toolbar');if(!toolbar)return;
+  toolbar.innerHTML='<div class="plaza-platforms" role="group" aria-label="音乐平台"><button class="plaza-filter '+(plazaProvider==='all'?'on':'')+'" data-provider="all" onclick="setPlazaProvider(\'all\',this)">全部平台</button><button class="plaza-filter '+(plazaProvider==='for_you'?'on':'')+'" data-provider="for_you" onclick="setPlazaProvider(\'for_you\',this)">为我推荐</button><button class="plaza-filter '+(plazaProvider==='netease_exclusive'?'on':'')+'" data-provider="netease_exclusive" onclick="setPlazaProvider(\'netease_exclusive\',this)">网易云专属歌单</button><button class="plaza-filter '+(plazaProvider==='netease_radar'?'on':'')+'" data-provider="netease_radar" onclick="setPlazaProvider(\'netease_radar\',this)">网易云雷达歌单</button><button class="plaza-filter '+(plazaProvider==='netease'?'on':'')+'" data-provider="netease" onclick="setPlazaProvider(\'netease\',this)">网易云歌单</button><button class="plaza-filter '+(plazaProvider==='qq'?'on':'')+'" data-provider="qq" onclick="setPlazaProvider(\'qq\',this)">QQ 歌单</button></div><button class="btn line" id="plaza-category-button" onclick="togglePlazaCategories()">全部分类 ▾</button><select class="plaza-sort" id="plaza-sort" onchange="setPlazaSort(this.value)" aria-label="歌单排序"><option value="hot">最热</option><option value="latest">最新</option><option value="relevance">相关</option></select><div class="plaza-search-box"><input id="plaza-search-input" class="plaza-search-input" placeholder="搜索歌单名称或创建者" value="'+esc(plazaQuery)+'"><button class="btn primary" onclick="performPlazaSearch(this)">搜索歌单</button><button class="btn line plaza-clear" onclick="clearPlazaSearch()">清空</button></div><button class="btn line plaza-import" onclick="showImportLink()">导入歌单链接</button>';
+  document.getElementById('plaza-sort').value=plazaSort;
+  document.getElementById('plaza-search-input').addEventListener('keydown',event=>{if(event.key==='Enter')performPlazaSearch(event.currentTarget)});
+  const panel=document.getElementById('plaza-category-panel');
+  if(!document.getElementById('plaza-result-status'))(panel||toolbar).insertAdjacentHTML('afterend','<div id="plaza-result-status" class="plaza-result-status"><b>歌单发现</b><span>正在读取双平台数据…</span></div>');
+}
+function plazaProviderLabel(provider){return provider==='qq'?'QQ 音乐':provider==='netease_exclusive'?'网易云专属歌单':provider==='netease_radar'?'网易云雷达歌单':provider==='netease'?'网易云歌单':'全部平台'}
+function plazaItemLabel(item){return item?.source_kind==='netease_radar'||item?.kind==='radar'?'网易云雷达歌单':item?.source_kind==='netease_exclusive'||item?.kind==='exclusive'?'网易云专属歌单':plazaProviderLabel(item?.provider)}
+function compactNumber(value){const n=Number(value||0);return n>=100000000?(n/100000000).toFixed(1)+' 亿':n>=10000?(n/10000).toFixed(n>=100000?0:1)+' 万':String(n)}
+function renderPlazaStatus(meta={}){
+  const box=document.getElementById('plaza-result-status');if(!box)return;
+  const sources=(meta.sources||[]).map(p=>'<span class="plaza-source '+p+'">'+plazaProviderLabel(p)+'</span>').join('');
+  const errors=(meta.errors||plazaErrors||[]).map(x=>'<span class="plaza-error">'+plazaProviderLabel(x.provider)+'：'+esc(x.message)+'</span>').join('');
+  if(plazaQuery){box.innerHTML='<b>“'+esc(plazaQuery)+'”</b><span>第 '+(plazaPage+1)+' 页 · 已加载 '+livePlaza.length+' 个'+(meta.total?' · 平台共返回 '+Number(meta.total)+' 个':'')+'</span>'+sources+errors}
+  else{box.innerHTML='<b>'+(plazaCategory?esc(document.getElementById('plaza-category-button')?.textContent.replace(' ▾','')||plazaCategory):'歌单发现')+'</b><span>第 '+(plazaPage+1)+' 页 · 已加载 '+livePlaza.length+' 个</span>'+sources+errors}
+}
+function renderPlazaCards(){
+  const grid=document.querySelector('.plaza-grid');if(!grid)return;
+  grid.innerHTML=livePlaza.length?livePlaza.map((x,i)=>'<article class="pl-card plaza-card"><div class="pl-cover" style="'+(x.cover_url?'background-image:url(\''+esc(x.cover_url)+'\');background-size:cover;background-position:center':'')+'">'+(x.cover_url?'':'♫')+'<span class="pl-badge">'+plazaItemLabel(x)+(x.kind==='radar'?' · 每日更新':'')+'</span></div><h3 title="'+esc(x.title||'')+'">'+esc(x.title||'未命名歌单')+'</h3><div class="plaza-card-meta"><span>'+Number(x.item_count||0)+' 首</span><span>·</span><span title="'+esc(x.owner||'')+'">'+esc(x.owner||'公开歌单')+'</span></div>'+(Number(x.play_count||0)?'<div class="plaza-card-meta"><span>'+compactNumber(x.play_count)+' 次播放</span></div>':'<div class="plaza-card-meta"><span>&nbsp;</span></div>')+'<div class="plaza-card-actions"><button class="btn line" onclick="openExternalPlaylist('+i+')">查看详情</button><button class="btn line" onclick="downloadPlazaPlaylist('+i+',this)">整单下载</button><button class="btn primary" onclick="pushPlazaPlaylist('+i+',this,false)">推送飞牛</button><button class="btn line" onclick="pushPlazaPlaylist('+i+',this,true)">订阅更新</button></div></article>').join(''):'<div class="push-banner" style="grid-column:1/-1">没有找到符合条件的歌单。</div>';
+}
+renderLivePlaza=async function(){
+  const requestId=++plazaRequestId,grid=document.querySelector('.plaza-grid');if(!grid)return;
+  if(plazaProvider==='for_you'){await renderForYouPool();return}
+  grid.innerHTML='<div class="push-banner" style="grid-column:1/-1">'+(plazaQuery?'正在搜索双平台歌单…':'正在读取第 '+(plazaPage+1)+' 页歌单…')+'</div>';
+  plazaErrors=[];
+  if(plazaQuery && (plazaProvider==='netease_exclusive'||plazaProvider==='netease_radar')){
+    const radarMode=plazaProvider==='netease_radar';
+    try{const d=await api('/api/platform/netease/playlists');const q=plazaQuery.toLowerCase();const base=radarMode?(d.radar_items||[]):(d.exclusive_items||[]);livePlaza=base.filter(x=>String(x.title||'').toLowerCase().includes(q)||String(x.owner||'').toLowerCase().includes(q)).map(x=>({...x,provider:'netease',source_kind:radarMode?'netease_radar':'netease_exclusive',kind:radarMode?'radar':'exclusive',owner:x.owner||'账号专属'}));renderPlazaCards();renderPlazaStatus({sources:[plazaProvider],total:livePlaza.length});updatePlazaPages(false)}catch(e){livePlaza=[];renderPlazaCards();renderPlazaStatus({errors:[{provider:plazaProvider,message:e.message}]});updatePlazaPages(false)}
+    document.body.classList.add('live-ready');return;
+  }
+  if(plazaQuery){
+    try{const size=plazaProvider==='all'?20:30,d=await api('/api/playlists/search?keyword='+encodeURIComponent(plazaQuery)+'&provider='+plazaProvider+'&page='+(plazaPage+1)+'&page_size='+size+'&sort='+plazaSort);if(requestId!==plazaRequestId)return;livePlaza=d.items||[];plazaErrors=d.errors||[];renderPlazaCards();renderPlazaStatus(d);updatePlazaPages(Boolean(d.has_more))}catch(e){if(requestId!==plazaRequestId)return;livePlaza=[];grid.innerHTML='<div class="push-banner" style="grid-column:1/-1;color:var(--red)">'+esc(e.message)+'</div>';renderPlazaStatus({errors:[{provider:plazaProvider,message:e.message}]});updatePlazaPages(false)}
+  }else{
+    if(plazaProvider==='netease_exclusive'||plazaProvider==='netease_radar'){
+      const radarMode=plazaProvider==='netease_radar';
+      try{const d=await api('/api/platform/netease/playlists');const base=radarMode?(d.radar_items||[]):(d.exclusive_items||[]);livePlaza=base.map(x=>({...x,provider:'netease',source_kind:radarMode?'netease_radar':'netease_exclusive',kind:radarMode?'radar':'exclusive',owner:x.owner||'账号专属'}));renderPlazaCards();renderPlazaStatus({sources:[plazaProvider]});updatePlazaPages(false)}catch(e){livePlaza=[];renderPlazaCards();renderPlazaStatus({errors:[{provider:plazaProvider,message:e.message}]});updatePlazaPages(false)}
+      document.body.classList.add('live-ready');return;
+    }
+    const providers=plazaProvider==='all'?['netease','qq']:[plazaProvider],size=plazaProvider==='all'?10:24;
+    const results=await Promise.allSettled(providers.map(p=>api('/api/plaza?provider='+p+'&category='+encodeURIComponent(plazaCategory)+'&offset='+(plazaPage*size)+'&limit='+size+'&sort='+(plazaSort==='latest'?'latest':'hot'))));if(requestId!==plazaRequestId)return;
+    livePlaza=[];const sources=[];let hasMore=false;results.forEach((result,index)=>{if(result.status==='fulfilled'){sources.push(providers[index]);livePlaza.push(...(result.value.items||[]));hasMore=hasMore||Boolean(result.value.has_more)}else plazaErrors.push({provider:providers[index],message:result.reason?.message||String(result.reason)})});
+    if(plazaSort==='hot')livePlaza.sort((a,b)=>Number(b.play_count||0)-Number(a.play_count||0));else if(plazaSort==='latest')livePlaza.sort((a,b)=>String(b.update_time||'').localeCompare(String(a.update_time||'')));
+    renderPlazaCards();renderPlazaStatus({sources,errors:plazaErrors});updatePlazaPages(hasMore);
+  }
+  document.body.classList.add('live-ready');
+};
+function updatePlazaPages(hasMore){const label=document.getElementById('plaza-page-label');if(label)label.textContent='第 '+(plazaPage+1)+' 页 · 当前 '+livePlaza.length+' 个歌单';const prev=document.getElementById('plaza-prev');if(prev)prev.disabled=plazaPage===0;const next=document.getElementById('plaza-next');if(next)next.disabled=!hasMore}
+function performPlazaSearch(button){const input=document.getElementById('plaza-search-input'),value=input?.value.trim()||'';if(!value){toast('请输入歌单名称或创建者');input?.focus();return}plazaQuery=value;plazaPage=0;if(plazaSort==='hot')plazaSort='relevance';document.getElementById('plaza-sort').value=plazaSort;renderLivePlaza()}
+function clearPlazaSearch(){plazaQuery='';plazaPage=0;if(document.getElementById('plaza-search-input'))document.getElementById('plaza-search-input').value='';if(plazaSort==='relevance')plazaSort='hot';document.getElementById('plaza-sort').value=plazaSort;renderLivePlaza()}
+function searchPlaza(value){if(document.getElementById('plaza-search-input'))document.getElementById('plaza-search-input').value=value||''}
+function setPlazaSort(value){plazaSort=value;if(!plazaQuery&&value==='relevance')plazaSort='hot';document.getElementById('plaza-sort').value=plazaSort;plazaPage=0;renderLivePlaza()}
+setPlazaProvider=function(provider,button){plazaProvider=provider;plazaPage=0;plazaCategory='';document.querySelectorAll('.plaza-platforms .plaza-filter').forEach(x=>x.classList.toggle('on',x.dataset.provider===provider));loadPlazaCategories();renderLivePlaza()};
+setPlazaCategory=function(category,label){plazaCategory=category;plazaQuery='';plazaPage=0;const input=document.getElementById('plaza-search-input');if(input)input.value='';const button=document.getElementById('plaza-category-button');if(button)button.textContent=(label||'全部分类')+' ▾';renderPlazaCategories();renderLivePlaza()};
+changePlazaPage=function(delta){if(plazaPage+delta<0)return;plazaPage+=delta;renderLivePlaza();document.querySelector('.plaza-toolbar')?.scrollIntoView({behavior:'smooth',block:'start'})};
+async function fetchPlazaPlaylist(index){const item=livePlaza[index];if(!item)throw Error('歌单不存在或已刷新');const data=await api('/api/playlists/fetch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({provider:item.provider,playlist_id:item.playlist_id,source_url:item.source_url||'',source_kind:item.source_kind||item.kind||''})});window.currentPlaylist=data;return data}
+async function downloadPlazaPlaylist(index,button){return withBusy(button,'正在导入…',async()=>{try{const data=await fetchPlazaPlaylist(index);button.textContent='正在加入…';const result=await api('/api/playlists/'+data.id+'/enqueue',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});toast('整单已处理：新增下载 '+result.tasks_created+' 首，曲库已有 '+result.library_reused+' 首，队列已有 '+result.active_reused+' 首');await refreshTasks();return result}catch(e){toast(e.message);throw e}})}
+async function pushPlazaPlaylist(index,button,subscribe){return withBusy(button,subscribe?'正在订阅…':'正在推送…',async()=>{try{const data=await fetchPlazaPlaylist(index);await ensureFnosReady();/* 2026-09-25 修复（BUG-001）：不再固定发送 interval_minutes=1440；订阅字段交给后端补丁语义 —— 新订阅用默认值（雷达 06:00+60 分钟），已有订阅保留原设置 */const result=await api('/api/fnos/playlists/'+data.id+'/push',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(subscribe?{download_missing:true,auto_sync:true}:{download_missing:true})});const queue=result.queue||{},pushed=result.result||{};toast((subscribe?'已订阅并首次推送':'已推送到飞牛')+'：已匹配 '+Number(pushed.matched||0)+' 首，新增下载 '+Number(queue.tasks_created||0)+' 首');return result}catch(e){toast(e.message);throw e}})}
+renderSubscription=function(x){const title=x.target_title||x.title||x.playlist_id,kind={daily:'日推',chart:'排行榜',playlist:'歌单',radar:'雷达歌单'}[x.kind]||x.kind,status=x.enabled?(x.last_status==='changed_none'?'内容未变化':x.last_status==='failed'?'失败':x.last_status==='waiting_update'?'等待平台更新':'运行中'):(x.last_status==='cancelled'?'已取消自动推送':'已暂停');return `<div class="sync-rule"><div><b>${esc(title)}</b><small>${x.provider==='qq'?'QQ 音乐':'网易云音乐'} · ${kind} · <span class="tag ${x.enabled?'green':'orange'}">${status}</span></small>${x.last_error?`<small style="color:var(--red)">${esc(x.last_error)}</small>`:''}</div><select class="schedule-select" onchange="setSubscriptionInterval(${x.id},this.value)"><option value="1440" ${Number(x.interval_minutes)===1440?'selected':''}>每天</option><option value="10080" ${Number(x.interval_minutes)===10080?'selected':''}>每周</option><option value="43200" ${Number(x.interval_minutes)===43200?'selected':''}>每月</option></select>${x.kind==='daily'||x.kind==='radar'?`<label class="schedule-time-inline">北京时间 <input type="time" value="${esc(x.schedule_time||'06:00')}" onchange="setSubscriptionTime(${x.id},this.value)"></label>`:''}<div><small>上次：${esc(x.last_run_at?displayTime(x.last_run_at):'尚未运行')}</small><small>下次：${esc(x.next_run_at?displayTime(x.next_run_at):'已停止')}</small></div><div class="sync-rule-actions"><button class="btn" onclick="toggleSubscription(${x.id},${x.enabled?0:1})">${x.enabled?'暂停':'恢复自动推送'}</button> <button class="btn" onclick="runSubscription(${x.id})">立即执行</button> ${x.enabled?`<button class="btn line" onclick="removeSubscription(${x.id})">取消并删除飞牛歌单</button>`:''}</div></div>`};
+setSubscriptionTime=async function(id,value){try{await api('/api/subscriptions/'+id,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({schedule_time:value})});toast('每日执行时间已设为 '+value);loadFnosPanel()}catch(e){toast(e.message)}};
+installPlaylistCenterV37();renderLivePlaza();loadPlazaCategories();
+</script>
+<script>
+/* ============================================================================
+   v40：流畅度对齐 PocketTune + 首页音源健康 + 推送两段式周期
+   1) 统一请求缓存与并发去重（一处改动，所有 load* 调用点受益）
+   2) 首页音源健康告警横幅
+   3) 飞牛推送「每天更新时刻 + 检查间隔」两段式周期，可组合可单用
+   4) 大表格跳过视口外渲染
+   ========================================================================== */
+
+/* --- 1. 统一请求缓存 + 并发去重 ------------------------------------------ */
+const _v40RawApi = api;
+const _v40Cache = new Map();
+const _v40Inflight = new Map();
+
+function v40Ttl(path) {
+  if (path.indexOf('/api/platform/') === 0) return 30000;
+  if (path.indexOf('/api/charts') === 0) return 60000;
+  if (path.indexOf('/api/sources') === 0) return 30000;
+  if (path.indexOf('/api/fnos/push-history') === 0) return 30000;
+  if (path.indexOf('/api/subscriptions') === 0) return 10000;
+  if (path.indexOf('/api/fnos/push-targets') === 0) return 10000;
+  if (path.indexOf('/api/tasks') === 0) return 5000;
+  if (path.indexOf('/api/accounts') === 0) return 5000;
+  if (path.indexOf('/api/fnos/') === 0) return 5000;
+  return 15000;
+}
+
+api = async function (path, options) {
+  options = options || {};
+  const method = String(options.method || 'GET').toUpperCase();
+  if (method !== 'GET') {
+    const result = await _v40RawApi(path, options);
+    /* 写操作是用户主动行为且频率低：整体失效最保守，保证"保存后立刻看到新状态" */
+    _v40Cache.clear();
+    return result;
+  }
+  const hit = _v40Cache.get(path);
+  if (hit && Date.now() - hit.at < hit.ttl) return hit.value;
+  if (_v40Inflight.has(path)) return _v40Inflight.get(path);
+  const pending = _v40RawApi(path, options)
+    .then(function (value) {
+      _v40Cache.set(path, {at: Date.now(), ttl: v40Ttl(path), value: value});
+      return value;
+    })
+    .catch(function (error) { _v40Cache.delete(path); throw error; })
+    .then(function (value) { _v40Inflight.delete(path); return value; },
+          function (error) { _v40Inflight.delete(path); throw error; });
+  _v40Inflight.set(path, pending);
+  return pending;
+};
+api.invalidate = function () { _v40Cache.clear(); };
+
+const v40Style = document.createElement('style');
+v40Style.textContent = [
+  '.v40-health{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-radius:12px;padding:11px 15px;margin-bottom:18px;font-size:13px;border:1px solid;line-height:1.5}',
+  '.v40-health b{font-weight:500}',
+  '.v40-health span{color:var(--muted)}',
+  '.v40-health .v40-health-detail{flex:1 1 100%;font-size:12px}',
+  '.v40-health .btn{margin-left:auto;flex:0 0 auto}',
+  '.v40-health-ok{background:#e8f7ef;border-color:#bfe6d0}.v40-health-ok b{color:var(--green)}',
+  '.v40-health-warn{background:#fff6e8;border-color:#f2ddb8}.v40-health-warn b{color:var(--orange)}',
+  '.v40-health-bad{background:#ffebee;border-color:#f5c6cc}.v40-health-bad b{color:var(--red)}',
+  '.v40-push-hint{grid-column:1/-1;color:var(--muted);font-size:12px;line-height:1.6;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}',
+  '.v40-rule-schedule{display:flex;gap:12px;flex-wrap:wrap;align-items:center}',
+  '.v40-rule-schedule label{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted)}',
+  '.v40-rule-schedule input,.v40-rule-schedule select{border:1px solid var(--line);border-radius:7px;padding:6px}',
+  '.table-wrap tbody tr{content-visibility:auto;contain-intrinsic-size:auto 52px}'
+].join('\n');
+document.head.appendChild(v40Style);
+
+/* --- 2. 首页音源健康告警 ------------------------------------------------ */
+const V40_STATUS_RANK = {ready: 0, unknown: 1, timeout: 2, forbidden: 3, error: 4};
+const V40_STATUS_LABEL = {ready: '可用', unknown: '未检测', timeout: '超时', forbidden: '403 拒绝', error: '异常'};
+
+async function v40RefreshSourceHealth() {
+  const host = document.getElementById('ws-listen');
+  if (!host) return;
+  let box = document.getElementById('v40-source-health');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'v40-source-health';
+    host.insertBefore(box, host.firstChild);
+  }
+  /* 判断只认 status 字段，不认音源名称：有的音源名字里带「过期」但状态仍是 ready */
+  try {
+    const rows = await api('/api/sources/health');
+    const list = (Array.isArray(rows) ? rows : []).filter(function (x) { return x.enabled !== false; });
+    if (!list.length) {
+      box.className = 'v40-health v40-health-bad';
+      box.innerHTML = '<b>未配置任何音源</b><span>没有可用音源时下载任务无法解析播放地址，请到「下载与曲库 → 音源管理」导入。</span>';
+      return;
+    }
+    const bad = list.filter(function (x) { return (V40_STATUS_RANK[x.status] || 0) > 0; });
+    if (!bad.length) {
+      box.className = 'v40-health v40-health-ok';
+      box.innerHTML = '<b>音源正常</b><span>' + list.length + ' 个音源全部可用</span>' +
+        '<button class="btn line" onclick="v40ProbeSources(this)">一键测试全部</button>';
+      return;
+    }
+    const worst = bad.reduce(function (a, b) {
+      return (V40_STATUS_RANK[b.status] || 0) > (V40_STATUS_RANK[a.status] || 0) ? b : a;
+    }, bad[0]);
+    box.className = 'v40-health ' + ((V40_STATUS_RANK[worst.status] || 0) >= 3 ? 'v40-health-bad' : 'v40-health-warn');
+    box.innerHTML = '<b>音源异常：' + bad.length + ' / ' + list.length + ' 个</b><span>' +
+      bad.map(function (x) { return esc(x.name) + ' · ' + (V40_STATUS_LABEL[x.status] || x.status); }).join('　') +
+      '</span><span class="v40-health-detail">' + esc(String(bad[0].detail || '').slice(0, 140)) + '</span>' +
+      '<button class="btn" onclick="v40ProbeSources(this)">一键测试全部</button>';
+  } catch (e) {
+    box.className = 'v40-health v40-health-warn';
+    box.innerHTML = '<b>音源状态读取失败</b><span>' + esc(e.message) + '</span>' +
+      '<button class="btn line" onclick="v40RefreshSourceHealth()">重试</button>';
+  }
+}
+
+async function v40ProbeSources(button) {
+  const label = button && button.textContent;
+  if (button) { button.disabled = true; button.textContent = '测试中…'; }
+  try {
+    const result = await api('/api/sources/probe', {method: 'POST'});
+    const rows = result.items || [];
+    const bad = rows.filter(function (x) { return (V40_STATUS_RANK[x.status] || 0) > 0; });
+    toast(bad.length ? ('测试完成：' + bad.length + ' 个音源仍有问题') : '测试完成：全部音源可用');
+  } catch (e) {
+    toast(e.message);
+  }
+  if (button) { button.disabled = false; button.textContent = label || '一键测试全部'; }
+  await v40RefreshSourceHealth();
+}
+window.v40RefreshSourceHealth = v40RefreshSourceHealth;
+window.v40ProbeSources = v40ProbeSources;
+
+const _v40LoadLiveData = loadLiveData;
+loadLiveData = async function () {
+  const result = await _v40LoadLiveData.apply(this, arguments);
+  v40RefreshSourceHealth();
+  return result;
+};
+const _v40SwitchWs = switchWs;
+switchWs = function (id, btn) {
+  const result = _v40SwitchWs(id, btn);
+  if (id === 'listen') v40RefreshSourceHealth();
+  return result;
+};
+v40RefreshSourceHealth();
+
+/* --- 2b. 首屏预热 ------------------------------------------------------
+   排行榜冷启动约 1.4s、歌单库约 0.85s、广场约 0.65s、日推约 0.35s —— 这些
+   耗时全在上游，用户第一次点进去必然等。这里在页面空闲时先打一次，把**服务端**
+   缓存（60s / 600s / 300s / 120s）预热起来，于是紧接着的首次点击都是约 5ms 的
+   热命中。预热失败一律静默：它只是优化，不能因为上游抽风就在界面上弹错误。
+   放在 requestIdleCallback 里是为了不跟首屏渲染抢主线程。 */
+function v40Prefetch() {
+  const paths = [
+    '/api/charts?provider=netease',
+    '/api/platform/netease/playlists',
+    '/api/plaza?provider=netease',
+    '/api/platform/netease/daily'
+  ];
+  paths.forEach(function (p) {
+    try { Promise.resolve(api(p)).catch(function () {}); } catch (e) {}
+  });
+}
+if (typeof requestIdleCallback === 'function') {
+  requestIdleCallback(function () { v40Prefetch(); }, { timeout: 4000 });
+} else {
+  setTimeout(v40Prefetch, 1200);
+}
+window.v40Prefetch = v40Prefetch;
+
+/* --- 3. 飞牛推送两段式周期 ---------------------------------------------- */
+const V40_INTERVALS = [
+  [0, '不循环（只推一次）'],
+  [30, '每 30 分钟'],
+  [60, '每 60 分钟'],
+  [120, '每 2 小时'],
+  [360, '每 6 小时'],
+  [720, '每 12 小时'],
+  [1440, '每天'],
+  [10080, '每周'],
+  [43200, '每月']
+];
+
+function v40IntervalOptions(current) {
+  const value = Number(current || 0);
+  return V40_INTERVALS.map(function (pair) {
+    return '<option value="' + pair[0] + '"' + (value === pair[0] ? ' selected' : '') + '>' + pair[1] + '</option>';
+  }).join('');
+}
+
+const _v40RenderPushTarget = renderPushTarget;
+renderPushTarget = function (x, historyMode) {
+  let html = _v40RenderPushTarget(x, historyMode);
+  const anchor = x.schedule_time ? String(x.schedule_time) : '';
+  const block = '<label class="push-field"><span>每天更新时刻</span>' +
+      '<input class="target-anchor" type="time" value="' + esc(anchor) + '" title="北京时间，留空表示不按固定时刻"></label>' +
+    '<label class="push-field"><span>检查间隔</span>' +
+      '<select class="target-interval">' + v40IntervalOptions(x.interval_minutes) + '</select></label>';
+  /* 用两段式控件替换原来的单一「更新周期」下拉 */
+  html = html.replace(/<label class="push-field"><span>更新周期<\/span><select class="target-interval">[\s\S]*?<\/select><\/label>/, block);
+  const hint = '<div class="v40-push-hint"><b>两段式更新</b>：两个可以单独用，也可以组合。' +
+    '例：每天 <b>06:00</b> 先跑一次，之后每 <b>60 分钟</b>检查状态，上游有更新就继续同步、没更新就跳过，不会重复打扰飞牛端。' +
+    '「检查间隔」选<b>不循环</b>即只在每天那个时刻推一次；两者都不设则停止自动更新。</div>';
+  return html.replace('</div><div class="push-target-actions">', hint + '</div><div class="push-target-actions">');
+};
+
+const _v40TargetPayload = targetPayload;
+targetPayload = function (card, includeSchedule) {
+  const payload = _v40TargetPayload(card, includeSchedule);
+  const anchor = card.querySelector('.target-anchor');
+  payload.schedule_time = anchor && anchor.value ? anchor.value : null;
+  return payload;
+};
+
+const _v40RenderSubscription = renderSubscription;
+renderSubscription = function (x) {
+  const title = x.target_title || x.title || x.playlist_id;
+  const kind = ({daily: '日推', chart: '排行榜', playlist: '歌单', radar: '雷达歌单'})[x.kind] || x.kind;
+  const status = x.enabled
+    ? ({changed_none: '内容未变化', failed: '失败', waiting_update: '等待平台更新'}[x.last_status] || '运行中')
+    : (x.last_status === 'cancelled' ? '已取消自动推送' : x.last_status === 'done_once' ? '已推送一次' : '已暂停');
+  const anchor = x.schedule_time ? String(x.schedule_time) : '';
+  return '<div class="sync-rule"><div><b>' + esc(title) + '</b><small>' +
+      (x.provider === 'qq' ? 'QQ 音乐' : '网易云音乐') + ' · ' + kind +
+      ' · <span class="tag ' + (x.enabled ? 'green' : 'orange') + '">' + status + '</span></small>' +
+      (x.last_error ? '<small style="color:var(--red)">' + esc(x.last_error) + '</small>' : '') + '</div>' +
+    '<div class="v40-rule-schedule">' +
+      '<label><span>每天</span><input type="time" value="' + esc(anchor) + '" onchange="setSubscriptionTime(' + x.id + ',this.value)"></label>' +
+      '<label><span>间隔</span><select class="schedule-select" onchange="setSubscriptionInterval(' + x.id + ',this.value)">' +
+        v40IntervalOptions(x.interval_minutes) + '</select></label>' +
+    '</div>' +
+    '<div><small>上次：' + esc(x.last_run_at ? displayTime(x.last_run_at) : '尚未运行') + '</small>' +
+      '<small>下次：' + esc(x.next_run_at ? displayTime(x.next_run_at) : (x.enabled ? '等待调度' : '已停止自动更新')) + '</small></div>' +
+    '<div class="sync-rule-actions">' +
+      '<button class="btn" onclick="toggleSubscription(' + x.id + ',' + (x.enabled ? 0 : 1) + ')">' + (x.enabled ? '暂停' : '恢复自动推送') + '</button> ' +
+      '<button class="btn" onclick="runSubscription(' + x.id + ')">立即执行</button> ' +
+      (x.enabled ? '<button class="btn line" onclick="removeSubscription(' + x.id + ')">取消推送</button>' : '') +
+    '</div></div>';
+};
+
+/* 保存后明确反馈是否真的会继续自动更新，避免"选了不循环却以为还在跑" */
+const _v40SavePushTarget = savePushTarget;
+savePushTarget = function (id, button) {
+  const card = button.closest('.push-target');
+  const anchor = card.querySelector('.target-anchor');
+  const interval = Number(card.querySelector('.target-interval').value || 0);
+  const auto = card.querySelector('.target-auto').value === '1';
+  if (auto && interval <= 0 && !(anchor && anchor.value)) {
+    toast('已保存：检查间隔为「不循环」且未设每天时刻，该歌单不会再自动更新');
+  }
+  return _v40SavePushTarget(id, button);
+};
+</script>
+<script>
+/* ============================================================================
+   「为我推荐」：口味画像筛选的每日轮换歌单推荐（后端 app/for_you.py）。
+   分区挂在歌单广场的平台筛选里（data-provider="for_you"），卡片复用
+   openExternalPlaylist / pushPlazaPlaylist 的既有详情与推送链路；
+   本块只新增函数，不再包装已有函数。
+   ========================================================================== */
+let forYouStatus = null, forYouPollTimer = null;
+
+const forYouCss = document.createElement('style');
+forYouCss.textContent = [
+  '.foryou-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;min-height:20px}',
+  '.foryou-chip{font-size:10px;padding:2px 7px;border-radius:99px;background:#e8f7ef;color:var(--green);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+  '.foryou-chip.risk{background:#fff3df;color:var(--orange)}',
+  '.foryou-chip.risk-hard{background:#ffebee;color:var(--red)}',
+  '.foryou-card-score{font-variant-numeric:tabular-nums;color:var(--blue);font-size:11px}',
+  '.foryou-run{display:flex;gap:8px;align-items:center;flex-wrap:wrap}'
+].join('\n');
+document.head.appendChild(forYouCss);
+
+function forYouReasonLine(reasons){
+  return (reasons || []).slice(0, 2).map(r => '<span class="foryou-chip" title="'+esc((r.samples||[]).join('；')||r.label)+'">'
+    + esc(r.label) + (Number(r.count||0) > 1 ? ' ×' + r.count : '') + '</span>').join('');
+}
+function forYouRiskLine(risks){
+  return (risks || []).slice(0, 2).map(r => '<span class="foryou-chip '+(r.kind==='hard'?'risk-hard':'risk')+'" title="'
+    + esc((r.samples||[]).join('；')||r.label)+'">'+esc(r.label)+(Number(r.count||0)?' ×'+r.count:'')+'</span>').join('');
+}
+function forYouStatusHtml(){
+  const s = forYouStatus || {};
+  const run = s.last_run || {};
+  const profile = s.profile || {};
+  const runLabel = run.id ? ({success:'成功',partial:'部分成功',failed:'失败',running:'进行中'}[run.status] || run.status)
+    + ' · ' + (run.trigger === 'manual' ? '手动' : '定时')
+    + (run.finished_at ? ' · ' + displayTime(run.finished_at) : ' · 进行中') : '尚未运行';
+  const profileBit = profile.ok ? '' : '<span class="plaza-error">画像不可用：' + esc(profile.error || '') + '</span>';
+  return '<b>为我推荐</b>'
+    + '<span>池 ' + Number(s.pool_size||0) + '/' + Number(s.max_pool||50)
+    + ' · 今日已换入 ' + Number(s.today_swapped_in||0) + '/' + Number(s.daily_rotation||15)
+    + ' · 冷却 ' + Number(s.cooldown_days||14) + ' 天</span>'
+    + '<span>上次：' + esc(runLabel) + '</span>'
+    + (s.next_rotation_at ? '<span>下次：' + esc(displayTime(s.next_rotation_at)) + '</span>' : '')
+    + profileBit
+    + (run.errors && run.errors.length ? '<span class="plaza-error" title="'+esc(run.errors.map(x=>x.error||'').join('；'))+'">'
+        + esc('上游异常 ' + run.errors.length + ' 条') + '</span>' : '')
+    + '<span class="foryou-run">'
+    + '<button class="btn primary" onclick="refreshForYou(this)">立即换血</button>'
+    + '<button class="btn line" onclick="showForYouBlacklist()">黑名单管理（' + Number(s.blacklist_count||0) + '）</button>'
+    + '</span>';
+}
+function forYouCardHtml(x, i){
+  const score = '<span class="foryou-card-score" title="粗筛 '+Number(x.coarse_score||0).toFixed(2)
+    + ' · 曲目 '+Number(x.deep_score||0).toFixed(2)+'">匹配 ' + Number(x.total_score||0).toFixed(2) + '</span>';
+  return '<article class="pl-card plaza-card"><div class="pl-cover" style="'
+    + (x.cover_url ? 'background-image:url(\'' + esc(x.cover_url) + '\');background-size:cover;background-position:center' : '')
+    + '">' + (x.cover_url ? '' : '♫') + '<span class="pl-badge">' + esc(x.provider_label || (x.provider === 'qq' ? 'QQ 音乐' : '网易云音乐')) + '</span></div>'
+    + '<h3 title="'+esc(x.title||'')+'">'+esc(x.title||'未命名歌单')+'</h3>'
+    + '<div class="plaza-card-meta"><span>' + Number(x.item_count||0) + ' 首</span><span>·</span><span title="'+esc(x.owner||'')+'">'+esc(x.owner||'公开歌单')+'</span>'
+    + '<span>·</span>' + score + '</div>'
+    + '<div class="foryou-chips">' + forYouReasonLine(x.reasons) + forYouRiskLine(x.risks) + '</div>'
+    + '<div class="plaza-card-actions"><button class="btn line" onclick="openExternalPlaylist('+i+')">查看详情</button>'
+    + '<button class="btn primary" onclick="pushPlazaPlaylist('+i+',this,false)">推送飞牛</button>'
+    + '<button class="btn line" onclick="dislikeForYou('+i+',this)">不感兴趣</button></div></article>';
+}
+async function renderForYouPool(){
+  const grid = document.querySelector('.plaza-grid'); if(!grid) return;
+  grid.innerHTML = '<div class="push-banner" style="grid-column:1/-1">正在读取为我推荐池…</div>';
+  try{
+    const d = await api('/api/for-you');
+    forYouStatus = d.status || {};
+    livePlaza = d.items || [];
+    grid.innerHTML = livePlaza.length
+      ? livePlaza.map((x,i) => forYouCardHtml(x,i)).join('')
+      : '<div class="push-banner" style="grid-column:1/-1">推荐池还是空的。点击「立即换血」开始首轮发现；候选发现每天最多换入 '
+        + Number(forYouStatus.daily_rotation||15) + ' 个歌单，也可以等每日 ' + esc(displayTime(forYouStatus.next_rotation_at||'') || '06:00') + ' 自动轮换。</div>';
+    const box = document.getElementById('plaza-result-status');
+    if(box) box.innerHTML = forYouStatusHtml();
+    updatePlazaPages(false);
+    const label = document.getElementById('plaza-page-label');
+    if(label) label.textContent = '推荐池共 ' + livePlaza.length + ' / ' + Number(forYouStatus.max_pool||50) + ' 个歌单（每日 06:00 自动轮换）';
+    const prev = document.getElementById('plaza-prev'), next = document.getElementById('plaza-next');
+    if(prev) prev.disabled = true; if(next) next.disabled = true;
+    document.body.classList.add('live-ready');
+  }catch(e){
+    grid.innerHTML = '<div class="push-banner" style="grid-column:1/-1;color:var(--red)">'+esc(e.message)+'</div>';
+  }
+}
+async function dislikeForYou(i, button){
+  const x = livePlaza[i]; if(!x) return;
+  return withBusy(button, '已标记…', async () => {
+    try{
+      const d = await api('/api/for-you/' + Number(x.id) + '/feedback', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'dislike'})});
+      toast('已移出推荐并加入黑名单，可在黑名单管理中恢复');
+      forYouStatus = d.status || forYouStatus;
+      livePlaza.splice(i, 1);
+      await renderLivePlaza();
+      return d;
+    }catch(e){ toast(e.message); }
+  });
+}
+async function refreshForYou(button){
+  return withBusy(button, '正在换血…', async () => {
+    try{
+      const d = await api('/api/for-you/refresh', {method:'POST'});
+      forYouStatus = d;
+      const refresh = d.refresh || {};
+      if(!refresh.started){
+        toast(refresh.reason === 'already_running' ? '已有换血在进行中' :
+              refresh.reason === 'daily_budget_exhausted' ? '今日换血额度已用完，明天 06:00 自动轮换' : '换血请求已受理');
+        await renderLivePlaza();
+        return d;
+      }
+      toast('换血已开始：双平台搜索 → 曲目级筛选 → 换入候选，通常需要几十秒');
+      const button2 = document.querySelector('#plaza-result-status .foryou-run .btn.primary');
+      if(button2){ button2.disabled = true; button2.textContent = '换血进行中…'; }
+      await pollForYouRun();
+      return d;
+    }catch(e){ toast(e.message); }
+  });
+}
+async function pollForYouRun(){
+  clearTimeout(forYouPollTimer);
+  try{
+    const d = await api('/api/for-you');
+    forYouStatus = d.status || {};
+    const run = forYouStatus.last_run || {};
+    if(run.status === 'running'){
+      const box = document.getElementById('plaza-result-status');
+      if(box) box.innerHTML = forYouStatusHtml();
+      forYouPollTimer = setTimeout(pollForYouRun, 3000);
+      return;
+    }
+    await renderLivePlaza();
+    if(run.status === 'failed') toast('本轮换血失败：' + ((run.errors||[])[0] && run.errors[0].error || '详见状态栏；旧池已保留'));
+    else toast('换血完成：换入 ' + Number(run.swapped_in||0) + ' 个，池内 ' + Number(forYouStatus.pool_size||0) + ' 个');
+  }catch(e){ /* 轮询失败静默，下一次渲染会恢复 */ }
+}
+async function showForYouBlacklist(){
+  let rows = [];
+  try{ rows = await api('/api/for-you/blacklist'); }catch(e){ toast(e.message); return; }
+  document.getElementById('detail-title').textContent = '为我推荐 · 黑名单';
+  document.getElementById('detail-sub').innerHTML = '<span>' + rows.length + ' 个歌单被标记为不感兴趣</span>';
+  document.querySelector('#detail-modal .modal-body').innerHTML = rows.length
+    ? '<div class="table-wrap"><table><thead><tr><th>歌单</th><th>平台</th><th>标记时间</th><th>操作</th></tr></thead><tbody>'
+      + rows.map(x => '<tr><td><b>' + esc(x.title || x.playlist_id) + '</b></td><td>' + esc(x.provider === 'qq' ? 'QQ 音乐' : '网易云音乐')
+        + '</td><td>' + esc(displayTime(x.created_at)) + '</td><td><button class="btn" onclick="restoreForYouItem(\'' + esc(x.provider) + '\',\'' + esc(x.playlist_id) + '\',this)">恢复推荐</button></td></tr>').join('')
+      + '</tbody></table></div><div class="push-banner">恢复后需要等冷却期结束才会重新进入候选池。</div>'
+    : '<div class="push-banner">还没有标记过「不感兴趣」的歌单。</div>';
+  document.getElementById('detail-modal').classList.add('show');
+}
+async function restoreForYouItem(provider, playlistId, button){
+  return withBusy(button, '恢复中…', async () => {
+    try{
+      await api('/api/for-you/blacklist/' + encodeURIComponent(provider) + '/' + encodeURIComponent(playlistId) + '/restore', {method:'POST'});
+      toast('已恢复，冷却期结束后会重新参与候选');
+      showForYouBlacklist();
+      if(plazaProvider === 'for_you') renderLivePlaza();
+    }catch(e){ toast(e.message); }
+  });
+}
+if(typeof requestIdleCallback === 'function') requestIdleCallback(() => { if(plazaProvider === 'for_you') renderForYouPool(); }, {timeout: 6000});
+</script>
+<script>
+/* v36-sources（社区版 1.3.3）：独立音源管理页 —— 排序 / 启停 / 单独测试 / 日志 / 删除 / 文件与链接导入。 */
+window.__sourcesRows = [];
+const sourcesKindLabels = {lx_custom:'lx 自定义源', lx_script:'REST 音源', lx_server:'LX Server', lx_api:'API 音源'};
+const sourcesStatusLabel = {ready:['green','可用'], unknown:['orange','未检测'], timeout:['orange','超时'], forbidden:['red','拒绝'], error:['red','异常']};
+function sourcesSourceUrl(name){ return '/api/sources/' + encodeURIComponent(name); }
+
+async function renderSourcesPanel() {
+  if (window.__activeManageTab !== 'sources') return;
+  const c = document.getElementById('manage-content');
+  try {
+    const rows = await api('/api/sources');
+    window.__sourcesRows = (rows || []).slice().sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0) || a.name.localeCompare(b.name));
+    c.innerHTML = renderSourcesContent(window.__sourcesRows);
+  } catch (e) {
+    c.innerHTML = '<div class="push-banner">音源列表读取失败：' + esc(e.message) + '</div>';
+  }
+}
+
+function renderSourcesContent(rows) {
+  const toolbar = '<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:9px 12px;border-bottom:1px solid var(--line)">' +
+    '<button class="btn mini-op primary" onclick="document.getElementById(\'sources-file-input\').click()">导入 JS 文件</button>' +
+    '<button class="btn mini-op" onclick="sourcesToggleConnectForm()">链接导入</button>' +
+    '<button class="btn mini-op" onclick="sourcesProbeAll()">一键测试全部</button>' +
+    '<button class="btn mini-op" onclick="renderSourcesPanel()">刷新</button>' +
+    '<span style="margin-left:auto;font-size:11px;color:var(--muted)">解析按列表从上到下依次尝试，可调整顺序</span></div>' +
+    '<div id="sources-connect-form" hidden style="padding:10px 12px;border-bottom:1px solid var(--line)">' +
+    '<textarea id="sources-connect-urls" rows="2" placeholder="粘贴音源链接（.js 脚本直链或音源服务地址），每行一个" style="width:100%;border:1px solid var(--line);border-radius:7px;padding:8px;font:12px/1.5 inherit"></textarea>' +
+    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:7px;align-items:center">' +
+    '<input id="sources-connect-token" placeholder="访问令牌（可选）" style="width:180px;border:1px solid var(--line);border-radius:7px;padding:6px 9px;font-size:12px">' +
+    '<input id="sources-connect-name" placeholder="自定义名称（可选，单链接有效）" style="width:200px;border:1px solid var(--line);border-radius:7px;padding:6px 9px;font-size:12px">' +
+    '<button class="btn mini-op primary" onclick="sourcesConnect()">导入</button>' +
+    '<small style="color:var(--muted)">.js 直链自动拉取脚本内容；服务地址自动探测协议（LX Server / API 音源 / 私有 REST）</small></div></div>' +
+    '<input type="file" id="sources-file-input" hidden accept=".js,application/javascript" onchange="sourcesDoImportFile(this)">';
+  const body = rows.length ? rows.map((x, i) => {
+    const st = sourcesStatusLabel[x.status] || sourcesStatusLabel.unknown;
+    const kind = sourcesKindLabels[x.kind] || x.kind || '';
+    return '<tr>' +
+      '<td style="white-space:nowrap">' +
+      '<button class="btn mini-op" '+(i===0?'disabled':'')+' onclick="sourcesMove(\'' + esc(x.name).replace(/'/g,'') + '\',-1)" title="上移">↑</button>' +
+      '<button class="btn mini-op" '+(i===rows.length-1?'disabled':'')+' onclick="sourcesMove(\'' + esc(x.name).replace(/'/g,'') + '\',1)" title="下移">↓</button></td>' +
+      '<td><b>' + esc(x.name) + '</b>' + (x.enabled ? '' : ' <span class="tag orange">已停用</span>') + '<br><small style="color:var(--muted)">' + esc(kind) + '</small></td>' +
+      '<td><span class="tag ' + st[0] + '" title="' + esc(x.detail || '') + '">' + st[1] + '</span></td>' +
+      '<td style="white-space:normal;max-width:260px"><small style="color:var(--muted)">' + esc(x.detail || '—') + '</small></td>' +
+      '<td><small style="color:var(--muted)">' + esc((x.last_check || '').replace('T', ' ').slice(0, 19) || '—') + '</small></td>' +
+      '<td style="white-space:normal">' +
+      '<button class="btn mini-op" onclick="sourcesToggle(\'' + esc(x.name).replace(/'/g,'') + '\',' + (!x.enabled) + ')">' + (x.enabled ? '停用' : '启用') + '</button>' +
+      '<button class="btn mini-op" onclick="sourcesProbe(\'' + esc(x.name).replace(/'/g,'') + '\')">测试</button>' +
+      '<button class="btn mini-op" onclick="sourcesShowLogs(this,\'' + esc(x.name).replace(/'/g,'') + '\')">日志</button>' +
+      '<button class="btn mini-op" onclick="sourcesDelete(\'' + esc(x.name).replace(/'/g,'') + '\')">删除</button></td></tr>';
+  }).join('') : '<tr><td colspan="6">还没有音源。点击上方「导入 JS 文件」上传 lx-music 自定义源脚本，或「链接导入」粘贴脚本直链 / 音源服务地址。</td></tr>';
+  return '<div class="panel"><div class="panel-head"><div><h3>音源管理</h3><small style="color:var(--muted)">本应用不内置任何音源，解析只使用以下用户导入的音源</small></div></div>' +
+    toolbar + '<div class="table-wrap"><table><thead><tr><th>顺序</th><th>音源</th><th>状态</th><th>检测详情</th><th>最近检测</th><th>操作</th></tr></thead><tbody id="sources-tbody">' + body + '</tbody></table></div>' +
+    '<pre id="sources-logs" hidden style="margin:0;padding:12px;background:#10182a;color:#c8d3e8;font-size:11px;line-height:1.5;max-height:260px;overflow:auto;white-space:pre-wrap"></pre></div>';
+}
+
+async function renderSourcesPanelSafe(){ try { await renderSourcesPanel(); } catch (e) { toast(e.message); } }
+function sourcesToggleConnectForm(){ const f = document.getElementById('sources-connect-form'); if (f) f.hidden = !f.hidden; }
+function sourcesMove(name, dir) {
+  const names = window.__sourcesRows.map(x => x.name);
+  const i = names.indexOf(name), j = i + dir;
+  if (i < 0 || j < 0 || j >= names.length) return;
+  [names[i], names[j]] = [names[j], names[i]];
+  api('/api/sources/reorder', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({names})})
+    .then(() => renderSourcesPanelSafe()).catch(e => toast(e.message));
+}
+function sourcesToggle(name, enabled) {
+  api(sourcesSourceUrl(name) + '/enabled', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({enabled})})
+    .then(() => { toast(enabled ? '已启用' : '已停用'); renderSourcesPanelSafe(); }).catch(e => toast(e.message));
+}
+function sourcesProbe(name) {
+  toast('正在测试 ' + name + ' …');
+  api(sourcesSourceUrl(name) + '/probe', {method:'POST'})
+    .then(r => { toast((r.name || name) + '：' + (sourcesStatusLabel[r.status] || ['', r.status])[1]); renderSourcesPanelSafe(); })
+    .catch(e => toast(e.message));
+}
+function sourcesProbeAll() {
+  toast('正在测试全部音源…');
+  api('/api/sources/probe', {method:'POST', headers:{'Content-Type':'application/json'}, body:'{}'})
+    .then(r => { const ok = (r.items || []).filter(x => x.status === 'ready').length; toast('测试完成：' + ok + '/' + (r.items || []).length + ' 可用'); renderSourcesPanelSafe(); })
+    .catch(e => toast(e.message));
+}
+function sourcesDelete(name) {
+  if (!confirm('确定删除音源「' + name + '」？删除后解析不再使用它。')) return;
+  api(sourcesSourceUrl(name), {method:'DELETE'})
+    .then(() => { toast('已删除 ' + name); renderSourcesPanelSafe(); }).catch(e => toast(e.message));
+}
+async function sourcesShowLogs(btn, name) {
+  const box = document.getElementById('sources-logs');
+  if (!box) return;
+  box.hidden = false;
+  box.textContent = '正在读取 ' + name + ' 的脚本日志…';
+  try {
+    const r = await api(sourcesSourceUrl(name) + '/logs');
+    if (r && r.ok) {
+      const lines = (r.logs || []).join('\n');
+      box.textContent = (lines || '（暂无日志输出；首次解析或健康探测后才会产生）').slice(-4000);
+    } else {
+      box.textContent = (r && r.error) || '日志不可用';
+    }
+  } catch (e) { box.textContent = '日志读取失败：' + e.message; }
+}
+function sourcesConnect() {
+  const urls = document.getElementById('sources-connect-urls')?.value.trim();
+  const token = document.getElementById('sources-connect-token')?.value.trim() || undefined;
+  const name = document.getElementById('sources-connect-name')?.value.trim() || undefined;
+  if (!urls) return toast('请粘贴至少一个音源链接');
+  api('/api/sources/connect', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({urls, token, name})})
+    .then(r => {
+      const ok = Number(r.connected || 0), fail = Number(r.failed || 0);
+      toast('链接导入完成：' + ok + ' 成功' + (fail ? '，' + fail + ' 失败' : ''));
+      (r.items || []).filter(x => !x.ok).forEach(x => toast('失败：' + (x.error || x.url)));
+      renderSourcesPanelSafe();
+    }).catch(e => toast(e.message));
+}
+function sourcesDoImportFile(input) {
+  const file = input?.files?.[0];
+  if (!file) return;
+  const form = new FormData(); form.append('file', file);
+  api('/api/sources/import', {method:'POST', body: form})
+    .then(r => {
+      const ok = Number(r.imported || 0), fail = Number(r.failed || 0);
+      toast('导入完成：' + ok + ' 成功' + (fail ? '，' + fail + ' 失败' : ''));
+      (r.items || []).filter(x => !x.ok).forEach(x => toast('失败：' + (x.error || x.file)));
+      input.value = '';
+      renderSourcesPanelSafe();
+    }).catch(e => toast(e.message));
+}
+const v35ManageTab = window.manageTab;
+window.manageTab = async function(id, button) {
+  clearInterval(window.__pushPipelinePoll);
+  if (id === 'sources') {
+    document.querySelectorAll('.download-nav button').forEach(x => x.classList.remove('on'));
+    if (button) button.classList.add('on');
+    window.__activeManageTab = 'sources';
+    document.getElementById('manage-content').innerHTML = '<div class="panel"><div class="panel-head"><h3>音源管理</h3></div><div style="padding:18px;color:var(--muted)">读取音源列表…</div></div>';
+    await renderSourcesPanel();
+    return;
+  }
+  return v35ManageTab(id, button);
+};
+</script></body></html>
+

@@ -1,0 +1,151 @@
+import { FastifyInstance, FastifyRequest, FastifyReply } from "fastify";
+import { pathCase } from "change-case";
+import { serverLog } from "../utils/logger";
+import { getStoreValue } from "./config-store";
+import { ensureNcmConfig, NON_API_EXPORTS } from "./ncm-config";
+import { isSongUrlRoute, rewriteSongUrlBody } from "../unm";
+import NeteaseCloudMusicApi from "@neteasecloudmusicapienhanced/api";
+
+// 默认 AMLL TTML DB 服务器地址
+const defaultAMLLDbServer = "https://amlldb.bikonoo.com/ncm-lyrics/%s.ttml";
+
+// 解析 multipart 上传参数（云盘上传等场景）
+const parseMultipart = async (req: FastifyRequest): Promise<Record<string, unknown>> => {
+  const result: Record<string, unknown> = {};
+  const parts = req.parts();
+  for await (const part of parts) {
+    if (part.type === "file") {
+      // 文件字段：读取为内存 Buffer，并附带文件名与 MIME 类型
+      result[part.fieldname] = {
+        name: part.filename,
+        data: await part.toBuffer(),
+        mimetype: part.mimetype,
+      };
+    } else {
+      // 普通文本字段
+      result[part.fieldname] = part.value;
+    }
+  }
+  return result;
+};
+
+// 合并请求参数（query + body），multipart 时优先从上传解析文件字段
+const collectParams = async (req: FastifyRequest): Promise<Record<string, unknown>> => {
+  let body: Record<string, unknown> = {};
+  if (req.isMultipart()) {
+    body = await parseMultipart(req);
+  } else {
+    body = (req.body as Record<string, unknown>) || {};
+  }
+  return { ...(req.query as Record<string, unknown>), ...body };
+};
+
+// 初始化 NcmAPI
+export const initNcmAPI = async (fastify: FastifyInstance) => {
+  // 预热配置
+  void ensureNcmConfig();
+
+  // 主信息
+  fastify.get("/netease", (_, reply) => {
+    reply.send({
+      name: "@neteaseapireborn/api",
+      description: "网易云音乐 API Enhanced",
+      author: "@MoeFurina",
+      license: "MIT",
+      url: "https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced",
+    });
+  });
+
+  // 动态路由处理函数
+  const dynamicHandler = async (req: FastifyRequest, reply: FastifyReply) => {
+    const { "*": requestPath } = req.params as { "*": string };
+
+    // 将 path-case 转回 camelCase 或直接匹配下划线路由
+    // The upstream package exposes a mix of camelCase and underscore names,
+    // while clients use the traditional ``login/qr/key`` style paths.  The
+    // old matcher only compared path-case and consequently returned a generic
+    // 500/404 for QR and login/status routes.  Compare a canonical underscore
+    // form as well, without changing the public URL shape.
+    const canonicalPath = String(requestPath || '').replace(/[\\/-]+/g, '_').toLowerCase();
+    const routerName = Object.keys(NeteaseCloudMusicApi).find((key) => {
+      // 排除包的服务层导出
+      if (NON_API_EXPORTS.has(key)) return false;
+      // 跳过非函数属性
+      if (typeof (NeteaseCloudMusicApi as Record<string, unknown>)[key] !== "function")
+        return false;
+      // 匹配 path-case 格式
+      const canonicalKey = key.replace(/[\\/-]+/g, '_').replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
+      return pathCase(key) === requestPath || key === requestPath || canonicalKey === canonicalPath;
+    });
+
+    if (!routerName) {
+      return reply.status(404).send({ error: "API not found" });
+    }
+
+    const neteaseApi = (
+      NeteaseCloudMusicApi as unknown as Record<string, (params: unknown) => Promise<any>>
+    )[routerName];
+    serverLog.log("🌐 Request NcmAPI:", requestPath);
+
+    // 等待 xeapi 公钥等配置就绪
+    await ensureNcmConfig();
+
+    try {
+      // 合并 query 与 body（multipart 时解析上传文件字段，供云盘上传等使用）
+      const params = await collectParams(req);
+      const result = await neteaseApi({
+        ...params,
+        cookie: req.cookies,
+      });
+      // 歌 URL 类路由做解灰后处理，其他路由零开销
+      if (isSongUrlRoute(routerName)) {
+        await rewriteSongUrlBody(result?.body);
+      }
+      return reply.send(result.body);
+    } catch (error: unknown) {
+      serverLog.error("❌ NcmAPI Error:", error);
+      if (typeof error === "object" && error) {
+        const err = error as { status: number; body: unknown; message?: string };
+        if ([400, 301].includes(err.status)) {
+          return reply.status(err.status).send(err.body);
+        }
+        return reply
+          .status(500)
+          .send(err.body || { error: err.message || "Internal Server Error" });
+      }
+      return reply.status(500).send({ error: String(error) });
+    }
+  };
+
+  // 注册动态通配符路由
+  fastify.get("/netease/*", dynamicHandler);
+  fastify.post("/netease/*", dynamicHandler);
+
+  // 获取 TTML 歌词
+  fastify.get(
+    "/netease/lyric/ttml",
+    async (req: FastifyRequest<{ Querystring: { id: string } }>, reply: FastifyReply) => {
+      const { id } = req.query;
+      if (!id) {
+        return reply.status(400).send({ error: "id is required" });
+      }
+      // 环境变量优先，其次本地配置，最后默认值
+      const amllDbServer =
+        process.env["AMLL_DB_SERVER"] || getStoreValue("amllDbServer", defaultAMLLDbServer);
+      const url = amllDbServer.replace("%s", String(id));
+      try {
+        const response = await fetch(url);
+        if (response.status !== 200) {
+          return reply.send(null);
+        }
+        const data = await response.text();
+        return reply.send(data);
+      } catch (error) {
+        serverLog.error("❌ TTML Lyric Fetch Error:", error);
+        return reply.send(null);
+      }
+    },
+  );
+
+  serverLog.info("🌐 Register NcmAPI successfully");
+};
