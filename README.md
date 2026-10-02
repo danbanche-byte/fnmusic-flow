@@ -22,9 +22,10 @@
 ### 方式 B：Docker 自部署（进阶）
 
 ```bash
-git clone https://github.com/<your-account>/fnmusic-flow.git
+git clone https://github.com/danbanche-byte/fnmusic-flow.git
 cd fnmusic-flow
-MUSIC_HOST_PATH=/vol1/音乐 docker compose up -d --build
+cp .env.example .env        # 编辑 .env 设置音乐库路径等
+docker compose up -d --build
 ```
 
 需要 fnOS 环境（挂载飞牛音乐 socket 与其数据库用于账号识别与推送）。容器 `158MB` 内存左右；Web 端口 `8000` **无鉴权**，仅限内网使用，勿暴露公网。
